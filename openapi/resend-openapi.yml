@@ -2,7 +2,10 @@ openapi: 3.0.3
 info:
   title: Resend
   version: 1.1.0
-  description: Resend is the email platform for developers.
+  description: |-
+
+    Resend is transforming email for developers. Simple interface, easy
+    integrations, handy templates. 
 servers:
   - url: https://api.resend.com
 security:
@@ -40,6 +43,7 @@ paths:
     get:
       tags:
         - Emails
+        - Email
       summary: Retrieve a single email
       parameters:
         - name: email_id
@@ -58,6 +62,7 @@ paths:
     patch:
       tags:
         - Emails
+        - Email
       summary: Update a single email
       parameters:
         - name: email_id
@@ -77,6 +82,8 @@ paths:
     post:
       tags:
         - Emails
+        - Email
+        - Cancel
       summary: Cancel the schedule of the e-mail.
       parameters:
         - name: email_id
@@ -96,6 +103,7 @@ paths:
     post:
       tags:
         - Emails
+        - Batch
       summary: Trigger up to 100 batch emails at once.
       requestBody:
         content:
@@ -203,6 +211,7 @@ paths:
     post:
       tags:
         - Domains
+        - Verify
       summary: Verify an existing domain
       parameters:
         - name: domain_id
@@ -221,7 +230,8 @@ paths:
   /api-keys:
     post:
       tags:
-        - API Keys
+        - Apis
+        - Keys
       summary: Create a new API key
       requestBody:
         content:
@@ -237,7 +247,8 @@ paths:
                 $ref: '#/components/schemas/CreateApiKeyResponse'
     get:
       tags:
-        - API Keys
+        - Apis
+        - Keys
       summary: Retrieve a list of API keys
       responses:
         '200':
@@ -249,7 +260,8 @@ paths:
   /api-keys/{api_key_id}:
     delete:
       tags:
-        - API Keys
+        - Apis
+        - Keys
       summary: Remove an existing API key
       parameters:
         - name: api_key_id
@@ -329,6 +341,8 @@ paths:
   /audiences/{audience_id}/contacts:
     post:
       tags:
+        - Audiences
+        - Audience
         - Contacts
       summary: Create a new contact
       parameters:
@@ -352,6 +366,8 @@ paths:
                 $ref: '#/components/schemas/CreateContactResponseSuccess'
     get:
       tags:
+        - Audiences
+        - Audience
         - Contacts
       summary: Retrieve a list of contacts
       parameters:
@@ -371,7 +387,10 @@ paths:
   /audiences/{audience_id}/contacts/{email}:
     delete:
       tags:
+        - Audiences
+        - Audience
         - Contacts
+        - Email
       summary: Remove an existing contact by email
       parameters:
         - name: email
@@ -396,6 +415,8 @@ paths:
   /audiences/{audience_id}/contacts/{id}:
     delete:
       tags:
+        - Audiences
+        - Audience
         - Contacts
       summary: Remove an existing contact by id
       parameters:
@@ -420,6 +441,8 @@ paths:
                 $ref: '#/components/schemas/RemoveContactResponseSuccess'
     get:
       tags:
+        - Audiences
+        - Audience
         - Contacts
       summary: Retrieve a single contact
       parameters:
@@ -444,6 +467,8 @@ paths:
                 $ref: '#/components/schemas/GetContactResponseSuccess'
     patch:
       tags:
+        - Audiences
+        - Audience
         - Contacts
       summary: Update a single contact
       parameters:
@@ -473,8 +498,7 @@ paths:
                 $ref: '#/components/schemas/UpdateContactResponseSuccess'
   /broadcasts:
     post:
-      tags:
-        - Broadcasts
+      tags: []
       summary: Create a broadcast
       requestBody:
         content:
@@ -489,8 +513,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/CreateBroadcastResponseSuccess'
     get:
-      tags:
-        - Broadcasts
+      tags: []
       summary: Retrieve a list of broadcasts
       responses:
         '200':
@@ -501,8 +524,7 @@ paths:
                 $ref: '#/components/schemas/ListBroadcastsResponseSuccess'
   /broadcasts/{id}:
     delete:
-      tags:
-        - Broadcasts
+      tags: []
       summary: Remove an existing broadcast that is in the draft status
       parameters:
         - name: id
@@ -519,8 +541,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/RemoveBroadcastResponseSuccess'
     get:
-      tags:
-        - Broadcasts
+      tags: []
       summary: Retrieve a single broadcast
       parameters:
         - name: id
@@ -539,7 +560,7 @@ paths:
   /broadcasts/{id}/send:
     post:
       tags:
-        - Broadcasts
+        - Send
       summary: Send or schedule a broadcast
       parameters:
         - name: id
