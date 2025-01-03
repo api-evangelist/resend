@@ -4,7 +4,15 @@ apis:
   - aid: resend:resend
     name: Resend
     tags:
-      - API
+      - Emails
+      - ' Cancel'
+      - ' Batch'
+      - ' Domains'
+      - ' Verify'
+      - ' Audiences'
+      - ' Audience'
+      - ' Contacts'
+      - ' Send'
     humanURL: https://resend.com/
     properties:
       - url: https://resend.com/
