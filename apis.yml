@@ -16,12 +16,12 @@ apis:
   - aid: resend:resend
     name: Resend
     tags:
-      - Emails
-      - Cancel
-      - Batch
-      - Domains
       - Audiences
+      - Batch
+      - Cancel
       - Contacts
+      - Domains
+      - Emails
     humanURL: https://resend.com/
     properties:
       - url: https://resend.com/
