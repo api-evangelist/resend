@@ -28,9 +28,9 @@ apis:
         type: Documentation
       - url: properties/resend-openapi.yml
         type: OpenAPI
-    description: |-
-      Resend is transforming email for developers. Simple interface, easy
-      integrations, handy templates.
+    description: >-
+      Resend is transforming email for developers. Simple interface, easy integrations,
+      handy templates.
 common:
   - url: https://github.com/resend
     name: GitHub Organization
