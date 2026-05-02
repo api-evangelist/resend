@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/api-evangelist/resend/json-schema/resend-audience-schema.json",
+  "title": "Resend Audience",
+  "description": "JSON Schema for a Resend audience object used for managing contact lists.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "The ID of the audience.",
+      "example": "78261eea-8f8b-4381-83c6-79fa7120f1cf"
+    },
+    "object": {
+      "type": "string",
+      "const": "audience",
+      "description": "The object type."
+    },
+    "name": {
+      "type": "string",
+      "description": "The name of the audience.",
+      "example": "Registered Users"
+    },
+    "created_at": {
+      "type": ["string", "null"],
+      "format": "date-time",
+      "description": "Date the audience was created."
+    }
+  },
+  "required": ["id", "name"]
+}

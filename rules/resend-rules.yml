@@ -1,0 +1,109 @@
+rules:
+  resend-operation-id:
+    description: All operations must have an operationId.
+    message: Operation is missing operationId.
+    severity: error
+    given: $.paths[*][get,post,put,patch,delete]
+    then:
+      field: operationId
+      function: truthy
+
+  resend-operation-summary:
+    description: All operations must have a summary in Title Case.
+    message: Operation is missing a summary.
+    severity: error
+    given: $.paths[*][get,post,put,patch,delete]
+    then:
+      field: summary
+      function: truthy
+
+  resend-bearer-auth:
+    description: All operations should use Bearer token authentication.
+    message: Operation should reference bearerAuth security scheme.
+    severity: warn
+    given: $.paths[*][*]
+    then:
+      field: security
+      function: schema
+      functionOptions:
+        schema:
+          type: array
+
+  resend-response-200-or-201:
+    description: All operations should have a 200 or 201 success response.
+    message: Operation should define a success response.
+    severity: error
+    given: $.paths[*][get,post,put,patch,delete].responses
+    then:
+      function: schema
+      functionOptions:
+        schema:
+          anyOf:
+            - required: ['200']
+            - required: ['201']
+
+  resend-request-body-post:
+    description: POST operations that create resources should have a request body.
+    message: POST operation should include a request body.
+    severity: warn
+    given: $.paths[*].post
+    then:
+      field: requestBody
+      function: truthy
+
+  resend-path-resource-id:
+    description: Path parameters for resource IDs should use snake_case with _id suffix.
+    message: Resource ID parameter should follow snake_case _id naming pattern.
+    severity: info
+    given: $.paths[*].parameters[?(@.in == 'path')]
+    then:
+      field: name
+      function: pattern
+      functionOptions:
+        match: '^[a-z][a-z0-9_]*$'
+
+  resend-path-plural-nouns:
+    description: Collection paths should use plural nouns.
+    message: Collection endpoint path should use a plural noun.
+    severity: warn
+    given: $.paths[?(!@property.match(/{.*}/))][*]~
+    then:
+      function: pattern
+      functionOptions:
+        match: '^\/(emails|domains|api-keys|audiences|broadcasts)'
+
+  resend-tags-title-case:
+    description: All tags must use Title Case.
+    message: Tag name should use Title Case.
+    severity: warn
+    given: $.tags[*].name
+    then:
+      function: pattern
+      functionOptions:
+        match: '^[A-Z][A-Za-z ]*$'
+
+  resend-operation-tags:
+    description: All operations must have at least one tag.
+    message: Operation is missing tags.
+    severity: warn
+    given: $.paths[*][get,post,put,patch,delete]
+    then:
+      field: tags
+      function: truthy
+
+  resend-response-schema:
+    description: Success responses should reference a schema.
+    message: Success response should include a schema.
+    severity: warn
+    given: $.paths[*][*].responses[200,201].content.application/json.schema
+    then:
+      function: truthy
+
+  resend-rate-limit-documented:
+    description: API should document rate limiting behavior.
+    message: API info should reference rate limiting documentation.
+    severity: info
+    given: $.info
+    then:
+      field: description
+      function: truthy

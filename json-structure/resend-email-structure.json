@@ -1,0 +1,19 @@
+{
+  "name": "Resend Email",
+  "description": "JSON structure for a Resend email object.",
+  "fields": [
+    { "name": "id", "type": "string", "description": "Unique email ID." },
+    { "name": "object", "type": "string", "const": "email", "description": "Object type." },
+    { "name": "from", "type": "string", "description": "Sender address." },
+    { "name": "to", "type": "array<string>", "description": "Recipient addresses." },
+    { "name": "subject", "type": "string", "description": "Email subject." },
+    { "name": "html", "type": "string", "description": "HTML body." },
+    { "name": "text", "type": "string", "description": "Plain text body." },
+    { "name": "cc", "type": "array<string>", "description": "CC recipients." },
+    { "name": "bcc", "type": "array<string>", "description": "BCC recipients." },
+    { "name": "reply_to", "type": "array<string>", "description": "Reply-to addresses." },
+    { "name": "created_at", "type": "date-time", "description": "Creation timestamp." },
+    { "name": "last_event", "type": "string", "description": "Latest email status event." },
+    { "name": "scheduled_at", "type": "date-time", "description": "Scheduled send time (ISO 8601)." }
+  ]
+}

@@ -1,0 +1,136 @@
+vocabulary:
+  name: Resend API Vocabulary
+  description: Domain vocabulary for the Resend email delivery platform API.
+  version: "1.0"
+  created: "2026-05-02"
+  terms:
+    - term: Email
+      definition: A transactional or marketing email message sent through the Resend API.
+      properties:
+        - id
+        - from
+        - to
+        - subject
+        - html
+        - text
+        - created_at
+        - last_event
+      related: ["audience", "broadcast", "domain"]
+
+    - term: Domain
+      definition: A verified email sending domain configured in Resend for use as the sender address.
+      properties:
+        - id
+        - name
+        - status
+        - region
+        - records
+      related: ["email", "deliverability"]
+
+    - term: DomainStatus
+      definition: The verification state of an email sending domain.
+      values:
+        - not_started
+        - pending
+        - verified
+        - failed
+        - temporary_failure
+      related: ["domain"]
+
+    - term: DomainRegion
+      definition: The geographic AWS region where email is sent from, affecting deliverability and latency.
+      values:
+        - us-east-1
+        - eu-west-1
+        - sa-east-1
+      related: ["domain"]
+
+    - term: Audience
+      definition: A named list of contacts used as the target for broadcast marketing emails.
+      properties:
+        - id
+        - name
+        - created_at
+      related: ["contact", "broadcast"]
+
+    - term: Contact
+      definition: A subscriber in an audience with an email address and optional personal details.
+      properties:
+        - id
+        - email
+        - first_name
+        - last_name
+        - unsubscribed
+        - created_at
+      related: ["audience"]
+
+    - term: Broadcast
+      definition: A marketing email campaign sent to an entire audience.
+      properties:
+        - id
+        - name
+        - audience_id
+        - from
+        - subject
+        - status
+        - scheduled_at
+        - sent_at
+      related: ["audience", "email"]
+
+    - term: BroadcastStatus
+      definition: The current state of a broadcast campaign.
+      values:
+        - draft
+        - queued
+        - sending
+        - sent
+        - cancelled
+      related: ["broadcast"]
+
+    - term: ApiKey
+      definition: A Resend API authentication credential used as a Bearer token in API requests.
+      properties:
+        - id
+        - name
+        - permission
+        - created_at
+      related: ["authentication"]
+
+    - term: ApiKeyPermission
+      definition: The access scope granted to an API key.
+      values:
+        - full_access
+        - sending_access
+      related: ["api-key", "authentication"]
+
+    - term: ScheduledEmail
+      definition: An email configured to be sent at a future date and time specified in ISO 8601 format.
+      related: ["email"]
+
+    - term: BatchEmail
+      definition: A group of up to 100 emails sent in a single API request for efficiency.
+      related: ["email"]
+
+    - term: LastEvent
+      definition: The most recent delivery event status for an email.
+      values:
+        - queued
+        - delivered
+        - delivery_delayed
+        - bounced
+        - complained
+        - opened
+        - clicked
+      related: ["email", "deliverability"]
+
+    - term: Attachment
+      definition: A file included with an email, specified by content (binary), filename, or a hosted URL path.
+      related: ["email"]
+
+    - term: Tag
+      definition: A custom metadata label applied to an email for filtering and analytics purposes.
+      related: ["email"]
+
+    - term: RateLimit
+      definition: The constraint of 5 API requests per second per team. Higher limits available upon request.
+      related: ["api", "throttling"]

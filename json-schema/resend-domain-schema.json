@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/api-evangelist/resend/json-schema/resend-domain-schema.json",
+  "title": "Resend Domain",
+  "description": "JSON Schema for a Resend domain object used for email sending configuration.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "The ID of the domain.",
+      "example": "d91cd9bd-1176-453e-8fc1-35364d380206"
+    },
+    "object": {
+      "type": "string",
+      "const": "domain",
+      "description": "The type of object."
+    },
+    "name": {
+      "type": "string",
+      "description": "The name of the domain.",
+      "example": "example.com"
+    },
+    "status": {
+      "type": "string",
+      "description": "The verification status of the domain.",
+      "example": "not_started"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The date and time the domain was created."
+    },
+    "region": {
+      "type": "string",
+      "enum": ["us-east-1", "eu-west-1", "sa-east-1"],
+      "description": "The region where the domain is hosted."
+    },
+    "records": {
+      "type": "array",
+      "description": "DNS records for domain verification.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "record": { "type": "string" },
+          "name": { "type": "string" },
+          "type": { "type": "string" },
+          "ttl": { "type": "string" },
+          "status": { "type": "string" },
+          "value": { "type": "string" },
+          "priority": { "type": "integer" }
+        }
+      }
+    }
+  },
+  "required": ["id", "name", "status", "created_at", "region"]
+}

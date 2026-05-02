@@ -1,0 +1,25 @@
+{
+  "title": "Send a Transactional Email",
+  "description": "Example request to send a transactional email using the Resend API",
+  "request": {
+    "method": "POST",
+    "url": "https://api.resend.com/emails",
+    "headers": {
+      "Authorization": "Bearer re_xxxxxxxxx",
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "from": "Acme <onboarding@resend.dev>",
+      "to": ["delivered@resend.dev"],
+      "subject": "Welcome to Acme!",
+      "html": "<strong>Congrats on sending your first email!</strong>",
+      "text": "Congrats on sending your first email!"
+    }
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "id": "4ef9a417-02e9-4d39-ad75-9611e0fcc33c"
+    }
+  }
+}

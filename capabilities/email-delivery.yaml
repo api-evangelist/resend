@@ -1,0 +1,394 @@
+naftiko: "1.0.0-alpha1"
+
+info:
+  label: "Resend Email Delivery"
+  description: >-
+    Workflow capability for sending and managing transactional emails, batch
+    email campaigns, scheduled emails, domain configuration, and audience-based
+    broadcast campaigns using the Resend email API.
+  tags:
+    - Email
+    - Transactional Email
+    - Marketing Email
+    - Developer Tools
+    - Broadcasts
+    - Audiences
+  created: "2026-05-02"
+  modified: "2026-05-02"
+
+binds:
+  - namespace: env
+    keys:
+      RESEND_API_KEY: RESEND_API_KEY
+
+capability:
+  consumes:
+    - import: resend
+      location: ./shared/resend.yaml
+
+  exposes:
+    - type: rest
+      port: 8080
+      namespace: email-delivery-api
+      description: "Unified REST API for email delivery, domain management, and audience campaigns."
+      resources:
+        - path: /v1/emails
+          name: emails
+          description: "Transactional email sending"
+          operations:
+            - method: POST
+              name: send-email
+              description: "Send a transactional email"
+              call: "resend.send-email"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/emails/{id}
+          name: email
+          description: "Single email management"
+          operations:
+            - method: GET
+              name: get-email
+              description: "Retrieve a single sent email"
+              call: "resend.get-email"
+              with:
+                email_id: "rest.id"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+            - method: PATCH
+              name: update-email
+              description: "Update a scheduled email"
+              call: "resend.update-email"
+              with:
+                email_id: "rest.id"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/emails/{id}/cancel
+          name: email-cancel
+          description: "Cancel scheduled email"
+          operations:
+            - method: POST
+              name: cancel-email
+              description: "Cancel a scheduled email"
+              call: "resend.cancel-email"
+              with:
+                email_id: "rest.id"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/emails/batch
+          name: email-batch
+          description: "Batch email sending"
+          operations:
+            - method: POST
+              name: send-batch-emails
+              description: "Send up to 100 emails in a single batch"
+              call: "resend.send-batch-emails"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/domains
+          name: domains
+          description: "Email domain configuration"
+          operations:
+            - method: GET
+              name: list-domains
+              description: "List all configured sending domains"
+              call: "resend.list-domains"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+            - method: POST
+              name: create-domain
+              description: "Add a new sending domain"
+              call: "resend.create-domain"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/domains/{id}
+          name: domain
+          description: "Single domain management"
+          operations:
+            - method: GET
+              name: get-domain
+              description: "Get details for a domain"
+              call: "resend.get-domain"
+              with:
+                domain_id: "rest.id"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+            - method: PATCH
+              name: update-domain
+              description: "Update domain tracking settings"
+              call: "resend.update-domain"
+              with:
+                domain_id: "rest.id"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+            - method: DELETE
+              name: delete-domain
+              description: "Remove a sending domain"
+              call: "resend.delete-domain"
+              with:
+                domain_id: "rest.id"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/audiences
+          name: audiences
+          description: "Contact audiences for marketing emails"
+          operations:
+            - method: GET
+              name: list-audiences
+              description: "List all audiences"
+              call: "resend.list-audiences"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+            - method: POST
+              name: create-audience
+              description: "Create a new audience"
+              call: "resend.create-audience"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/audiences/{audience_id}/contacts
+          name: contacts
+          description: "Audience contacts"
+          operations:
+            - method: GET
+              name: list-contacts
+              description: "List contacts in an audience"
+              call: "resend.list-contacts"
+              with:
+                audience_id: "rest.audience_id"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+            - method: POST
+              name: create-contact
+              description: "Add a contact to an audience"
+              call: "resend.create-contact"
+              with:
+                audience_id: "rest.audience_id"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/broadcasts
+          name: broadcasts
+          description: "Email broadcast campaigns"
+          operations:
+            - method: GET
+              name: list-broadcasts
+              description: "List all broadcast campaigns"
+              call: "resend.list-broadcasts"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+            - method: POST
+              name: create-broadcast
+              description: "Create a new broadcast campaign"
+              call: "resend.create-broadcast"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/broadcasts/{id}/send
+          name: broadcast-send
+          description: "Send or schedule a broadcast"
+          operations:
+            - method: POST
+              name: send-broadcast
+              description: "Send or schedule a broadcast campaign"
+              call: "resend.send-broadcast"
+              with:
+                id: "rest.id"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+    - type: mcp
+      port: 9090
+      namespace: email-delivery-mcp
+      transport: http
+      description: "MCP server for AI-assisted email delivery, campaign management, and domain configuration."
+      tools:
+        - name: send-transactional-email
+          description: "Send a transactional email to one or more recipients"
+          hints:
+            readOnly: false
+            destructive: false
+            idempotent: false
+          call: "resend.send-email"
+          with:
+            from: "tools.from"
+            to: "tools.to"
+            subject: "tools.subject"
+            html: "tools.html"
+            text: "tools.text"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: get-email-status
+          description: "Get the status and details of a sent email by ID"
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "resend.get-email"
+          with:
+            email_id: "tools.email_id"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: send-batch-emails
+          description: "Send up to 100 emails in a single batch operation"
+          hints:
+            readOnly: false
+            destructive: false
+            idempotent: false
+          call: "resend.send-batch-emails"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: cancel-scheduled-email
+          description: "Cancel a scheduled email before it is sent"
+          hints:
+            readOnly: false
+            destructive: true
+            idempotent: true
+          call: "resend.cancel-email"
+          with:
+            email_id: "tools.email_id"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: list-sending-domains
+          description: "List all configured email sending domains"
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "resend.list-domains"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: create-sending-domain
+          description: "Add a new email sending domain"
+          hints:
+            readOnly: false
+            destructive: false
+            idempotent: false
+          call: "resend.create-domain"
+          with:
+            name: "tools.name"
+            region: "tools.region"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: verify-domain
+          description: "Verify DNS records for a sending domain"
+          hints:
+            readOnly: false
+            destructive: false
+            idempotent: true
+          call: "resend.verify-domain"
+          with:
+            domain_id: "tools.domain_id"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: list-audiences
+          description: "List all contact audiences"
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "resend.list-audiences"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: create-audience
+          description: "Create a new contact audience"
+          hints:
+            readOnly: false
+            destructive: false
+            idempotent: false
+          call: "resend.create-audience"
+          with:
+            name: "tools.name"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: list-contacts
+          description: "List contacts in a specific audience"
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "resend.list-contacts"
+          with:
+            audience_id: "tools.audience_id"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: add-contact-to-audience
+          description: "Add a contact to an audience for marketing emails"
+          hints:
+            readOnly: false
+            destructive: false
+            idempotent: false
+          call: "resend.create-contact"
+          with:
+            audience_id: "tools.audience_id"
+            email: "tools.email"
+            first_name: "tools.first_name"
+            last_name: "tools.last_name"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: list-broadcasts
+          description: "List all email broadcast campaigns"
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "resend.list-broadcasts"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: create-broadcast
+          description: "Create a new broadcast email campaign"
+          hints:
+            readOnly: false
+            destructive: false
+            idempotent: false
+          call: "resend.create-broadcast"
+          with:
+            name: "tools.name"
+            audience_id: "tools.audience_id"
+            from: "tools.from"
+            subject: "tools.subject"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: send-broadcast-campaign
+          description: "Send or schedule a broadcast campaign to an audience"
+          hints:
+            readOnly: false
+            destructive: false
+            idempotent: false
+          call: "resend.send-broadcast"
+          with:
+            id: "tools.id"
+            scheduled_at: "tools.scheduled_at"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: list-api-keys
+          description: "List all API keys for the account"
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "resend.list-api-keys"
+          outputParameters:
+            - type: object
+              mapping: "$."

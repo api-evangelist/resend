@@ -1,0 +1,52 @@
+{
+  "title": "Create an Audience and Add a Contact",
+  "description": "Example workflow: create an audience, then add a contact to it",
+  "steps": [
+    {
+      "title": "Create Audience",
+      "request": {
+        "method": "POST",
+        "url": "https://api.resend.com/audiences",
+        "headers": {
+          "Authorization": "Bearer re_xxxxxxxxx",
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "name": "Registered Users"
+        }
+      },
+      "response": {
+        "status": 201,
+        "body": {
+          "id": "78261eea-8f8b-4381-83c6-79fa7120f1cf",
+          "object": "audience",
+          "name": "Registered Users"
+        }
+      }
+    },
+    {
+      "title": "Add Contact to Audience",
+      "request": {
+        "method": "POST",
+        "url": "https://api.resend.com/audiences/78261eea-8f8b-4381-83c6-79fa7120f1cf/contacts",
+        "headers": {
+          "Authorization": "Bearer re_xxxxxxxxx",
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "email": "steve.wozniak@gmail.com",
+          "first_name": "Steve",
+          "last_name": "Wozniak",
+          "unsubscribed": false
+        }
+      },
+      "response": {
+        "status": 201,
+        "body": {
+          "object": "contact",
+          "id": "479e3145-dd38-476b-932c-529ceb705947"
+        }
+      }
+    }
+  ]
+}

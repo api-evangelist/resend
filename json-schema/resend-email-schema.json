@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/api-evangelist/resend/json-schema/resend-email-schema.json",
+  "title": "Resend Email",
+  "description": "JSON Schema for a Resend email object as returned by the /emails/{id} endpoint.",
+  "type": "object",
+  "properties": {
+    "object": {
+      "type": "string",
+      "const": "email",
+      "description": "The type of object."
+    },
+    "id": {
+      "type": "string",
+      "description": "The ID of the email.",
+      "example": "4ef9a417-02e9-4d39-ad75-9611e0fcc33c"
+    },
+    "to": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "The email addresses of the recipients."
+    },
+    "from": {
+      "type": "string",
+      "description": "The email address of the sender.",
+      "example": "Acme <onboarding@resend.dev>"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The date and time the email was created."
+    },
+    "subject": {
+      "type": "string",
+      "description": "The subject line of the email."
+    },
+    "html": {
+      "type": ["string", "null"],
+      "description": "The HTML body of the email."
+    },
+    "text": {
+      "type": ["string", "null"],
+      "description": "The plain text body of the email."
+    },
+    "bcc": {
+      "type": ["array", "null"],
+      "items": { "type": "string" },
+      "description": "Blind carbon copy recipients."
+    },
+    "cc": {
+      "type": ["array", "null"],
+      "items": { "type": "string" },
+      "description": "Carbon copy recipients."
+    },
+    "reply_to": {
+      "type": ["array", "null"],
+      "items": { "type": "string" },
+      "description": "Reply-to addresses."
+    },
+    "last_event": {
+      "type": "string",
+      "description": "The status of the email.",
+      "example": "delivered"
+    }
+  },
+  "required": ["id", "from", "to", "subject", "created_at"]
+}
