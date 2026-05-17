@@ -134,7 +134,7 @@ common:
     type: Library
   - name: Status
     url: https://resend-status.com/
-    type: Status
+    type: StatusPage
   - name: Rate Limits
     url: https://resend.com/docs/api-reference/introduction
     type: RateLimits
