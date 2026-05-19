@@ -72,6 +72,8 @@ apis:
       - FN: Resend Support
         url: https://resend.com/docs/support
 common:
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/resend
   - url: https://github.com/resend
     name: GitHub Organization
     type: GitHubOrganization
