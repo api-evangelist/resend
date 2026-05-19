@@ -17,7 +17,7 @@ tags:
 url: >-
   https://raw.githubusercontent.com/api-evangelist/resend/refs/heads/main/apis.yml
 created: '2024-11-07'
-modified: '2026-05-02'
+modified: '2026-05-19'
 specificationVersion: '0.19'
 apis:
   - aid: resend:resend
@@ -138,6 +138,9 @@ common:
   - name: Rate Limits
     url: https://resend.com/docs/api-reference/introduction
     type: RateLimits
+  - name: Agent Skills
+    url: https://github.com/resend/resend-skills
+    type: AgentSkill
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
