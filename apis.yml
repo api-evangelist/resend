@@ -143,6 +143,8 @@ common:
   - name: Agent Skills
     url: https://github.com/resend/resend-skills
     type: AgentSkill
+  - type: LLMsTxt
+    url: https://resend.com/llms.txt
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
