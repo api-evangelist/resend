@@ -1,0 +1,663 @@
+asyncapi: '2.6.0'
+id: 'urn:com:resend:webhooks'
+info:
+  title: Resend Webhooks
+  version: '1.0.0'
+  description: >-
+    AsyncAPI 2.6 description of the Resend webhook surface. Resend delivers
+    webhook events to subscriber-configured HTTPS endpoints using Svix as the
+    underlying delivery and signing infrastructure. Every request carries
+    `svix-id`, `svix-timestamp`, and `svix-signature` headers. The payload is a
+    consistent envelope of `type`, `created_at`, and `data`, where `data`
+    varies by event type. Subscribers verify the signature with their Svix
+    signing secret, dedupe by `svix-id`, and dispatch on `type`.
+
+    Source: https://resend.com/docs/dashboard/webhooks/introduction
+    and https://resend.com/docs/dashboard/webhooks/event-types
+  contact:
+    name: Resend Support
+    url: https://resend.com/docs/support
+  license:
+    name: Proprietary
+    url: https://resend.com/legal/terms-of-service
+  termsOfService: https://resend.com/legal/terms-of-service
+  x-apis-json:
+    aid: resend:resend:webhooks
+    humanURL: https://resend.com/docs/dashboard/webhooks/introduction
+
+defaultContentType: application/json
+
+servers:
+  subscriber:
+    url: '{subscriberEndpoint}'
+    protocol: https
+    description: >-
+      The HTTPS endpoint owned and operated by the webhook subscriber. Resend
+      (via Svix) sends HTTP POST requests carrying signed webhook envelopes to
+      this URL. The URL is configured in the Resend dashboard under Webhooks.
+    variables:
+      subscriberEndpoint:
+        default: https://example.com/webhooks/resend
+        description: The fully qualified HTTPS URL of the subscriber receiver.
+
+channels:
+  /:
+    description: >-
+      A single subscriber endpoint receives every Resend webhook event for
+      which it has been subscribed in the dashboard. The event kind is
+      discriminated by the `type` field in the JSON envelope.
+    bindings:
+      http:
+        type: request
+        method: POST
+        bindingVersion: '0.3.0'
+    publish:
+      operationId: receiveResendWebhook
+      summary: Receive a Resend webhook event
+      description: >-
+        Resend POSTs a signed Svix envelope to the subscriber endpoint. The
+        subscriber must verify the `svix-signature` header against the request
+        body and the Svix signing secret before trusting any field. Use
+        `svix-id` to dedupe replays. Dispatch the event by inspecting the
+        envelope `type`.
+      message:
+        oneOf:
+          - $ref: '#/components/messages/EmailSent'
+          - $ref: '#/components/messages/EmailDelivered'
+          - $ref: '#/components/messages/EmailDeliveryDelayed'
+          - $ref: '#/components/messages/EmailComplained'
+          - $ref: '#/components/messages/EmailBounced'
+          - $ref: '#/components/messages/EmailOpened'
+          - $ref: '#/components/messages/EmailClicked'
+          - $ref: '#/components/messages/ContactCreated'
+          - $ref: '#/components/messages/ContactDeleted'
+          - $ref: '#/components/messages/ContactUpdated'
+          - $ref: '#/components/messages/DomainCreated'
+          - $ref: '#/components/messages/DomainDeleted'
+          - $ref: '#/components/messages/DomainUpdated'
+
+components:
+  messageTraits:
+    SvixSignedEnvelope:
+      headers:
+        type: object
+        required:
+          - svix-id
+          - svix-timestamp
+          - svix-signature
+        properties:
+          svix-id:
+            type: string
+            description: >-
+              Unique identifier for the webhook message. Use this value to
+              dedupe events on the subscriber side; Svix may redeliver on
+              failure.
+            examples:
+              - msg_p5jXN8AQM9LWM0D4loKWxJek
+          svix-timestamp:
+            type: string
+            description: >-
+              Unix epoch seconds when the webhook was dispatched. Reject
+              messages whose timestamp drifts too far from the current time
+              to mitigate replay.
+            examples:
+              - '1614265330'
+          svix-signature:
+            type: string
+            description: >-
+              Space-separated list of one or more signatures of the form
+              `v1,<base64>` computed by Svix over `svix-id.svix-timestamp.body`
+              using the endpoint signing secret. At least one signature must
+              verify.
+            examples:
+              - v1,g0hM9SsE+OTPJTGt/tmIKtSyZlE3uFJELVlNIOLJ1OE=
+      bindings:
+        http:
+          headers:
+            type: object
+            properties:
+              content-type:
+                type: string
+                const: application/json
+          bindingVersion: '0.3.0'
+
+  messages:
+    EmailSent:
+      name: EmailSent
+      title: email.sent
+      summary: The API request to send the email was successful.
+      contentType: application/json
+      traits:
+        - $ref: '#/components/messageTraits/SvixSignedEnvelope'
+      payload:
+        $ref: '#/components/schemas/EmailSentEnvelope'
+
+    EmailDelivered:
+      name: EmailDelivered
+      title: email.delivered
+      summary: The receiving mail server accepted the message for delivery.
+      contentType: application/json
+      traits:
+        - $ref: '#/components/messageTraits/SvixSignedEnvelope'
+      payload:
+        $ref: '#/components/schemas/EmailDeliveredEnvelope'
+
+    EmailDeliveryDelayed:
+      name: EmailDeliveryDelayed
+      title: email.delivery_delayed
+      summary: >-
+        The email could not be delivered due to a temporary issue. Resend will
+        keep retrying.
+      contentType: application/json
+      traits:
+        - $ref: '#/components/messageTraits/SvixSignedEnvelope'
+      payload:
+        $ref: '#/components/schemas/EmailDeliveryDelayedEnvelope'
+
+    EmailComplained:
+      name: EmailComplained
+      title: email.complained
+      summary: >-
+        The email was delivered but the recipient marked it as spam.
+      contentType: application/json
+      traits:
+        - $ref: '#/components/messageTraits/SvixSignedEnvelope'
+      payload:
+        $ref: '#/components/schemas/EmailComplainedEnvelope'
+
+    EmailBounced:
+      name: EmailBounced
+      title: email.bounced
+      summary: The receiving mail server permanently rejected the message.
+      contentType: application/json
+      traits:
+        - $ref: '#/components/messageTraits/SvixSignedEnvelope'
+      payload:
+        $ref: '#/components/schemas/EmailBouncedEnvelope'
+
+    EmailOpened:
+      name: EmailOpened
+      title: email.opened
+      summary: The recipient opened the email.
+      contentType: application/json
+      traits:
+        - $ref: '#/components/messageTraits/SvixSignedEnvelope'
+      payload:
+        $ref: '#/components/schemas/EmailOpenedEnvelope'
+
+    EmailClicked:
+      name: EmailClicked
+      title: email.clicked
+      summary: The recipient clicked a tracked link in the email.
+      contentType: application/json
+      traits:
+        - $ref: '#/components/messageTraits/SvixSignedEnvelope'
+      payload:
+        $ref: '#/components/schemas/EmailClickedEnvelope'
+
+    ContactCreated:
+      name: ContactCreated
+      title: contact.created
+      summary: A contact was created in an audience.
+      contentType: application/json
+      traits:
+        - $ref: '#/components/messageTraits/SvixSignedEnvelope'
+      payload:
+        $ref: '#/components/schemas/ContactCreatedEnvelope'
+
+    ContactDeleted:
+      name: ContactDeleted
+      title: contact.deleted
+      summary: A contact was deleted from an audience.
+      contentType: application/json
+      traits:
+        - $ref: '#/components/messageTraits/SvixSignedEnvelope'
+      payload:
+        $ref: '#/components/schemas/ContactDeletedEnvelope'
+
+    ContactUpdated:
+      name: ContactUpdated
+      title: contact.updated
+      summary: A contact was updated.
+      contentType: application/json
+      traits:
+        - $ref: '#/components/messageTraits/SvixSignedEnvelope'
+      payload:
+        $ref: '#/components/schemas/ContactUpdatedEnvelope'
+
+    DomainCreated:
+      name: DomainCreated
+      title: domain.created
+      summary: A sending domain was created.
+      contentType: application/json
+      traits:
+        - $ref: '#/components/messageTraits/SvixSignedEnvelope'
+      payload:
+        $ref: '#/components/schemas/DomainCreatedEnvelope'
+
+    DomainDeleted:
+      name: DomainDeleted
+      title: domain.deleted
+      summary: A sending domain was deleted.
+      contentType: application/json
+      traits:
+        - $ref: '#/components/messageTraits/SvixSignedEnvelope'
+      payload:
+        $ref: '#/components/schemas/DomainDeletedEnvelope'
+
+    DomainUpdated:
+      name: DomainUpdated
+      title: domain.updated
+      summary: >-
+        A sending domain was updated. This is also emitted as DNS records are
+        verified and the domain status transitions.
+      contentType: application/json
+      traits:
+        - $ref: '#/components/messageTraits/SvixSignedEnvelope'
+      payload:
+        $ref: '#/components/schemas/DomainUpdatedEnvelope'
+
+  schemas:
+    Envelope:
+      type: object
+      description: >-
+        Common Resend webhook envelope. The `type` field discriminates the
+        event and dictates the shape of `data`.
+      required:
+        - type
+        - created_at
+        - data
+      properties:
+        type:
+          type: string
+          description: The event type. See concrete envelope schemas for enumerated values.
+        created_at:
+          type: string
+          format: date-time
+          description: ISO 8601 timestamp when the webhook event was created.
+        data:
+          type: object
+          description: Event-specific payload. See per-event schemas.
+
+    EmailEventData:
+      type: object
+      description: >-
+        Common email-event `data` body shared by email.sent, email.delivered,
+        email.delivery_delayed, email.complained, email.opened.
+      properties:
+        broadcast_id:
+          type: string
+          format: uuid
+          description: >-
+            Identifier of the broadcast this email belongs to, when sent as
+            part of a broadcast.
+          examples:
+            - 8b146471-e88e-4322-86af-016cd36fd216
+        created_at:
+          type: string
+          description: When the email was created by Resend.
+          examples:
+            - '2026-02-22T23:41:11.894719+00:00'
+        email_id:
+          type: string
+          format: uuid
+          description: The Resend email ID.
+          examples:
+            - 56761188-7520-42d8-8898-ff6fc54ce618
+        from:
+          type: string
+          description: The email's `From` header value.
+          examples:
+            - Acme <onboarding@resend.dev>
+        to:
+          type: array
+          items:
+            type: string
+            format: email
+          description: Recipient email addresses.
+          examples:
+            - ['delivered@resend.dev']
+        subject:
+          type: string
+          description: Email subject line.
+          examples:
+            - Sending this example
+        template_id:
+          type: string
+          format: uuid
+          description: Template identifier, when the email was sent from a template.
+          examples:
+            - 43f68331-0622-4e15-8202-246a0388854b
+        tags:
+          type: object
+          description: Custom key/value tags attached to the email at send time.
+          additionalProperties:
+            type: string
+          examples:
+            - { category: confirm_email }
+
+    Bounce:
+      type: object
+      description: Bounce details emitted with email.bounced events.
+      properties:
+        diagnosticCode:
+          type: array
+          items:
+            type: string
+          description: Raw SMTP diagnostic codes returned by the receiving server.
+          examples:
+            - ['smtp; 550 5.5.0 Requested action not taken: mailbox unavailable']
+        message:
+          type: string
+          description: Human-readable explanation of why the email bounced.
+          examples:
+            - "The recipient's email address is on the suppression list because it has a recent history of producing hard bounces."
+        subType:
+          type: string
+          description: Bounce sub-classification (for example `Suppressed`, `General`).
+          examples:
+            - Suppressed
+        type:
+          type: string
+          description: Bounce classification.
+          examples:
+            - Permanent
+
+    Click:
+      type: object
+      description: Click details emitted with email.clicked events.
+      properties:
+        ipAddress:
+          type: string
+          description: IP address from which the click occurred.
+          examples:
+            - 122.115.53.11
+        link:
+          type: string
+          format: uri
+          description: The URL that was clicked.
+          examples:
+            - https://resend.com
+        timestamp:
+          type: string
+          format: date-time
+          description: When the click was observed.
+          examples:
+            - '2026-11-24T05:00:57.163Z'
+        userAgent:
+          type: string
+          description: The User-Agent string of the clicking client.
+          examples:
+            - Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.1 Safari/605.1.15
+
+    Contact:
+      type: object
+      description: Contact `data` shared by contact.created, contact.updated, contact.deleted.
+      properties:
+        id:
+          type: string
+          format: uuid
+          description: Contact ID.
+          examples:
+            - e169aa45-1ecf-4183-9955-b1499d5701d3
+        audience_id:
+          type: string
+          format: uuid
+          description: The audience the contact belongs to.
+          examples:
+            - 78261eea-8f8b-4381-83c6-79fa7120f1cf
+        segment_ids:
+          type: array
+          description: Segments the contact is a member of.
+          items:
+            type: string
+            format: uuid
+          examples:
+            - ['78261eea-8f8b-4381-83c6-79fa7120f1cf']
+        created_at:
+          type: string
+          format: date-time
+          description: When the contact was created.
+        updated_at:
+          type: string
+          format: date-time
+          description: When the contact was last updated.
+        email:
+          type: string
+          format: email
+          description: Contact email address.
+          examples:
+            - steve.wozniak@gmail.com
+        first_name:
+          type: string
+          description: Contact first name.
+          examples:
+            - Steve
+        last_name:
+          type: string
+          description: Contact last name.
+          examples:
+            - Wozniak
+        unsubscribed:
+          type: boolean
+          description: Whether the contact has unsubscribed.
+          examples:
+            - false
+
+    DomainRecord:
+      type: object
+      description: A single DNS record entry attached to a domain.
+      properties:
+        record:
+          type: string
+          description: The role of the record (for example SPF, DKIM, Receiving MX).
+        name:
+          type: string
+          description: Record name.
+        type:
+          type: string
+          description: DNS record type (MX, TXT, CNAME, etc.).
+        ttl:
+          type: string
+          description: TTL value as advertised by Resend (often `Auto`).
+        status:
+          type: string
+          description: Verification status of this record.
+        value:
+          type: string
+          description: Record value.
+        priority:
+          type: integer
+          description: Priority for records that support it (for example MX).
+
+    Domain:
+      type: object
+      description: Domain `data` shared by domain.created, domain.updated, domain.deleted.
+      properties:
+        id:
+          type: string
+          format: uuid
+          description: Domain ID.
+          examples:
+            - d91cd9bd-1176-453e-8fc1-35364d380206
+        name:
+          type: string
+          description: The domain name.
+          examples:
+            - example.com
+        status:
+          type: string
+          description: >-
+            Verification status. Documented values include `not_started`,
+            `pending`, `verified`, `partially_verified`, `partially_failed`,
+            and `failed`.
+          examples:
+            - not_started
+        created_at:
+          type: string
+          description: When the domain record was created.
+          examples:
+            - '2026-04-26T20:21:26.347412+00:00'
+        region:
+          type: string
+          description: The sending region for the domain.
+          examples:
+            - us-east-1
+        records:
+          type: array
+          description: DNS records associated with the domain.
+          items:
+            $ref: '#/components/schemas/DomainRecord'
+
+    EmailSentEnvelope:
+      allOf:
+        - $ref: '#/components/schemas/Envelope'
+        - type: object
+          properties:
+            type:
+              type: string
+              const: email.sent
+            data:
+              $ref: '#/components/schemas/EmailEventData'
+
+    EmailDeliveredEnvelope:
+      allOf:
+        - $ref: '#/components/schemas/Envelope'
+        - type: object
+          properties:
+            type:
+              type: string
+              const: email.delivered
+            data:
+              $ref: '#/components/schemas/EmailEventData'
+
+    EmailDeliveryDelayedEnvelope:
+      allOf:
+        - $ref: '#/components/schemas/Envelope'
+        - type: object
+          properties:
+            type:
+              type: string
+              const: email.delivery_delayed
+            data:
+              $ref: '#/components/schemas/EmailEventData'
+
+    EmailComplainedEnvelope:
+      allOf:
+        - $ref: '#/components/schemas/Envelope'
+        - type: object
+          properties:
+            type:
+              type: string
+              const: email.complained
+            data:
+              $ref: '#/components/schemas/EmailEventData'
+
+    EmailBouncedEnvelope:
+      allOf:
+        - $ref: '#/components/schemas/Envelope'
+        - type: object
+          properties:
+            type:
+              type: string
+              const: email.bounced
+            data:
+              allOf:
+                - $ref: '#/components/schemas/EmailEventData'
+                - type: object
+                  properties:
+                    bounce:
+                      $ref: '#/components/schemas/Bounce'
+
+    EmailOpenedEnvelope:
+      allOf:
+        - $ref: '#/components/schemas/Envelope'
+        - type: object
+          properties:
+            type:
+              type: string
+              const: email.opened
+            data:
+              $ref: '#/components/schemas/EmailEventData'
+
+    EmailClickedEnvelope:
+      allOf:
+        - $ref: '#/components/schemas/Envelope'
+        - type: object
+          properties:
+            type:
+              type: string
+              const: email.clicked
+            data:
+              allOf:
+                - $ref: '#/components/schemas/EmailEventData'
+                - type: object
+                  properties:
+                    click:
+                      $ref: '#/components/schemas/Click'
+
+    ContactCreatedEnvelope:
+      allOf:
+        - $ref: '#/components/schemas/Envelope'
+        - type: object
+          properties:
+            type:
+              type: string
+              const: contact.created
+            data:
+              $ref: '#/components/schemas/Contact'
+
+    ContactDeletedEnvelope:
+      allOf:
+        - $ref: '#/components/schemas/Envelope'
+        - type: object
+          properties:
+            type:
+              type: string
+              const: contact.deleted
+            data:
+              $ref: '#/components/schemas/Contact'
+
+    ContactUpdatedEnvelope:
+      allOf:
+        - $ref: '#/components/schemas/Envelope'
+        - type: object
+          properties:
+            type:
+              type: string
+              const: contact.updated
+            data:
+              $ref: '#/components/schemas/Contact'
+
+    DomainCreatedEnvelope:
+      allOf:
+        - $ref: '#/components/schemas/Envelope'
+        - type: object
+          properties:
+            type:
+              type: string
+              const: domain.created
+            data:
+              $ref: '#/components/schemas/Domain'
+
+    DomainDeletedEnvelope:
+      allOf:
+        - $ref: '#/components/schemas/Envelope'
+        - type: object
+          properties:
+            type:
+              type: string
+              const: domain.deleted
+            data:
+              $ref: '#/components/schemas/Domain'
+
+    DomainUpdatedEnvelope:
+      allOf:
+        - $ref: '#/components/schemas/Envelope'
+        - type: object
+          properties:
+            type:
+              type: string
+              const: domain.updated
+            data:
+              $ref: '#/components/schemas/Domain'

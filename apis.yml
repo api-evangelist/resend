@@ -17,7 +17,7 @@ tags:
 url: >-
   https://raw.githubusercontent.com/api-evangelist/resend/refs/heads/main/apis.yml
 created: '2024-11-07'
-modified: '2026-05-19'
+modified: '2026-05-29'
 specificationVersion: '0.19'
 apis:
   - aid: resend:resend
@@ -44,6 +44,9 @@ apis:
         type: OpenAPI
       - type: Webhooks
         url: https://resend.com/docs/dashboard/webhooks/introduction
+      - type: AsyncAPI
+        url: >-
+          https://raw.githubusercontent.com/api-evangelist/resend/refs/heads/main/asyncapi/resend-webhooks-asyncapi.yml
       - type: JSONSchema
         url: >-
           https://raw.githubusercontent.com/api-evangelist/resend/refs/heads/main/json-schema/resend-email-schema.json
