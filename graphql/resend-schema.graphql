@@ -1,0 +1,514 @@
+# Resend GraphQL Schema (Conceptual)
+# Derived from the Resend REST API reference: https://resend.com/docs/api-reference
+# Resend does not expose a public GraphQL endpoint; this schema models all core resources.
+
+scalar DateTime
+scalar JSON
+
+# ─── Enums ────────────────────────────────────────────────────────────────────
+
+enum DomainStatus {
+  NOT_STARTED
+  PENDING
+  VERIFIED
+  FAILED
+  TEMPORARY_FAILURE
+}
+
+enum DomainRegion {
+  us_east_1
+  eu_west_1
+  sa_east_1
+}
+
+enum ApiKeyPermission {
+  FULL_ACCESS
+  SENDING_ACCESS
+}
+
+enum BroadcastStatus {
+  DRAFT
+  QUEUED
+  SENT
+}
+
+enum ScheduleStatus {
+  SCHEDULED
+  SENT
+  CANCELLED
+}
+
+enum ContactSubscriptionStatus {
+  SUBSCRIBED
+  UNSUBSCRIBED
+}
+
+enum WebhookEventType {
+  EMAIL_SENT
+  EMAIL_DELIVERED
+  EMAIL_DELIVERY_DELAYED
+  EMAIL_BOUNCED
+  EMAIL_COMPLAINED
+  EMAIL_OPENED
+  EMAIL_CLICKED
+  EMAIL_UNSUBSCRIBED
+}
+
+# ─── Email ────────────────────────────────────────────────────────────────────
+
+"""
+Represents a single transactional or broadcast email message.
+"""
+type Email {
+  id: ID!
+  object: String
+  from: String!
+  to: [String!]!
+  cc: [String!]
+  bcc: [String!]
+  replyTo: [String!]
+  subject: String!
+  html: String
+  text: String
+  headers: [EmailHeader!]
+  attachments: [Attachment!]
+  tags: [Tag!]
+  createdAt: DateTime!
+  lastEvent: String
+}
+
+type EmailHeader {
+  name: String!
+  value: String!
+}
+
+type Attachment {
+  filename: String!
+  content: String
+  path: String
+  contentType: String
+}
+
+"""
+Result of sending a single email.
+"""
+type SendEmailResult {
+  id: ID!
+}
+
+"""
+Result of sending a batch of emails.
+"""
+type Batch {
+  data: [SendEmailResult!]!
+}
+
+# ─── Domain ───────────────────────────────────────────────────────────────────
+
+"""
+A sending domain verified in Resend.
+"""
+type Domain {
+  id: ID!
+  name: String!
+  status: DomainStatus!
+  createdAt: DateTime!
+  region: DomainRegion!
+  records: [DomainRecord!]!
+  dnsProvider: String
+}
+
+"""
+A DNS record required to verify or configure a Resend sending domain.
+"""
+type DomainRecord {
+  record: String!
+  name: String!
+  type: String!
+  ttl: String
+  status: String!
+  value: String!
+  priority: Int
+}
+
+type DomainList {
+  data: [Domain!]!
+}
+
+# ─── ApiKey ───────────────────────────────────────────────────────────────────
+
+"""
+An API key used to authenticate requests to the Resend API.
+"""
+type ApiKey {
+  id: ID!
+  name: String!
+  permission: ApiKeyPermission!
+  domainId: ID
+  createdAt: DateTime!
+}
+
+"""
+Result of creating an API key (token only returned at creation time).
+"""
+type CreateApiKeyResult {
+  id: ID!
+  token: String!
+}
+
+type ApiKeyList {
+  data: [ApiKey!]!
+}
+
+# ─── Audience ─────────────────────────────────────────────────────────────────
+
+"""
+A mailing list / audience that contacts can be added to.
+"""
+type Audience {
+  id: ID!
+  object: String
+  name: String!
+  createdAt: DateTime!
+}
+
+type AudienceList {
+  data: [Audience!]!
+}
+
+# ─── Contact ──────────────────────────────────────────────────────────────────
+
+"""
+A contact within an audience.
+"""
+type Contact {
+  id: ID!
+  object: String
+  email: String!
+  firstName: String
+  lastName: String
+  createdAt: DateTime!
+  unsubscribed: Boolean!
+}
+
+type ContactList {
+  data: [Contact!]!
+}
+
+# ─── Tag ──────────────────────────────────────────────────────────────────────
+
+"""
+A key-value tag attached to an email for categorization and filtering.
+"""
+type Tag {
+  name: String!
+  value: String!
+}
+
+# ─── Broadcast ────────────────────────────────────────────────────────────────
+
+"""
+A broadcast (bulk email campaign) sent to an audience.
+"""
+type Broadcast {
+  id: ID!
+  audienceId: ID!
+  from: String!
+  subject: String!
+  replyTo: [String!]
+  previewText: String
+  html: String
+  text: String
+  status: BroadcastStatus!
+  createdAt: DateTime!
+  scheduledAt: DateTime
+  sentAt: DateTime
+}
+
+type BroadcastList {
+  data: [Broadcast!]!
+}
+
+# ─── Webhook ──────────────────────────────────────────────────────────────────
+
+"""
+A webhook endpoint that receives email event notifications.
+"""
+type Webhook {
+  id: ID!
+  endpoint: String!
+  events: [WebhookEventType!]!
+  createdAt: DateTime!
+}
+
+type WebhookList {
+  data: [Webhook!]!
+}
+
+# ─── Schedule ─────────────────────────────────────────────────────────────────
+
+"""
+A scheduled send for an email or broadcast.
+"""
+type Schedule {
+  id: ID!
+  emailId: ID
+  broadcastId: ID
+  scheduledAt: DateTime!
+  status: ScheduleStatus!
+  createdAt: DateTime!
+}
+
+# ─── Events ───────────────────────────────────────────────────────────────────
+
+"""
+Base interface for all email lifecycle events delivered via webhooks.
+"""
+interface EmailEvent {
+  type: WebhookEventType!
+  createdAt: DateTime!
+  data: EmailEventData!
+}
+
+type EmailEventData {
+  emailId: ID!
+  from: String!
+  to: [String!]!
+  subject: String!
+  tags: [Tag!]
+}
+
+type ClickEvent implements EmailEvent {
+  type: WebhookEventType!
+  createdAt: DateTime!
+  data: EmailEventData!
+  click: ClickEventDetail!
+}
+
+type ClickEventDetail {
+  ipAddress: String
+  link: String!
+  timestamp: DateTime!
+  userAgent: String
+}
+
+type OpenEvent implements EmailEvent {
+  type: WebhookEventType!
+  createdAt: DateTime!
+  data: EmailEventData!
+  open: OpenEventDetail!
+}
+
+type OpenEventDetail {
+  ipAddress: String
+  timestamp: DateTime!
+  userAgent: String
+}
+
+type DeliverEvent implements EmailEvent {
+  type: WebhookEventType!
+  createdAt: DateTime!
+  data: EmailEventData!
+}
+
+type BounceEvent implements EmailEvent {
+  type: WebhookEventType!
+  createdAt: DateTime!
+  data: EmailEventData!
+  bounce: BounceEventDetail!
+}
+
+type BounceEventDetail {
+  message: String
+  bounceType: String
+}
+
+type UnsubscribeEvent implements EmailEvent {
+  type: WebhookEventType!
+  createdAt: DateTime!
+  data: EmailEventData!
+}
+
+type SpamEvent implements EmailEvent {
+  type: WebhookEventType!
+  createdAt: DateTime!
+  data: EmailEventData!
+}
+
+# ─── Inputs ───────────────────────────────────────────────────────────────────
+
+input SendEmailInput {
+  from: String!
+  to: [String!]!
+  subject: String!
+  html: String
+  text: String
+  cc: [String!]
+  bcc: [String!]
+  replyTo: [String!]
+  headers: [EmailHeaderInput!]
+  attachments: [AttachmentInput!]
+  tags: [TagInput!]
+  scheduledAt: DateTime
+}
+
+input EmailHeaderInput {
+  name: String!
+  value: String!
+}
+
+input AttachmentInput {
+  filename: String!
+  content: String
+  path: String
+  contentType: String
+}
+
+input TagInput {
+  name: String!
+  value: String!
+}
+
+input CreateDomainInput {
+  name: String!
+  region: DomainRegion
+}
+
+input UpdateDomainInput {
+  openTracking: Boolean
+  clickTracking: Boolean
+  tls: String
+}
+
+input CreateApiKeyInput {
+  name: String!
+  permission: ApiKeyPermission
+  domainId: ID
+}
+
+input CreateAudienceInput {
+  name: String!
+}
+
+input CreateContactInput {
+  audienceId: ID!
+  email: String!
+  firstName: String
+  lastName: String
+  unsubscribed: Boolean
+}
+
+input UpdateContactInput {
+  firstName: String
+  lastName: String
+  unsubscribed: Boolean
+}
+
+input CreateBroadcastInput {
+  audienceId: ID!
+  from: String!
+  subject: String!
+  replyTo: [String!]
+  previewText: String
+  html: String
+  text: String
+}
+
+input UpdateBroadcastInput {
+  audienceId: ID
+  from: String
+  subject: String
+  replyTo: [String!]
+  previewText: String
+  html: String
+  text: String
+}
+
+input CreateWebhookInput {
+  endpoint: String!
+  events: [WebhookEventType!]!
+}
+
+# ─── Mutation results ─────────────────────────────────────────────────────────
+
+type DeleteResult {
+  id: ID!
+  object: String
+  deleted: Boolean!
+}
+
+type VerifyDomainResult {
+  id: ID!
+  object: String
+}
+
+type SendBroadcastResult {
+  id: ID!
+}
+
+# ─── Query & Mutation ─────────────────────────────────────────────────────────
+
+type Query {
+  # Emails
+  email(id: ID!): Email
+
+  # Domains
+  domain(id: ID!): Domain
+  domains: DomainList!
+
+  # API Keys
+  apiKey(id: ID!): ApiKey
+  apiKeys: ApiKeyList!
+
+  # Audiences
+  audience(id: ID!): Audience
+  audiences: AudienceList!
+
+  # Contacts
+  contact(audienceId: ID!, id: ID!): Contact
+  contacts(audienceId: ID!): ContactList!
+
+  # Broadcasts
+  broadcast(id: ID!): Broadcast
+  broadcasts: BroadcastList!
+
+  # Webhooks
+  webhook(id: ID!): Webhook
+  webhooks: WebhookList!
+}
+
+type Mutation {
+  # Emails
+  sendEmail(input: SendEmailInput!): SendEmailResult!
+  sendEmailBatch(inputs: [SendEmailInput!]!): Batch!
+  cancelEmail(id: ID!): Schedule!
+
+  # Domains
+  createDomain(input: CreateDomainInput!): Domain!
+  updateDomain(id: ID!, input: UpdateDomainInput!): Domain!
+  verifyDomain(id: ID!): VerifyDomainResult!
+  deleteDomain(id: ID!): DeleteResult!
+
+  # API Keys
+  createApiKey(input: CreateApiKeyInput!): CreateApiKeyResult!
+  deleteApiKey(id: ID!): DeleteResult!
+
+  # Audiences
+  createAudience(input: CreateAudienceInput!): Audience!
+  deleteAudience(id: ID!): DeleteResult!
+
+  # Contacts
+  createContact(input: CreateContactInput!): Contact!
+  updateContact(audienceId: ID!, id: ID!, input: UpdateContactInput!): Contact!
+  deleteContact(audienceId: ID!, id: ID!): DeleteResult!
+
+  # Broadcasts
+  createBroadcast(input: CreateBroadcastInput!): Broadcast!
+  updateBroadcast(id: ID!, input: UpdateBroadcastInput!): Broadcast!
+  sendBroadcast(id: ID!, scheduledAt: DateTime): SendBroadcastResult!
+  deleteBroadcast(id: ID!): DeleteResult!
+
+  # Webhooks
+  createWebhook(input: CreateWebhookInput!): Webhook!
+  deleteWebhook(id: ID!): DeleteResult!
+}
