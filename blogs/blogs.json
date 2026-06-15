@@ -3,19 +3,16 @@
   "feeds": [
     {
       "source": "https://resend.com/blog/index.xml",
-      "feed_url": "https://resend.com/blog/index.xml",
-      "title": "",
-      "saved": 0,
-      "method": "feed"
+      "error": "HTTPError"
     },
     {
       "source": "https://resend.com/blog",
-      "feed_url": "https://resend.com/blog/index.xml",
+      "feed_url": "https://resend.com/blog/rss.xml",
       "title": "",
       "saved": 0,
       "method": "discovered"
     }
   ],
-  "post_count": 57,
-  "fetched": "2026-06-01T23:35:02Z"
+  "post_count": 61,
+  "fetched": "2026-06-14T20:42:17Z"
 }

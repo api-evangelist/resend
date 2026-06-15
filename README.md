@@ -1,46 +1,63 @@
-# Resend
+# Resend (resend)
 
 Resend is a developer-first email API platform that simplifies sending and managing transactional and marketing emails. It provides a clean REST API with bearer token authentication, supporting email sending, domain management, API key management, audience and contact management, and broadcast campaigns. Resend offers SDKs for Node.js, Python, Go, Ruby, PHP, Java, .NET, Rust, Elixir, and more, along with a React Email library and official MCP server.
 
-**URL:** [https://raw.githubusercontent.com/api-evangelist/resend/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/resend/refs/heads/main/apis.yml)
+**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/resend/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/resend/refs/heads/main/apis.yml)
+
+## Scope
+
+- **Type:** Index
 
 ## Tags
 
-Email, Developer Tools, Transactional Email, Marketing Email
+- Email
+- Developer Tools
+- Transactional Email
+- Marketing Email
+
+## Timestamps
+
+- **Created:** 2024-11-07
+- **Modified:** 2026-05-29
 
 ## APIs
 
 ### Resend API
 
-The Resend REST API provides endpoints for sending emails, managing domains, API keys, audiences, contacts, and broadcast campaigns. Rate limit: 5 requests per second per team.
+The Resend REST API provides endpoints for sending emails, managing domains, managing API keys, managing audiences and contacts, and sending broadcast campaigns. Authentication uses Bearer tokens. Rate limit is 5 requests per second per team by default. Base URL is https://api.resend.com.
 
-- **Base URL:** https://api.resend.com
-- **Authentication:** Bearer token
 - **Human URL:** [https://resend.com/](https://resend.com/)
+- **Base URL:** `https://api.resend.com`
+
+#### Tags
+
+- Email
+- Domains
+- API Keys
+- Audiences
+- Contacts
+- Broadcasts
+- Transactional Email
 
 #### Properties
 
-- [Documentation](https://resend.com/docs/api-reference/introduction)
-- [OpenAPI](openapi/resend-openapi.yml)
+- [Documentation](https://resend.com/)
+- [OpenAPI](openapi/resend-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
 - [Webhooks](https://resend.com/docs/dashboard/webhooks/introduction)
-- [JSONSchema - Email](json-schema/resend-email-schema.json)
-- [JSONSchema - Audience](json-schema/resend-audience-schema.json)
-- [JSONSchema - Domain](json-schema/resend-domain-schema.json)
-- [JSONStructure - Email](json-structure/resend-email-structure.json)
-- [JSONLDContext](json-ld/resend-context.jsonld)
-- [SpectralRules](rules/resend-rules.yml)
-- [Capabilities](capabilities/email-delivery.yaml)
-- [Vocabulary](vocabulary/resend-vocabulary.yml)
-
-## Capabilities
-
-- [email-delivery.yaml](capabilities/email-delivery.yaml) — Email delivery, domain management, and audience campaign management (REST + MCP, 15 tools)
-- [shared/resend.yaml](capabilities/shared/resend.yaml) — Shared per-API definition
+- [AsyncAPI](https://raw.githubusercontent.com/api-evangelist/resend/refs/heads/main/asyncapi/resend-webhooks-asyncapi.yml) — [AsyncAPI Specification](https://www.asyncapi.com/docs/reference/specification/latest)
+- [JSON Schema](https://raw.githubusercontent.com/api-evangelist/resend/refs/heads/main/json-schema/resend-email-schema.json) — [JSON Schema](https://json-schema.org/specification)
+- [JSON Schema](https://raw.githubusercontent.com/api-evangelist/resend/refs/heads/main/json-schema/resend-audience-schema.json) — [JSON Schema](https://json-schema.org/specification)
+- [JSON Schema](https://raw.githubusercontent.com/api-evangelist/resend/refs/heads/main/json-schema/resend-domain-schema.json) — [JSON Schema](https://json-schema.org/specification)
+- [JSON Structure](https://raw.githubusercontent.com/api-evangelist/resend/refs/heads/main/json-structure/resend-email-structure.json)
+- [J S O N L D Context](https://raw.githubusercontent.com/api-evangelist/resend/refs/heads/main/json-ld/resend-context.jsonld)
+- [Spectral Rules](https://raw.githubusercontent.com/api-evangelist/resend/refs/heads/main/rules/resend-rules.yml)
+- [Vocabulary](https://raw.githubusercontent.com/api-evangelist/resend/refs/heads/main/vocabulary/resend-vocabulary.yml)
 
 ## Common Properties
 
-- [GitHubOrganization](https://github.com/resend)
-- [ChangeLog](https://resend.com/changelog)
+- [LinkedIn](https://www.linkedin.com/company/resend)
+- [GitHub Organization](https://github.com/resend)
+- [Changelog](https://resend.com/changelog)
 - [Blog](https://resend.com/blog)
 - [Migrations](https://resend.com/migrate)
 - [Customers](https://resend.com/customers)
@@ -48,20 +65,23 @@ The Resend REST API provides endpoints for sending emails, managing domains, API
 - [Security](https://resend.com/security)
 - [Integrations](https://resend.com/docs/integrations)
 - [Examples](https://resend.com/docs/examples)
-- [SDKs](https://resend.com/docs/sdks)
+- [S D Ks](https://resend.com/docs/sdks)
 - [Pricing](https://resend.com/pricing)
 - [Login](https://resend.com/login)
-- [SignUp](https://resend.com/signup)
-- [Node.js SDK](https://github.com/resend/resend-node)
-- [Python SDK](https://github.com/resend/resend-python)
-- [Go SDK](https://github.com/resend/resend-go)
-- [.NET SDK](https://github.com/resend/resend-dotnet)
-- [CLI](https://github.com/resend/resend-cli)
-- [MCP Server](https://github.com/resend/resend-mcp)
-- [React Email](https://github.com/resend/react-email)
+- [Sign Up](https://resend.com/signup)
+- [SDK](https://github.com/resend/resend-node)
+- [SDK](https://github.com/resend/resend-python)
+- [SDK](https://github.com/resend/resend-go)
+- [SDK](https://github.com/resend/resend-dotnet)
+- [C L I](https://github.com/resend/resend-cli)
+- [M C P Server](https://github.com/resend/resend-mcp)
+- [Library](https://github.com/resend/react-email)
+- [Status Page](https://resend-status.com/)
+- [Rate Limits](https://resend.com/docs/api-reference/introduction)
+- [Agent Skill](https://github.com/resend/resend-skills)
+- [L L Ms Txt](https://resend.com/llms.txt)
 
 ## Maintainers
 
 **FN:** Kin Lane
-
 **Email:** kin@apievangelist.com
