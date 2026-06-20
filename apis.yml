@@ -7,7 +7,7 @@ description: Resend is a developer-first email API platform that simplifies send
   SDKs for Node.js, Python, Go, Ruby, PHP, Java, .NET, Rust, Elixir, and more, along
   with a React Email library and official MCP server.
 type: Index
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 tags:
 - Email
 - Developer Tools
