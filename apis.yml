@@ -103,19 +103,19 @@ common:
   type: Login
 - name: Sign Up
   url: https://resend.com/signup
-  type: SignUp
+  type: Signup
 - name: Node.js SDK
   url: https://github.com/resend/resend-node
-  type: SDK
+  type: SDKs
 - name: Python SDK
   url: https://github.com/resend/resend-python
-  type: SDK
+  type: SDKs
 - name: Go SDK
   url: https://github.com/resend/resend-go
-  type: SDK
+  type: SDKs
 - name: .NET SDK
   url: https://github.com/resend/resend-dotnet
-  type: SDK
+  type: SDKs
 - name: CLI
   url: https://github.com/resend/resend-cli
   type: CLI
@@ -133,8 +133,8 @@ common:
   type: RateLimits
 - name: Agent Skills
   url: https://github.com/resend/resend-skills
-  type: AgentSkill
-- type: LLMsTxt
+  type: AgentSkills
+- type: LlmsText
   url: https://resend.com/llms.txt
 maintainers:
 - FN: Kin Lane

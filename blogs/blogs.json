@@ -2,10 +2,6 @@
   "repo": "resend",
   "feeds": [
     {
-      "source": "https://resend.com/blog/index.xml",
-      "error": "HTTPError"
-    },
-    {
       "source": "https://resend.com/blog",
       "feed_url": "https://resend.com/blog/rss.xml",
       "title": "",
@@ -13,6 +9,6 @@
       "method": "discovered"
     }
   ],
-  "post_count": 61,
-  "fetched": "2026-06-14T20:42:17Z"
+  "post_count": 62,
+  "fetched": "2026-06-27T12:03:07Z"
 }
