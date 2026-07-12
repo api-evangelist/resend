@@ -63,6 +63,12 @@ apis:
   - FN: Resend Support
     url: https://resend.com/docs/support
 common:
+- type: TrustCenter
+  url: security/resend-trust-center.yml
+- type: VulnerabilityDisclosure
+  url: security/resend-vulnerability-disclosure.yml
+- type: DomainSecurity
+  url: security/resend-domain-security.yml
 - type: LinkedIn
   url: https://www.linkedin.com/company/resend
 - url: https://github.com/resend
