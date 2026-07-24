@@ -1,0 +1,124 @@
+openapi: 3.0.3
+info:
+  title: Resend Batch API
+  version: 1.1.0
+  description: '
+
+    Resend is transforming email for developers. Simple interface, easy
+
+    integrations, handy templates. '
+servers:
+- url: https://api.resend.com
+security:
+- bearerAuth: []
+tags:
+- name: Batch
+paths:
+  /emails/batch:
+    post:
+      tags:
+      - Batch
+      summary: Trigger up to 100 batch emails at once.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/SendEmailRequest'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateBatchEmailsResponse'
+components:
+  schemas:
+    SendEmailRequest:
+      type: object
+      required:
+      - from
+      - to
+      - subject
+      properties:
+        from:
+          type: string
+          description: Sender email address. To include a friendly name, use the format "Your Name <sender@domain.com>".
+        to:
+          type: array
+          items:
+            type: string
+            description: Recipient email address. For multiple addresses, send as an array of strings. Max 50.
+        subject:
+          type: string
+          description: Email subject.
+        bcc:
+          type: string
+          description: Bcc recipient email address. For multiple addresses, send as an array of strings.
+        cc:
+          type: string
+          description: Cc recipient email address. For multiple addresses, send as an array of strings.
+        reply_to:
+          type: string
+          description: Reply-to email address. For multiple addresses, send as an array of strings.
+        html:
+          type: string
+          description: The HTML version of the message.
+        text:
+          type: string
+          description: The plain text version of the message.
+        headers:
+          type: object
+          description: Custom headers to add to the email.
+        scheduled_at:
+          type: string
+          description: Schedule email to be sent later. The date should be in ISO 8601 format.
+        attachments:
+          type: array
+          items:
+            $ref: '#/components/schemas/Attachment'
+        tags:
+          type: array
+          items:
+            $ref: '#/components/schemas/Tag'
+    Attachment:
+      type: object
+      properties:
+        content:
+          type: string
+          format: binary
+          description: Content of an attached file.
+        filename:
+          type: string
+          description: Name of attached file.
+        path:
+          type: string
+          description: Path where the attachment file is hosted
+        content_type:
+          type: string
+          description: Optional content type for the attachment, if not set it will be derived from the filename property
+    CreateBatchEmailsResponse:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+                description: The ID of the sent email.
+    Tag:
+      type: object
+      properties:
+        name:
+          type: string
+          description: The name of the email tag. It can only contain ASCII letters (az, AZ), numbers (09), underscores (_), or dashes (-). It can contain no more than 256 characters.
+        value:
+          type: string
+          description: The value of the email tag.It can only contain ASCII letters (az, AZ), numbers (09), underscores (_), or dashes (-). It can contain no more than 256 characters.
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer

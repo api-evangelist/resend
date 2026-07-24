@@ -1,0 +1,52 @@
+openapi: 3.0.3
+info:
+  title: Resend Verify API
+  version: 1.1.0
+  description: '
+
+    Resend is transforming email for developers. Simple interface, easy
+
+    integrations, handy templates. '
+servers:
+- url: https://api.resend.com
+security:
+- bearerAuth: []
+tags:
+- name: Verify
+paths:
+  /domains/{domain_id}/verify:
+    post:
+      tags:
+      - Verify
+      summary: Verify an existing domain
+      parameters:
+      - name: domain_id
+        in: path
+        required: true
+        schema:
+          type: string
+          description: The ID of the domain.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VerifyDomainResponse'
+components:
+  schemas:
+    VerifyDomainResponse:
+      type: object
+      properties:
+        object:
+          type: string
+          description: The type of object.
+          example: domain
+        id:
+          type: string
+          description: The ID of the domain.
+          example: d91cd9bd-1176-453e-8fc1-35364d380206
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer

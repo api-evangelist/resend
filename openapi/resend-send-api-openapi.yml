@@ -1,0 +1,59 @@
+openapi: 3.0.3
+info:
+  title: Resend Send API
+  version: 1.1.0
+  description: '
+
+    Resend is transforming email for developers. Simple interface, easy
+
+    integrations, handy templates. '
+servers:
+- url: https://api.resend.com
+security:
+- bearerAuth: []
+tags:
+- name: Send
+paths:
+  /broadcasts/{id}/send:
+    post:
+      tags:
+      - Send
+      summary: Send or schedule a broadcast
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          description: The Broadcast ID.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SendBroadcastOptions'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SendBroadcastResponseSuccess'
+components:
+  schemas:
+    SendBroadcastResponseSuccess:
+      type: object
+      properties:
+        id:
+          type: string
+          description: The ID of the broadcast.
+          example: 78261eea-8f8b-4381-83c6-79fa7120f1cf
+    SendBroadcastOptions:
+      type: object
+      properties:
+        scheduled_at:
+          type: string
+          description: Schedule email to be sent later. The date should be in ISO 8601 format.
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
