@@ -1,0 +1,456 @@
+{
+  "info": {
+    "_postman_id": "710ce1c1-bf87-4d2e-88db-9d478f881b0e",
+    "name": "Resend Email API",
+    "description": "\nResend is transforming email for developers. Simple interface, easy\nintegrations, handy templates. ",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:46:32.000Z",
+    "updatedAt": "2026-07-28T02:46:32.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-710ce1c1-bf87-4d2e-88db-9d478f881b0e"
+  },
+  "item": [
+    {
+      "name": "emails",
+      "item": [
+        {
+          "name": "{email_id}",
+          "item": [
+            {
+              "name": "cancel",
+              "item": [
+                {
+                  "name": "Cancel the schedule of the e-mail.",
+                  "id": "b266c83d-3288-4e9a-a399-68bd6023b3a1",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/emails/:email_id/cancel",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "emails",
+                        ":email_id",
+                        "cancel"
+                      ],
+                      "variable": [
+                        {
+                          "id": "6b2818d4-194e-4470-9692-486e8b4f3d84",
+                          "key": "email_id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "43759424-5659-4a5c-a21e-f1a4ce189895",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/emails/:email_id/cancel",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "emails",
+                            ":email_id",
+                            "cancel"
+                          ],
+                          "variable": [
+                            {
+                              "key": "email_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"object\": \"<string>\",\n  \"id\": \"<string>\",\n  \"to\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"from\": \"<string>\",\n  \"created_at\": \"<dateTime>\",\n  \"subject\": \"<string>\",\n  \"html\": \"<string>\",\n  \"text\": \"<string>\",\n  \"bcc\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"cc\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"reply_to\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"last_event\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:46:33.000Z",
+                      "updatedAt": "2026-07-28T02:46:33.000Z",
+                      "uid": "35240-43759424-5659-4a5c-a21e-f1a4ce189895"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:46:33.000Z",
+                  "updatedAt": "2026-07-28T02:46:33.000Z",
+                  "uid": "35240-b266c83d-3288-4e9a-a399-68bd6023b3a1"
+                }
+              ],
+              "id": "aa535229-924c-4e7f-9325-ac559bc25d3c",
+              "createdAt": "2026-07-28T02:46:33.000Z",
+              "updatedAt": "2026-07-28T02:46:33.000Z",
+              "uid": "35240-aa535229-924c-4e7f-9325-ac559bc25d3c"
+            },
+            {
+              "name": "Retrieve a single email",
+              "id": "ff64d239-2c4a-44be-bbe6-23fd2eadd4c6",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/emails/:email_id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "emails",
+                    ":email_id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "3ee3c2bc-5519-4d33-8851-2c63432de745",
+                      "key": "email_id",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "6d5d7e21-304e-4eaa-81c3-32488ee154fc",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/emails/:email_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "emails",
+                        ":email_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "email_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"object\": \"<string>\",\n  \"id\": \"<string>\",\n  \"to\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"from\": \"<string>\",\n  \"created_at\": \"<dateTime>\",\n  \"subject\": \"<string>\",\n  \"html\": \"<string>\",\n  \"text\": \"<string>\",\n  \"bcc\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"cc\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"reply_to\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"last_event\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:46:33.000Z",
+                  "updatedAt": "2026-07-28T02:46:33.000Z",
+                  "uid": "35240-6d5d7e21-304e-4eaa-81c3-32488ee154fc"
+                }
+              ],
+              "createdAt": "2026-07-28T02:46:33.000Z",
+              "updatedAt": "2026-07-28T02:46:33.000Z",
+              "uid": "35240-ff64d239-2c4a-44be-bbe6-23fd2eadd4c6"
+            },
+            {
+              "name": "Update a single email",
+              "id": "c46d24b2-2e77-4f4c-934f-ca378f79a425",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/emails/:email_id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "emails",
+                    ":email_id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "a9cfb89a-63f4-40e5-b9e8-08ffff1110a5",
+                      "key": "email_id",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "164e63cb-c216-4e92-9e0a-485ed646af00",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/emails/:email_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "emails",
+                        ":email_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "email_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"scheduled_at\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:46:33.000Z",
+                  "updatedAt": "2026-07-28T02:46:33.000Z",
+                  "uid": "35240-164e63cb-c216-4e92-9e0a-485ed646af00"
+                }
+              ],
+              "createdAt": "2026-07-28T02:46:33.000Z",
+              "updatedAt": "2026-07-28T02:46:33.000Z",
+              "uid": "35240-c46d24b2-2e77-4f4c-934f-ca378f79a425"
+            }
+          ],
+          "id": "0505aaeb-0f4d-4078-9e1f-4df3045fd838",
+          "createdAt": "2026-07-28T02:46:33.000Z",
+          "updatedAt": "2026-07-28T02:46:33.000Z",
+          "uid": "35240-0505aaeb-0f4d-4078-9e1f-4df3045fd838"
+        }
+      ],
+      "id": "f7d2c646-7612-49e9-a669-3d09f525af52",
+      "createdAt": "2026-07-28T02:46:33.000Z",
+      "updatedAt": "2026-07-28T02:46:33.000Z",
+      "uid": "35240-f7d2c646-7612-49e9-a669-3d09f525af52"
+    },
+    {
+      "name": "audiences",
+      "item": [
+        {
+          "name": "{audience_id}",
+          "item": [
+            {
+              "name": "contacts",
+              "item": [
+                {
+                  "name": "{email}",
+                  "item": [
+                    {
+                      "name": "Remove an existing contact by email",
+                      "id": "ed6980ac-6100-4db6-a0ed-aefdf7f3c542",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/audiences/:audience_id/contacts/:email",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "audiences",
+                            ":audience_id",
+                            "contacts",
+                            ":email"
+                          ],
+                          "variable": [
+                            {
+                              "id": "f8ac4154-b82d-4b1b-89ec-51137c6b62b5",
+                              "key": "audience_id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            },
+                            {
+                              "id": "d03b5171-3f99-4303-8fda-79a7a518c3a8",
+                              "key": "email",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "c57971ac-997e-4f20-884f-a5e73eaea8bd",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/audiences/:audience_id/contacts/:email",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "audiences",
+                                ":audience_id",
+                                "contacts",
+                                ":email"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "audience_id"
+                                },
+                                {
+                                  "key": "email"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"object\": \"<string>\",\n  \"id\": \"<string>\",\n  \"deleted\": \"<boolean>\"\n}",
+                          "createdAt": "2026-07-28T02:46:33.000Z",
+                          "updatedAt": "2026-07-28T02:46:33.000Z",
+                          "uid": "35240-c57971ac-997e-4f20-884f-a5e73eaea8bd"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:46:33.000Z",
+                      "updatedAt": "2026-07-28T02:46:33.000Z",
+                      "uid": "35240-ed6980ac-6100-4db6-a0ed-aefdf7f3c542"
+                    }
+                  ],
+                  "id": "00cf0c63-4269-42a6-bb9a-4004a8fde346",
+                  "createdAt": "2026-07-28T02:46:33.000Z",
+                  "updatedAt": "2026-07-28T02:46:33.000Z",
+                  "uid": "35240-00cf0c63-4269-42a6-bb9a-4004a8fde346"
+                }
+              ],
+              "id": "a5683425-a72b-4a98-9f4b-d4edc48ad3cf",
+              "createdAt": "2026-07-28T02:46:33.000Z",
+              "updatedAt": "2026-07-28T02:46:33.000Z",
+              "uid": "35240-a5683425-a72b-4a98-9f4b-d4edc48ad3cf"
+            }
+          ],
+          "id": "7982dcc3-d08e-4dc5-8531-d3e1fdf4d8d9",
+          "createdAt": "2026-07-28T02:46:33.000Z",
+          "updatedAt": "2026-07-28T02:46:33.000Z",
+          "uid": "35240-7982dcc3-d08e-4dc5-8531-d3e1fdf4d8d9"
+        }
+      ],
+      "id": "717f03b4-421a-4a73-8aea-6196310490ff",
+      "createdAt": "2026-07-28T02:46:33.000Z",
+      "updatedAt": "2026-07-28T02:46:33.000Z",
+      "uid": "35240-717f03b4-421a-4a73-8aea-6196310490ff"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.resend.com"
+    }
+  ]
+}

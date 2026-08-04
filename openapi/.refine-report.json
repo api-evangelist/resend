@@ -1,0 +1,42 @@
+{
+  "provider": "resend",
+  "sources": [
+    "resend-openapi.yml"
+  ],
+  "outputs": [
+    "resend-apis-api-openapi.yml",
+    "resend-audience-api-openapi.yml",
+    "resend-audiences-api-openapi.yml",
+    "resend-batch-api-openapi.yml",
+    "resend-broadcasts-api-openapi.yml",
+    "resend-cancel-api-openapi.yml",
+    "resend-contacts-api-openapi.yml",
+    "resend-domains-api-openapi.yml",
+    "resend-email-api-openapi.yml",
+    "resend-emails-api-openapi.yml",
+    "resend-keys-api-openapi.yml",
+    "resend-send-api-openapi.yml",
+    "resend-verify-api-openapi.yml"
+  ],
+  "archived": [
+    "archived openapi/resend-openapi.yml"
+  ],
+  "errors": [],
+  "warnings": [],
+  "notes": [
+    "resend-openapi.yml: tagged POST /broadcasts -> Broadcasts",
+    "resend-openapi.yml: tagged GET /broadcasts -> Broadcasts",
+    "resend-openapi.yml: tagged DELETE /broadcasts/{id} -> Broadcasts",
+    "resend-openapi.yml: tagged GET /broadcasts/{id} -> Broadcasts",
+    "resend-openapi.yml: declared missing tag: Apis",
+    "resend-openapi.yml: declared missing tag: Audience",
+    "resend-openapi.yml: declared missing tag: Batch",
+    "resend-openapi.yml: declared missing tag: Broadcasts",
+    "resend-openapi.yml: declared missing tag: Cancel",
+    "resend-openapi.yml: declared missing tag: Email",
+    "resend-openapi.yml: declared missing tag: Keys",
+    "resend-openapi.yml: declared missing tag: Send",
+    "resend-openapi.yml: declared missing tag: Verify"
+  ],
+  "skipped": []
+}

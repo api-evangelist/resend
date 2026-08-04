@@ -1,0 +1,146 @@
+{
+  "info": {
+    "_postman_id": "dd5388f8-c3c8-41d7-90b7-6b955e0c4c4f",
+    "name": "Resend Cancel API",
+    "description": "\nResend is transforming email for developers. Simple interface, easy\nintegrations, handy templates. ",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:46:19.000Z",
+    "updatedAt": "2026-07-28T02:46:20.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-dd5388f8-c3c8-41d7-90b7-6b955e0c4c4f"
+  },
+  "item": [
+    {
+      "name": "emails",
+      "item": [
+        {
+          "name": "{email_id}",
+          "item": [
+            {
+              "name": "cancel",
+              "item": [
+                {
+                  "name": "Cancel the schedule of the e-mail.",
+                  "id": "1b60a76c-0bd0-4849-957d-ea0e1b765dd6",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/emails/:email_id/cancel",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "emails",
+                        ":email_id",
+                        "cancel"
+                      ],
+                      "variable": [
+                        {
+                          "id": "0dde2208-27b4-4435-b993-e0001e6568e6",
+                          "key": "email_id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "8b31f161-928c-415b-8ae6-cfef61f4730a",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/emails/:email_id/cancel",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "emails",
+                            ":email_id",
+                            "cancel"
+                          ],
+                          "variable": [
+                            {
+                              "key": "email_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"object\": \"<string>\",\n  \"id\": \"<string>\",\n  \"to\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"from\": \"<string>\",\n  \"created_at\": \"<dateTime>\",\n  \"subject\": \"<string>\",\n  \"html\": \"<string>\",\n  \"text\": \"<string>\",\n  \"bcc\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"cc\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"reply_to\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"last_event\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:46:20.000Z",
+                      "updatedAt": "2026-07-28T02:46:20.000Z",
+                      "uid": "35240-8b31f161-928c-415b-8ae6-cfef61f4730a"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:46:20.000Z",
+                  "updatedAt": "2026-07-28T02:46:20.000Z",
+                  "uid": "35240-1b60a76c-0bd0-4849-957d-ea0e1b765dd6"
+                }
+              ],
+              "id": "f8becf89-2129-48f8-8f4a-52771e0b6abe",
+              "createdAt": "2026-07-28T02:46:20.000Z",
+              "updatedAt": "2026-07-28T02:46:20.000Z",
+              "uid": "35240-f8becf89-2129-48f8-8f4a-52771e0b6abe"
+            }
+          ],
+          "id": "b04020ea-0662-48d6-8ee3-dcf58b0bf9f6",
+          "createdAt": "2026-07-28T02:46:20.000Z",
+          "updatedAt": "2026-07-28T02:46:20.000Z",
+          "uid": "35240-b04020ea-0662-48d6-8ee3-dcf58b0bf9f6"
+        }
+      ],
+      "id": "8f2859a5-07d8-4aa3-9567-e41e6c5b1cdf",
+      "createdAt": "2026-07-28T02:46:20.000Z",
+      "updatedAt": "2026-07-28T02:46:20.000Z",
+      "uid": "35240-8f2859a5-07d8-4aa3-9567-e41e6c5b1cdf"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.resend.com"
+    }
+  ]
+}

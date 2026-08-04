@@ -1,0 +1,709 @@
+{
+  "info": {
+    "_postman_id": "14d90a9d-d97b-4db1-9fdc-10eb95deaaa5",
+    "name": "Resend Audience API",
+    "description": "\nResend is transforming email for developers. Simple interface, easy\nintegrations, handy templates. ",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:45:58.000Z",
+    "updatedAt": "2026-07-28T02:45:58.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-14d90a9d-d97b-4db1-9fdc-10eb95deaaa5"
+  },
+  "item": [
+    {
+      "name": "audiences",
+      "item": [
+        {
+          "name": "{audience_id}",
+          "item": [
+            {
+              "name": "contacts",
+              "item": [
+                {
+                  "name": "{email}",
+                  "item": [
+                    {
+                      "name": "Remove an existing contact by email",
+                      "id": "7a5032e2-01d8-4e9d-b470-7f2d392e4afa",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/audiences/:audience_id/contacts/:email",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "audiences",
+                            ":audience_id",
+                            "contacts",
+                            ":email"
+                          ],
+                          "variable": [
+                            {
+                              "id": "15b5d91a-b128-43e0-8187-f338a2cb5fdd",
+                              "key": "audience_id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            },
+                            {
+                              "id": "76585c72-8892-42b8-8b2c-3afda65100ba",
+                              "key": "email",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "4497d336-6e01-4390-9c76-19f8bcd939cd",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/audiences/:audience_id/contacts/:email",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "audiences",
+                                ":audience_id",
+                                "contacts",
+                                ":email"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "audience_id"
+                                },
+                                {
+                                  "key": "email"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"object\": \"<string>\",\n  \"id\": \"<string>\",\n  \"deleted\": \"<boolean>\"\n}",
+                          "createdAt": "2026-07-28T02:45:58.000Z",
+                          "updatedAt": "2026-07-28T02:45:58.000Z",
+                          "uid": "35240-4497d336-6e01-4390-9c76-19f8bcd939cd"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:45:58.000Z",
+                      "updatedAt": "2026-07-28T02:45:58.000Z",
+                      "uid": "35240-7a5032e2-01d8-4e9d-b470-7f2d392e4afa"
+                    }
+                  ],
+                  "id": "11c82229-b81a-40f1-b868-3c41893cccd3",
+                  "createdAt": "2026-07-28T02:45:58.000Z",
+                  "updatedAt": "2026-07-28T02:45:58.000Z",
+                  "uid": "35240-11c82229-b81a-40f1-b868-3c41893cccd3"
+                },
+                {
+                  "name": "{id}",
+                  "item": [
+                    {
+                      "name": "Remove an existing contact by id",
+                      "id": "96dfc2c0-216d-47ba-8c7c-28a919e630f2",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/audiences/:audience_id/contacts/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "audiences",
+                            ":audience_id",
+                            "contacts",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "de7c1041-ec8a-45e5-bd80-47126d501221",
+                              "key": "audience_id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            },
+                            {
+                              "id": "d48c20da-9a1b-4711-be85-c71e76a81c49",
+                              "key": "id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "9c3b9b7d-e3e9-4d0d-b2fd-89785125a1ff",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/audiences/:audience_id/contacts/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "audiences",
+                                ":audience_id",
+                                "contacts",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "audience_id"
+                                },
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"object\": \"<string>\",\n  \"id\": \"<string>\",\n  \"deleted\": \"<boolean>\"\n}",
+                          "createdAt": "2026-07-28T02:45:58.000Z",
+                          "updatedAt": "2026-07-28T02:45:58.000Z",
+                          "uid": "35240-9c3b9b7d-e3e9-4d0d-b2fd-89785125a1ff"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:45:58.000Z",
+                      "updatedAt": "2026-07-28T02:45:58.000Z",
+                      "uid": "35240-96dfc2c0-216d-47ba-8c7c-28a919e630f2"
+                    },
+                    {
+                      "name": "Retrieve a single contact",
+                      "id": "c0c9bebb-5d51-4cfc-8429-bb58ac118d84",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/audiences/:audience_id/contacts/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "audiences",
+                            ":audience_id",
+                            "contacts",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "ed0f2fdf-528b-438f-82e0-993f119da91d",
+                              "key": "audience_id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            },
+                            {
+                              "id": "7b162797-1edb-4eb4-9edc-4d6e7368b6bd",
+                              "key": "id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "0e5e2bae-cf7d-4153-a7e1-0ff3d7c06144",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/audiences/:audience_id/contacts/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "audiences",
+                                ":audience_id",
+                                "contacts",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "audience_id"
+                                },
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"object\": \"<string>\",\n  \"id\": \"<string>\",\n  \"email\": \"<string>\",\n  \"first_name\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"created_at\": \"<dateTime>\",\n  \"unsubscribed\": \"<boolean>\"\n}",
+                          "createdAt": "2026-07-28T02:45:58.000Z",
+                          "updatedAt": "2026-07-28T02:45:58.000Z",
+                          "uid": "35240-0e5e2bae-cf7d-4153-a7e1-0ff3d7c06144"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:45:58.000Z",
+                      "updatedAt": "2026-07-28T02:45:58.000Z",
+                      "uid": "35240-c0c9bebb-5d51-4cfc-8429-bb58ac118d84"
+                    },
+                    {
+                      "name": "Update a single contact",
+                      "id": "b5938126-faeb-4748-8434-b12e54e23e59",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "PATCH",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"email\": \"<string>\",\n  \"first_name\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"unsubscribed\": \"<boolean>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/audiences/:audience_id/contacts/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "audiences",
+                            ":audience_id",
+                            "contacts",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "9b93073b-9fbf-4e96-9279-81c249845e57",
+                              "key": "audience_id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            },
+                            {
+                              "id": "acec2f2f-38ab-4704-9ffe-a6dbc6cfec51",
+                              "key": "id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "23bb9464-6d8f-4d3a-93e4-bee08b511090",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "PATCH",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"email\": \"<string>\",\n  \"first_name\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"unsubscribed\": \"<boolean>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/audiences/:audience_id/contacts/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "audiences",
+                                ":audience_id",
+                                "contacts",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "audience_id"
+                                },
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"object\": \"<string>\",\n  \"id\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T02:45:58.000Z",
+                          "updatedAt": "2026-07-28T02:45:58.000Z",
+                          "uid": "35240-23bb9464-6d8f-4d3a-93e4-bee08b511090"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:45:58.000Z",
+                      "updatedAt": "2026-07-28T02:45:58.000Z",
+                      "uid": "35240-b5938126-faeb-4748-8434-b12e54e23e59"
+                    }
+                  ],
+                  "id": "b0aa109c-9f1c-4923-8035-c4638536cdae",
+                  "createdAt": "2026-07-28T02:45:58.000Z",
+                  "updatedAt": "2026-07-28T02:45:58.000Z",
+                  "uid": "35240-b0aa109c-9f1c-4923-8035-c4638536cdae"
+                },
+                {
+                  "name": "Create a new contact",
+                  "id": "ed66af09-d918-4ddb-831e-786f8b5eb779",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"email\": \"<string>\",\n  \"first_name\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"unsubscribed\": \"<boolean>\",\n  \"audience_id\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/audiences/:audience_id/contacts",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "audiences",
+                        ":audience_id",
+                        "contacts"
+                      ],
+                      "variable": [
+                        {
+                          "id": "44fa2c93-2dda-4252-bba1-0f646a3b4755",
+                          "key": "audience_id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "1b2ad461-0288-40c5-a2d6-a8214aa0db81",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"email\": \"<string>\",\n  \"first_name\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"unsubscribed\": \"<boolean>\",\n  \"audience_id\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/audiences/:audience_id/contacts",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "audiences",
+                            ":audience_id",
+                            "contacts"
+                          ],
+                          "variable": [
+                            {
+                              "key": "audience_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Created",
+                      "code": 201,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"object\": \"<string>\",\n  \"id\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:45:58.000Z",
+                      "updatedAt": "2026-07-28T02:45:58.000Z",
+                      "uid": "35240-1b2ad461-0288-40c5-a2d6-a8214aa0db81"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:45:58.000Z",
+                  "updatedAt": "2026-07-28T02:45:58.000Z",
+                  "uid": "35240-ed66af09-d918-4ddb-831e-786f8b5eb779"
+                },
+                {
+                  "name": "Retrieve a list of contacts",
+                  "id": "3f890e80-0e8c-4f8e-8729-0da4def4b6a8",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/audiences/:audience_id/contacts",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "audiences",
+                        ":audience_id",
+                        "contacts"
+                      ],
+                      "variable": [
+                        {
+                          "id": "9933f521-57fc-4517-b7c3-c80a4f8eb02d",
+                          "key": "audience_id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "f9cfc8b5-a226-42aa-8d54-192f2360d741",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/audiences/:audience_id/contacts",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "audiences",
+                            ":audience_id",
+                            "contacts"
+                          ],
+                          "variable": [
+                            {
+                              "key": "audience_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"object\": \"<string>\",\n  \"data\": [\n    {\n      \"id\": \"<string>\",\n      \"email\": \"<string>\",\n      \"first_name\": \"<string>\",\n      \"last_name\": \"<string>\",\n      \"created_at\": \"<dateTime>\",\n      \"unsubscribed\": \"<boolean>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"email\": \"<string>\",\n      \"first_name\": \"<string>\",\n      \"last_name\": \"<string>\",\n      \"created_at\": \"<dateTime>\",\n      \"unsubscribed\": \"<boolean>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T02:45:58.000Z",
+                      "updatedAt": "2026-07-28T02:45:58.000Z",
+                      "uid": "35240-f9cfc8b5-a226-42aa-8d54-192f2360d741"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:45:58.000Z",
+                  "updatedAt": "2026-07-28T02:45:58.000Z",
+                  "uid": "35240-3f890e80-0e8c-4f8e-8729-0da4def4b6a8"
+                }
+              ],
+              "id": "f2d55969-a9d3-48f5-94ed-9004ce4dc88a",
+              "createdAt": "2026-07-28T02:45:58.000Z",
+              "updatedAt": "2026-07-28T02:45:58.000Z",
+              "uid": "35240-f2d55969-a9d3-48f5-94ed-9004ce4dc88a"
+            }
+          ],
+          "id": "194bc1de-e704-40bf-8ad9-92c14ff937e5",
+          "createdAt": "2026-07-28T02:45:58.000Z",
+          "updatedAt": "2026-07-28T02:45:58.000Z",
+          "uid": "35240-194bc1de-e704-40bf-8ad9-92c14ff937e5"
+        }
+      ],
+      "id": "eab546e2-365c-4f3f-aebc-dde28e750d45",
+      "createdAt": "2026-07-28T02:45:58.000Z",
+      "updatedAt": "2026-07-28T02:45:58.000Z",
+      "uid": "35240-eab546e2-365c-4f3f-aebc-dde28e750d45"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.resend.com"
+    }
+  ]
+}

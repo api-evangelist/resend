@@ -1,0 +1,174 @@
+{
+  "info": {
+    "_postman_id": "832c71bf-8696-49df-8c2d-af99d5f20103",
+    "name": "Resend Send API",
+    "description": "\nResend is transforming email for developers. Simple interface, easy\nintegrations, handy templates. ",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:46:35.000Z",
+    "updatedAt": "2026-07-28T02:46:35.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-832c71bf-8696-49df-8c2d-af99d5f20103"
+  },
+  "item": [
+    {
+      "name": "broadcasts",
+      "item": [
+        {
+          "name": "{id}",
+          "item": [
+            {
+              "name": "send",
+              "item": [
+                {
+                  "name": "Send or schedule a broadcast",
+                  "id": "66ef849f-b2b3-46c3-bb5e-6891d84bf82e",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"scheduled_at\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/broadcasts/:id/send",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "broadcasts",
+                        ":id",
+                        "send"
+                      ],
+                      "variable": [
+                        {
+                          "id": "a96ba252-e368-4388-a76e-2b95b3e0c625",
+                          "key": "id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "e745d4c2-a9ab-4e23-81a9-4f6147df4f33",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"scheduled_at\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/broadcasts/:id/send",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "broadcasts",
+                            ":id",
+                            "send"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:46:36.000Z",
+                      "updatedAt": "2026-07-28T02:46:36.000Z",
+                      "uid": "35240-e745d4c2-a9ab-4e23-81a9-4f6147df4f33"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:46:36.000Z",
+                  "updatedAt": "2026-07-28T02:46:36.000Z",
+                  "uid": "35240-66ef849f-b2b3-46c3-bb5e-6891d84bf82e"
+                }
+              ],
+              "id": "36e5d210-571a-4c3b-8fd3-98c6966b5b83",
+              "createdAt": "2026-07-28T02:46:36.000Z",
+              "updatedAt": "2026-07-28T02:46:36.000Z",
+              "uid": "35240-36e5d210-571a-4c3b-8fd3-98c6966b5b83"
+            }
+          ],
+          "id": "9b877117-d804-4275-a99b-22473d813226",
+          "createdAt": "2026-07-28T02:46:36.000Z",
+          "updatedAt": "2026-07-28T02:46:36.000Z",
+          "uid": "35240-9b877117-d804-4275-a99b-22473d813226"
+        }
+      ],
+      "id": "810b22a2-edcb-481a-a8f8-28ecc11c0d7f",
+      "createdAt": "2026-07-28T02:46:36.000Z",
+      "updatedAt": "2026-07-28T02:46:36.000Z",
+      "uid": "35240-810b22a2-edcb-481a-a8f8-28ecc11c0d7f"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.resend.com"
+    }
+  ]
+}

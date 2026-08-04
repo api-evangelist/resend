@@ -1,0 +1,394 @@
+{
+  "info": {
+    "_postman_id": "f279b358-7cb4-43a9-b684-d0b2e0e2924a",
+    "name": "Resend Broadcasts API",
+    "description": "\nResend is transforming email for developers. Simple interface, easy\nintegrations, handy templates. ",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:46:17.000Z",
+    "updatedAt": "2026-07-28T02:46:17.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-f279b358-7cb4-43a9-b684-d0b2e0e2924a"
+  },
+  "item": [
+    {
+      "name": "broadcasts",
+      "item": [
+        {
+          "name": "{id}",
+          "item": [
+            {
+              "name": "Remove an existing broadcast that is in the draft status",
+              "id": "922e5866-5ea1-4537-bc6d-163d56a05e10",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/broadcasts/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "broadcasts",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "a82f0c5f-61d1-46ab-a6d6-369f869efb56",
+                      "key": "id",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "277a5fad-208c-4535-8208-23fdaf147924",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/broadcasts/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "broadcasts",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"object\": \"<string>\",\n  \"deleted\": \"<boolean>\"\n}",
+                  "createdAt": "2026-07-28T02:46:18.000Z",
+                  "updatedAt": "2026-07-28T02:46:18.000Z",
+                  "uid": "35240-277a5fad-208c-4535-8208-23fdaf147924"
+                }
+              ],
+              "createdAt": "2026-07-28T02:46:18.000Z",
+              "updatedAt": "2026-07-28T02:46:18.000Z",
+              "uid": "35240-922e5866-5ea1-4537-bc6d-163d56a05e10"
+            },
+            {
+              "name": "Retrieve a single broadcast",
+              "id": "1aff6b03-fb8e-43ce-8191-2cf893e35cb5",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/broadcasts/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "broadcasts",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "73430567-91ee-418f-8853-486198b858f4",
+                      "key": "id",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "3dcb4f75-b962-4fb2-9dc7-dabcb5af99fd",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/broadcasts/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "broadcasts",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"audience_id\": \"<string>\",\n  \"from\": \"<string>\",\n  \"subject\": \"<string>\",\n  \"reply_to\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"preview_text\": \"<string>\",\n  \"status\": \"<string>\",\n  \"created_at\": \"<dateTime>\",\n  \"scheduled_at\": \"<dateTime>\",\n  \"sent_at\": \"<dateTime>\"\n}",
+                  "createdAt": "2026-07-28T02:46:18.000Z",
+                  "updatedAt": "2026-07-28T02:46:18.000Z",
+                  "uid": "35240-3dcb4f75-b962-4fb2-9dc7-dabcb5af99fd"
+                }
+              ],
+              "createdAt": "2026-07-28T02:46:18.000Z",
+              "updatedAt": "2026-07-28T02:46:18.000Z",
+              "uid": "35240-1aff6b03-fb8e-43ce-8191-2cf893e35cb5"
+            }
+          ],
+          "id": "d6d76fc9-c136-499a-a6a9-b481e0dee024",
+          "createdAt": "2026-07-28T02:46:18.000Z",
+          "updatedAt": "2026-07-28T02:46:18.000Z",
+          "uid": "35240-d6d76fc9-c136-499a-a6a9-b481e0dee024"
+        },
+        {
+          "name": "Create a broadcast",
+          "id": "a48aafed-debe-4941-80fb-8befd8a83f4f",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"audience_id\": \"<string>\",\n  \"from\": \"<string>\",\n  \"subject\": \"<string>\",\n  \"name\": \"<string>\",\n  \"reply_to\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"preview_text\": \"<string>\",\n  \"html\": \"<string>\",\n  \"text\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/broadcasts",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "broadcasts"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "3ee692e5-8d84-4626-9616-e9b6fb8c42d6",
+              "name": "OK",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"audience_id\": \"<string>\",\n  \"from\": \"<string>\",\n  \"subject\": \"<string>\",\n  \"name\": \"<string>\",\n  \"reply_to\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"preview_text\": \"<string>\",\n  \"html\": \"<string>\",\n  \"text\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/broadcasts",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "broadcasts"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"id\": \"<string>\",\n  \"object\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:46:18.000Z",
+              "updatedAt": "2026-07-28T02:46:18.000Z",
+              "uid": "35240-3ee692e5-8d84-4626-9616-e9b6fb8c42d6"
+            }
+          ],
+          "createdAt": "2026-07-28T02:46:18.000Z",
+          "updatedAt": "2026-07-28T02:46:18.000Z",
+          "uid": "35240-a48aafed-debe-4941-80fb-8befd8a83f4f"
+        },
+        {
+          "name": "Retrieve a list of broadcasts",
+          "id": "822aa325-8520-47ca-8c99-f900fc7d7865",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/broadcasts",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "broadcasts"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "a78980de-873e-4f86-8b15-63efa44e9e7a",
+              "name": "OK",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/broadcasts",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "broadcasts"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"object\": \"<string>\",\n  \"data\": [\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"audience_id\": \"<string>\",\n      \"status\": \"<string>\",\n      \"created_at\": \"<dateTime>\",\n      \"scheduled_at\": \"<dateTime>\",\n      \"sent_at\": \"<dateTime>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"audience_id\": \"<string>\",\n      \"status\": \"<string>\",\n      \"created_at\": \"<dateTime>\",\n      \"scheduled_at\": \"<dateTime>\",\n      \"sent_at\": \"<dateTime>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T02:46:18.000Z",
+              "updatedAt": "2026-07-28T02:46:18.000Z",
+              "uid": "35240-a78980de-873e-4f86-8b15-63efa44e9e7a"
+            }
+          ],
+          "createdAt": "2026-07-28T02:46:18.000Z",
+          "updatedAt": "2026-07-28T02:46:18.000Z",
+          "uid": "35240-822aa325-8520-47ca-8c99-f900fc7d7865"
+        }
+      ],
+      "id": "d654da81-9668-466b-bb0b-1384362324a8",
+      "createdAt": "2026-07-28T02:46:18.000Z",
+      "updatedAt": "2026-07-28T02:46:18.000Z",
+      "uid": "35240-d654da81-9668-466b-bb0b-1384362324a8"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.resend.com"
+    }
+  ]
+}

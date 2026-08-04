@@ -1,0 +1,607 @@
+{
+  "info": {
+    "_postman_id": "33283ab6-61ea-4ad5-8840-f69c0fdf8b94",
+    "name": "Resend Domains API",
+    "description": "\nResend is transforming email for developers. Simple interface, easy\nintegrations, handy templates. ",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:46:25.000Z",
+    "updatedAt": "2026-07-28T02:46:25.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-33283ab6-61ea-4ad5-8840-f69c0fdf8b94"
+  },
+  "item": [
+    {
+      "name": "domains",
+      "item": [
+        {
+          "name": "{domain_id}",
+          "item": [
+            {
+              "name": "verify",
+              "item": [
+                {
+                  "name": "Verify an existing domain",
+                  "id": "86a75e12-06d8-4c26-9efd-dca4670aa8a0",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/domains/:domain_id/verify",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "domains",
+                        ":domain_id",
+                        "verify"
+                      ],
+                      "variable": [
+                        {
+                          "id": "33593ecd-9c95-4cb9-bef6-2cf139afe110",
+                          "key": "domain_id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "bcdc539a-dc8a-4970-8ffd-ff7171f5169e",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/domains/:domain_id/verify",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "domains",
+                            ":domain_id",
+                            "verify"
+                          ],
+                          "variable": [
+                            {
+                              "key": "domain_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"object\": \"<string>\",\n  \"id\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:46:26.000Z",
+                      "updatedAt": "2026-07-28T02:46:26.000Z",
+                      "uid": "35240-bcdc539a-dc8a-4970-8ffd-ff7171f5169e"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:46:26.000Z",
+                  "updatedAt": "2026-07-28T02:46:26.000Z",
+                  "uid": "35240-86a75e12-06d8-4c26-9efd-dca4670aa8a0"
+                }
+              ],
+              "id": "4ac11a2b-cb84-4044-807c-6af5f5f304eb",
+              "createdAt": "2026-07-28T02:46:26.000Z",
+              "updatedAt": "2026-07-28T02:46:26.000Z",
+              "uid": "35240-4ac11a2b-cb84-4044-807c-6af5f5f304eb"
+            },
+            {
+              "name": "Retrieve a single domain",
+              "id": "a3120ee1-d7b4-4a83-9483-8cfdd55cdfec",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/domains/:domain_id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "domains",
+                    ":domain_id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "3ee17161-6833-4329-82e9-146b22074180",
+                      "key": "domain_id",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "3584bbba-95fb-44d3-8173-cef0210dc816",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/domains/:domain_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "domains",
+                        ":domain_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "domain_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"object\": \"<string>\",\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"status\": \"<string>\",\n  \"created_at\": \"<dateTime>\",\n  \"region\": \"<string>\",\n  \"records\": [\n    {\n      \"record\": \"<string>\",\n      \"name\": \"<string>\",\n      \"type\": \"<string>\",\n      \"ttl\": \"<string>\",\n      \"status\": \"<string>\",\n      \"value\": \"<string>\",\n      \"priority\": \"<integer>\"\n    },\n    {\n      \"record\": \"<string>\",\n      \"name\": \"<string>\",\n      \"type\": \"<string>\",\n      \"ttl\": \"<string>\",\n      \"status\": \"<string>\",\n      \"value\": \"<string>\",\n      \"priority\": \"<integer>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T02:46:26.000Z",
+                  "updatedAt": "2026-07-28T02:46:26.000Z",
+                  "uid": "35240-3584bbba-95fb-44d3-8173-cef0210dc816"
+                }
+              ],
+              "createdAt": "2026-07-28T02:46:26.000Z",
+              "updatedAt": "2026-07-28T02:46:26.000Z",
+              "uid": "35240-a3120ee1-d7b4-4a83-9483-8cfdd55cdfec"
+            },
+            {
+              "name": "Update an existing domain",
+              "id": "ce1d56b3-1ae8-4d4a-b0c6-c9d6823e9c56",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"open_tracking\": \"<boolean>\",\n  \"click_tracking\": \"<boolean>\",\n  \"tls\": \"opportunistic\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/domains/:domain_id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "domains",
+                    ":domain_id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "a829630d-480c-4f32-917f-a611c4a8d001",
+                      "key": "domain_id",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "b2d51a6e-3ed5-4358-ad8e-21cad73bd463",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"open_tracking\": \"<boolean>\",\n  \"click_tracking\": \"<boolean>\",\n  \"tls\": \"opportunistic\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/domains/:domain_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "domains",
+                        ":domain_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "domain_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"object\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:46:26.000Z",
+                  "updatedAt": "2026-07-28T02:46:26.000Z",
+                  "uid": "35240-b2d51a6e-3ed5-4358-ad8e-21cad73bd463"
+                }
+              ],
+              "createdAt": "2026-07-28T02:46:26.000Z",
+              "updatedAt": "2026-07-28T02:46:26.000Z",
+              "uid": "35240-ce1d56b3-1ae8-4d4a-b0c6-c9d6823e9c56"
+            },
+            {
+              "name": "Remove an existing domain",
+              "id": "3e106adb-1cdd-4f59-8f13-4b12e6da353f",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/domains/:domain_id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "domains",
+                    ":domain_id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "4207266d-28c8-4b5b-bccd-28c0a193eafe",
+                      "key": "domain_id",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "99a93070-c80f-4433-977c-93f8d639341a",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/domains/:domain_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "domains",
+                        ":domain_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "domain_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"object\": \"<string>\",\n  \"id\": \"<string>\",\n  \"deleted\": \"<boolean>\"\n}",
+                  "createdAt": "2026-07-28T02:46:26.000Z",
+                  "updatedAt": "2026-07-28T02:46:26.000Z",
+                  "uid": "35240-99a93070-c80f-4433-977c-93f8d639341a"
+                }
+              ],
+              "createdAt": "2026-07-28T02:46:26.000Z",
+              "updatedAt": "2026-07-28T02:46:26.000Z",
+              "uid": "35240-3e106adb-1cdd-4f59-8f13-4b12e6da353f"
+            }
+          ],
+          "id": "dabb0553-b271-4a20-bf63-1ecb52dc92ec",
+          "createdAt": "2026-07-28T02:46:26.000Z",
+          "updatedAt": "2026-07-28T02:46:26.000Z",
+          "uid": "35240-dabb0553-b271-4a20-bf63-1ecb52dc92ec"
+        },
+        {
+          "name": "Create a new domain",
+          "id": "cb9ff9b3-7c28-4c7c-a3ee-ee57d4e2e3b4",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"region\": \"us-east-1\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/domains",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "domains"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "e6704e22-2d3e-4364-a389-99f2c76914c9",
+              "name": "OK",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"region\": \"us-east-1\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/domains",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "domains"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"created_at\": \"<dateTime>\",\n  \"status\": \"<string>\",\n  \"records\": [\n    {\n      \"record\": \"<string>\",\n      \"name\": \"<string>\",\n      \"type\": \"<string>\",\n      \"ttl\": \"<string>\",\n      \"status\": \"<string>\",\n      \"value\": \"<string>\",\n      \"priority\": \"<integer>\"\n    },\n    {\n      \"record\": \"<string>\",\n      \"name\": \"<string>\",\n      \"type\": \"<string>\",\n      \"ttl\": \"<string>\",\n      \"status\": \"<string>\",\n      \"value\": \"<string>\",\n      \"priority\": \"<integer>\"\n    }\n  ],\n  \"region\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:46:26.000Z",
+              "updatedAt": "2026-07-28T02:46:26.000Z",
+              "uid": "35240-e6704e22-2d3e-4364-a389-99f2c76914c9"
+            }
+          ],
+          "createdAt": "2026-07-28T02:46:26.000Z",
+          "updatedAt": "2026-07-28T02:46:26.000Z",
+          "uid": "35240-cb9ff9b3-7c28-4c7c-a3ee-ee57d4e2e3b4"
+        },
+        {
+          "name": "Retrieve a list of domains",
+          "id": "4a63c879-9c56-4bf7-b274-b5abcd2bd8ad",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/domains",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "domains"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "2c1cec4a-d57b-4dc5-828f-b087a2fa5549",
+              "name": "OK",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/domains",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "domains"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"data\": [\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"status\": \"<string>\",\n      \"created_at\": \"<dateTime>\",\n      \"region\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"status\": \"<string>\",\n      \"created_at\": \"<dateTime>\",\n      \"region\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T02:46:26.000Z",
+              "updatedAt": "2026-07-28T02:46:26.000Z",
+              "uid": "35240-2c1cec4a-d57b-4dc5-828f-b087a2fa5549"
+            }
+          ],
+          "createdAt": "2026-07-28T02:46:26.000Z",
+          "updatedAt": "2026-07-28T02:46:26.000Z",
+          "uid": "35240-4a63c879-9c56-4bf7-b274-b5abcd2bd8ad"
+        }
+      ],
+      "id": "7a926901-ee18-4ace-b597-b5852c6bc0bc",
+      "createdAt": "2026-07-28T02:46:26.000Z",
+      "updatedAt": "2026-07-28T02:46:26.000Z",
+      "uid": "35240-7a926901-ee18-4ace-b597-b5852c6bc0bc"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.resend.com"
+    }
+  ]
+}
