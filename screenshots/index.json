@@ -1,0 +1,11 @@
+[
+  {
+    "repo": "resend",
+    "captured_at": "2026-08-17T125201",
+    "source_url": "https://resend.com",
+    "source_type": "root-domain",
+    "file": "resend-2026-08-17T125201.png",
+    "bytes": 506700,
+    "capture": "playwright-local"
+  }
+]

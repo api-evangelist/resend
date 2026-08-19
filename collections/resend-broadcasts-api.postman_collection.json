@@ -1,0 +1,398 @@
+{
+  "item": [
+    {
+      "id": "1806e1a0-caf5-40c8-98d8-c2b505b30bc6",
+      "name": "Broadcasts",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "25135597-0ab3-4631-a4ac-df2cbe442efa",
+          "name": "Create a broadcast",
+          "request": {
+            "name": "Create a broadcast",
+            "description": {},
+            "url": {
+              "path": [
+                "broadcasts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"audience_id\": \"<string>\",\n  \"from\": \"<string>\",\n  \"subject\": \"<string>\",\n  \"name\": \"<string>\",\n  \"reply_to\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"preview_text\": \"<string>\",\n  \"html\": \"<string>\",\n  \"text\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "6ba9028b-bb6d-457a-ac2e-95e57e0fe0db",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "broadcasts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"audience_id\": \"<string>\",\n  \"from\": \"<string>\",\n  \"subject\": \"<string>\",\n  \"name\": \"<string>\",\n  \"reply_to\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"preview_text\": \"Here are our announcements\",\n  \"html\": \"<string>\",\n  \"text\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"78261eea-8f8b-4381-83c6-79fa7120f1cf\",\n  \"object\": \"broadcast\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bfeecd90-0869-4ecf-a814-c722f4ea401d",
+          "name": "Retrieve a list of broadcasts",
+          "request": {
+            "name": "Retrieve a list of broadcasts",
+            "description": {},
+            "url": {
+              "path": [
+                "broadcasts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a45c6882-e726-417d-9006-358b60279b34",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "broadcasts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"object\": \"list\",\n  \"data\": [\n    {\n      \"id\": \"e169aa45-1ecf-4183-9955-b1499d5701d3\",\n      \"name\": \"November announcements\",\n      \"audience_id\": \"78261eea-8f8b-4381-83c6-79fa7120f1cf\",\n      \"status\": \"draft\",\n      \"created_at\": \"2023-10-06T22:59:55.977Z\",\n      \"scheduled_at\": \"2023-10-06T22:59:55.977Z\",\n      \"sent_at\": \"2023-10-06T22:59:55.977Z\"\n    },\n    {\n      \"id\": \"e169aa45-1ecf-4183-9955-b1499d5701d3\",\n      \"name\": \"November announcements\",\n      \"audience_id\": \"78261eea-8f8b-4381-83c6-79fa7120f1cf\",\n      \"status\": \"draft\",\n      \"created_at\": \"2023-10-06T22:59:55.977Z\",\n      \"scheduled_at\": \"2023-10-06T22:59:55.977Z\",\n      \"sent_at\": \"2023-10-06T22:59:55.977Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "73fe23ca-80eb-4f0f-8d40-1afeeff0de08",
+          "name": "Remove an existing broadcast that is in the draft status",
+          "request": {
+            "name": "Remove an existing broadcast that is in the draft status",
+            "description": {},
+            "url": {
+              "path": [
+                "broadcasts",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5eb3a679-5f4e-4330-876d-5da6d036ae30",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "broadcasts",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"78261eea-8f8b-4381-83c6-79fa7120f1cf\",\n  \"object\": \"broadcast\",\n  \"deleted\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "48fbaa80-597b-4dcb-a8e7-2186b42d9024",
+          "name": "Retrieve a single broadcast",
+          "request": {
+            "name": "Retrieve a single broadcast",
+            "description": {},
+            "url": {
+              "path": [
+                "broadcasts",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "eab6afa2-c551-493b-b258-8c2ff77490df",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "broadcasts",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"e169aa45-1ecf-4183-9955-b1499d5701d3\",\n  \"name\": \"November announcements\",\n  \"audience_id\": \"string\",\n  \"from\": \"Acme <onboarding@resend.dev>\",\n  \"subject\": \"Hello World\",\n  \"reply_to\": [\n    \"string\",\n    \"string\"\n  ],\n  \"preview_text\": \"Here are our announcements\",\n  \"status\": \"draft\",\n  \"created_at\": \"2023-10-06T22:59:55.977Z\",\n  \"scheduled_at\": \"2023-10-06T22:59:55.977Z\",\n  \"sent_at\": \"2023-10-06T22:59:55.977Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.resend.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "b7bc7fa5-1d4a-4c26-9de5-47d3ab00b13e",
+    "name": "Resend Broadcasts API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "\nResend is transforming email for developers. Simple interface, easy\nintegrations, handy templates. ",
+      "type": "text/plain"
+    }
+  }
+}

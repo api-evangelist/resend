@@ -1,0 +1,42 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Resend Cancel API",
+    "version": "1.1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Cancel",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Cancel the schedule of the e-mail.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.resend.com/emails/:email_id/cancel",
+            "params": [
+              {
+                "name": "email_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Cancel the schedule of the e-mail."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

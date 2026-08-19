@@ -1,0 +1,126 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Resend Domains API",
+    "version": "1.1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Domains",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve a list of domains",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.resend.com/domains"
+          },
+          "docs": "Retrieve a list of domains"
+        },
+        {
+          "info": {
+            "name": "Create a new domain",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.resend.com/domains",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new domain"
+        },
+        {
+          "info": {
+            "name": "Retrieve a single domain",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.resend.com/domains/:domain_id",
+            "params": [
+              {
+                "name": "domain_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve a single domain"
+        },
+        {
+          "info": {
+            "name": "Update an existing domain",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.resend.com/domains/:domain_id",
+            "params": [
+              {
+                "name": "domain_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update an existing domain"
+        },
+        {
+          "info": {
+            "name": "Remove an existing domain",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.resend.com/domains/:domain_id",
+            "params": [
+              {
+                "name": "domain_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Remove an existing domain"
+        },
+        {
+          "info": {
+            "name": "Verify an existing domain",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.resend.com/domains/:domain_id/verify",
+            "params": [
+              {
+                "name": "domain_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Verify an existing domain"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
