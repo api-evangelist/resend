@@ -564,6 +564,8 @@ apis:
   - type: GraphQL
     url: graphql/resend-graphql.md
 common:
+- type: Website
+  url: https://www.resend.com/
 - type: PostmanWorkspace
   url: https://www.postman.com/kinlaneapi/resend/overview
 - type: TrustCenter
