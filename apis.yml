@@ -42,47 +42,6 @@ created: '2024-11-07'
 modified: '2026-05-29'
 specificationVersion: '0.23'
 apis:
-- aid: resend:resend-apis-api
-  name: Resend Apis API
-  description: The Apis API from Resend — 2 operation(s) for apis.
-  humanURL: https://resend.com/
-  baseURL: https://api.resend.com
-  tags: []
-  tags_raw:
-  - Apis
-  properties:
-  - type: OpenAPI
-    url: openapi/resend-apis-api-openapi.yml
-  - type: Documentation
-    url: https://resend.com/
-  - type: Webhooks
-    url: https://resend.com/docs/dashboard/webhooks/introduction
-  - type: AsyncAPI
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/resend/refs/heads/main/asyncapi/resend-webhooks-asyncapi.yml
-  - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/resend/refs/heads/main/json-schema/resend-email-schema.json
-  - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/resend/refs/heads/main/json-schema/resend-audience-schema.json
-  - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/resend/refs/heads/main/json-schema/resend-domain-schema.json
-  - type: JSONStructure
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/resend/refs/heads/main/json-structure/resend-email-structure.json
-  - type: JSONLDContext
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/resend/refs/heads/main/json-ld/resend-context.jsonld
-  - type: SpectralRules
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/resend/refs/heads/main/rules/resend-rules.yml
-  - type: Vocabulary
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/resend/refs/heads/main/vocabulary/resend-vocabulary.yml
-  - type: GraphQL
-    url: graphql/resend-graphql.md
 - aid: resend:resend-audiences-api
   name: Resend Audiences API
   description: Create and manage Audiences through the Resend API.
@@ -253,6 +212,46 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/resend-send-api-openapi.yml
+  - type: Documentation
+    url: https://resend.com/
+  - type: Webhooks
+    url: https://resend.com/docs/dashboard/webhooks/introduction
+  - type: AsyncAPI
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/resend/refs/heads/main/asyncapi/resend-webhooks-asyncapi.yml
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/resend/refs/heads/main/json-schema/resend-email-schema.json
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/resend/refs/heads/main/json-schema/resend-audience-schema.json
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/resend/refs/heads/main/json-schema/resend-domain-schema.json
+  - type: JSONStructure
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/resend/refs/heads/main/json-structure/resend-email-structure.json
+  - type: JSONLDContext
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/resend/refs/heads/main/json-ld/resend-context.jsonld
+  - type: SpectralRules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/resend/refs/heads/main/rules/resend-rules.yml
+  - type: Vocabulary
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/resend/refs/heads/main/vocabulary/resend-vocabulary.yml
+  - type: GraphQL
+    url: graphql/resend-graphql.md
+- aid: resend:resend-apis-api
+  name: Resend APIS API
+  description: The Apis API from Resend — 2 operation(s) for apis.
+  humanURL: https://resend.com/
+  baseURL: https://api.resend.com
+  tags:
+  - Apis
+  properties:
+  - type: OpenAPI
+    url: openapi/resend-apis-api-openapi.yml
   - type: Documentation
     url: https://resend.com/
   - type: Webhooks
