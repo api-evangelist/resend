@@ -88,6 +88,8 @@ apis:
   humanURL: https://resend.com/
   baseURL: https://api.resend.com
   tags:
+  - Broadcast
+  tags_raw:
   - Broadcasts
   properties:
   - type: OpenAPI
@@ -168,6 +170,8 @@ apis:
   humanURL: https://resend.com/
   baseURL: https://api.resend.com
   tags:
+  - Email
+  tags_raw:
   - Emails
   properties:
   - type: OpenAPI
@@ -247,7 +251,8 @@ apis:
   description: The Apis API from Resend — 2 operation(s) for apis.
   humanURL: https://resend.com/
   baseURL: https://api.resend.com
-  tags:
+  tags: []
+  tags_raw:
   - Apis
   properties:
   - type: OpenAPI
