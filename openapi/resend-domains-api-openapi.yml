@@ -1,12 +1,10 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
   title: Resend Domains API
   version: 1.1.0
-  description: '
+  description: 'Resend is transforming email for developers. Simple interface, easy
 
-    Resend is transforming email for developers. Simple interface, easy
-
-    integrations, handy templates. '
+    integrations, handy templates.'
 servers:
 - url: https://api.resend.com
 security:
@@ -32,6 +30,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/CreateDomainResponse'
+      operationId: postDomains
+      x-operation-id-source: derived
     get:
       tags:
       - Domains
@@ -43,6 +43,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ListDomainsResponse'
+      operationId: getDomains
+      x-operation-id-source: derived
   /domains/{domain_id}:
     get:
       tags:
@@ -62,6 +64,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Domain'
+      operationId: getDomainsByDomainId
+      x-operation-id-source: derived
     patch:
       tags:
       - Domains
@@ -85,6 +89,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/UpdateDomainResponseSuccess'
+      operationId: patchDomainsByDomainId
+      x-operation-id-source: derived
     delete:
       tags:
       - Domains
@@ -103,6 +109,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/DeleteDomainResponse'
+      operationId: deleteDomainsByDomainId
+      x-operation-id-source: derived
   /domains/{domain_id}/verify:
     post:
       tags:
@@ -122,24 +130,34 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/VerifyDomainResponse'
+      operationId: postDomainsByDomainIdVerify
+      x-operation-id-source: derived
 components:
   schemas:
-    CreateDomainRequest:
+    ListDomainsItem:
       type: object
-      required:
-      - name
       properties:
+        id:
+          type: string
+          description: The ID of the domain.
+          example: d91cd9bd-1176-453e-8fc1-35364d380206
         name:
           type: string
-          description: The name of the domain you want to create.
+          description: The name of the domain.
+          example: example.com
+        status:
+          type: string
+          description: The status of the domain.
+          example: not_started
+        created_at:
+          type: string
+          format: date-time
+          description: The date and time the domain was created.
+          example: '2023-04-26T20:21:26.347412+00:00'
         region:
           type: string
-          enum:
-          - us-east-1
-          - eu-west-1
-          - sa-east-1
-          default: us-east-1
-          description: The region where emails will be sent from. Possible values are us-east-1' | 'eu-west-1' | 'sa-east-1
+          description: The region where the domain is hosted.
+          example: us-east-1
     Domain:
       type: object
       properties:
@@ -172,95 +190,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/DomainRecord'
-    ListDomainsItem:
-      type: object
-      properties:
-        id:
-          type: string
-          description: The ID of the domain.
-          example: d91cd9bd-1176-453e-8fc1-35364d380206
-        name:
-          type: string
-          description: The name of the domain.
-          example: example.com
-        status:
-          type: string
-          description: The status of the domain.
-          example: not_started
-        created_at:
-          type: string
-          format: date-time
-          description: The date and time the domain was created.
-          example: '2023-04-26T20:21:26.347412+00:00'
-        region:
-          type: string
-          description: The region where the domain is hosted.
-          example: us-east-1
-    VerifyDomainResponse:
-      type: object
-      properties:
-        object:
-          type: string
-          description: The type of object.
-          example: domain
-        id:
-          type: string
-          description: The ID of the domain.
-          example: d91cd9bd-1176-453e-8fc1-35364d380206
-    UpdateDomainOptions:
-      type: object
-      properties:
-        open_tracking:
-          type: boolean
-          description: Track the open rate of each email.
-        click_tracking:
-          type: boolean
-          description: Track clicks within the body of each HTML email.
-        tls:
-          type: string
-          description: enforced | opportunistic.
-          default: opportunistic
-    UpdateDomainResponseSuccess:
-      type: object
-      properties:
-        id:
-          type: string
-          description: The ID of the updated domain.
-          example: d91cd9bd-1176-453e-8fc1-35364d380206
-        object:
-          type: string
-          description: The object type representing the updated domain.
-          example: domain
-    CreateDomainResponse:
-      type: object
-      properties:
-        id:
-          type: string
-          description: The ID of the domain.
-        name:
-          type: string
-          description: The name of the domain.
-        created_at:
-          type: string
-          format: date-time
-          description: The date and time the domain was created.
-        status:
-          type: string
-          description: The status of the domain.
-        records:
-          type: array
-          items:
-            $ref: '#/components/schemas/DomainRecord'
-        region:
-          type: string
-          description: The region where the domain is hosted.
-    ListDomainsResponse:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/ListDomainsItem'
     DomainRecord:
       type: object
       properties:
@@ -285,6 +214,71 @@ components:
         priority:
           type: integer
           description: The priority of the record.
+    UpdateDomainResponseSuccess:
+      type: object
+      properties:
+        id:
+          type: string
+          description: The ID of the updated domain.
+          example: d91cd9bd-1176-453e-8fc1-35364d380206
+        object:
+          type: string
+          description: The object type representing the updated domain.
+          example: domain
+    ListDomainsResponse:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/ListDomainsItem'
+    VerifyDomainResponse:
+      type: object
+      properties:
+        object:
+          type: string
+          description: The type of object.
+          example: domain
+        id:
+          type: string
+          description: The ID of the domain.
+          example: d91cd9bd-1176-453e-8fc1-35364d380206
+    UpdateDomainOptions:
+      type: object
+      properties:
+        open_tracking:
+          type: boolean
+          description: Track the open rate of each email.
+        click_tracking:
+          type: boolean
+          description: Track clicks within the body of each HTML email.
+        tls:
+          type: string
+          description: enforced | opportunistic.
+          default: opportunistic
+    CreateDomainResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          description: The ID of the domain.
+        name:
+          type: string
+          description: The name of the domain.
+        created_at:
+          type: string
+          format: date-time
+          description: The date and time the domain was created.
+        status:
+          type: string
+          description: The status of the domain.
+        records:
+          type: array
+          items:
+            $ref: '#/components/schemas/DomainRecord'
+        region:
+          type: string
+          description: The region where the domain is hosted.
     DeleteDomainResponse:
       type: object
       properties:
@@ -300,6 +294,22 @@ components:
           type: boolean
           description: Indicates whether the domain was deleted successfully.
           example: true
+    CreateDomainRequest:
+      type: object
+      required:
+      - name
+      properties:
+        name:
+          type: string
+          description: The name of the domain you want to create.
+        region:
+          type: string
+          enum:
+          - us-east-1
+          - eu-west-1
+          - sa-east-1
+          default: us-east-1
+          description: The region where emails will be sent from. Possible values are us-east-1' | 'eu-west-1' | 'sa-east-1
   securitySchemes:
     bearerAuth:
       type: http

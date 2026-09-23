@@ -1,12 +1,10 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
   title: Resend Broadcasts API
   version: 1.1.0
-  description: '
+  description: 'Resend is transforming email for developers. Simple interface, easy
 
-    Resend is transforming email for developers. Simple interface, easy
-
-    integrations, handy templates. '
+    integrations, handy templates.'
 servers:
 - url: https://api.resend.com
 security:
@@ -31,6 +29,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/CreateBroadcastResponseSuccess'
+      operationId: postBroadcasts
+      x-operation-id-source: derived
     get:
       tags:
       - Broadcasts
@@ -42,6 +42,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ListBroadcastsResponseSuccess'
+      operationId: getBroadcasts
+      x-operation-id-source: derived
   /broadcasts/{id}:
     delete:
       tags:
@@ -61,6 +63,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/RemoveBroadcastResponseSuccess'
+      operationId: deleteBroadcastsById
+      x-operation-id-source: derived
     get:
       tags:
       - Broadcasts
@@ -79,53 +83,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/GetBroadcastResponseSuccess'
+      operationId: getBroadcastsById
+      x-operation-id-source: derived
 components:
   schemas:
-    CreateBroadcastOptions:
-      type: object
-      required:
-      - audience_id
-      - from
-      - subject
-      properties:
-        name:
-          type: string
-          description: Name of the broadcast.
-        audience_id:
-          type: string
-          description: Unique identifier of the audience this broadcast will be sent to.
-        from:
-          type: string
-          description: The email address of the sender.
-        subject:
-          type: string
-          description: The subject line of the email.
-        reply_to:
-          type: array
-          items:
-            type: string
-          description: The email addresses to which replies should be sent.
-        preview_text:
-          type: string
-          description: The preview text of the email.
-          example: Here are our announcements
-        html:
-          type: string
-          description: The HTML version of the message.
-        text:
-          type: string
-          description: The plain text version of the message.
-    CreateBroadcastResponseSuccess:
-      type: object
-      properties:
-        id:
-          type: string
-          description: The ID of the broadcast.
-          example: 78261eea-8f8b-4381-83c6-79fa7120f1cf
-        object:
-          type: string
-          description: The object type of the response.
-          example: broadcast
     GetBroadcastResponseSuccess:
       type: object
       properties:
@@ -220,6 +181,51 @@ components:
                 format: date-time
                 description: Timestamp indicating when the broadcast was sent.
                 example: '2023-10-06T22:59:55.977Z'
+    CreateBroadcastOptions:
+      type: object
+      required:
+      - audience_id
+      - from
+      - subject
+      properties:
+        name:
+          type: string
+          description: Name of the broadcast.
+        audience_id:
+          type: string
+          description: Unique identifier of the audience this broadcast will be sent to.
+        from:
+          type: string
+          description: The email address of the sender.
+        subject:
+          type: string
+          description: The subject line of the email.
+        reply_to:
+          type: array
+          items:
+            type: string
+          description: The email addresses to which replies should be sent.
+        preview_text:
+          type: string
+          description: The preview text of the email.
+          example: Here are our announcements
+        html:
+          type: string
+          description: The HTML version of the message.
+        text:
+          type: string
+          description: The plain text version of the message.
+    CreateBroadcastResponseSuccess:
+      type: object
+      properties:
+        id:
+          type: string
+          description: The ID of the broadcast.
+          example: 78261eea-8f8b-4381-83c6-79fa7120f1cf
+        object:
+          type: string
+          description: The object type of the response.
+          example: broadcast
     RemoveBroadcastResponseSuccess:
       type: object
       properties:

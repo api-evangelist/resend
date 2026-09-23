@@ -1,12 +1,10 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
   title: Resend Emails API
   version: 1.1.0
-  description: '
+  description: 'Resend is transforming email for developers. Simple interface, easy
 
-    Resend is transforming email for developers. Simple interface, easy
-
-    integrations, handy templates. '
+    integrations, handy templates.'
 servers:
 - url: https://api.resend.com
 security:
@@ -32,6 +30,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/SendEmailResponse'
+      operationId: postEmails
+      x-operation-id-source: derived
   /emails/{email_id}:
     get:
       tags:
@@ -51,6 +51,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Email'
+      operationId: getEmailsByEmailId
+      x-operation-id-source: derived
     patch:
       tags:
       - Emails
@@ -69,11 +71,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/UpdateEmailOptions'
+      operationId: patchEmailsByEmailId
+      x-operation-id-source: derived
   /emails/{email_id}/cancel:
     post:
       tags:
       - Emails
-      summary: Cancel the schedule of the e-mail.
+      summary: Cancel the schedule of the e-mail
       parameters:
       - name: email_id
         in: path
@@ -88,11 +92,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Email'
+      operationId: postEmailsByEmailIdCancel
+      x-operation-id-source: derived
   /emails/batch:
     post:
       tags:
       - Emails
-      summary: Trigger up to 100 batch emails at once.
+      summary: Trigger up to 100 batch emails at once
       requestBody:
         content:
           application/json:
@@ -107,103 +113,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/CreateBatchEmailsResponse'
+      operationId: postEmailsBatch
+      x-operation-id-source: derived
 components:
   schemas:
-    SendEmailResponse:
-      type: object
-      properties:
-        id:
-          type: string
-          description: The ID of the sent email.
-    Tag:
-      type: object
-      properties:
-        name:
-          type: string
-          description: The name of the email tag. It can only contain ASCII letters (az, AZ), numbers (09), underscores (_), or dashes (-). It can contain no more than 256 characters.
-        value:
-          type: string
-          description: The value of the email tag.It can only contain ASCII letters (az, AZ), numbers (09), underscores (_), or dashes (-). It can contain no more than 256 characters.
-    SendEmailRequest:
-      type: object
-      required:
-      - from
-      - to
-      - subject
-      properties:
-        from:
-          type: string
-          description: Sender email address. To include a friendly name, use the format "Your Name <sender@domain.com>".
-        to:
-          type: array
-          items:
-            type: string
-            description: Recipient email address. For multiple addresses, send as an array of strings. Max 50.
-        subject:
-          type: string
-          description: Email subject.
-        bcc:
-          type: string
-          description: Bcc recipient email address. For multiple addresses, send as an array of strings.
-        cc:
-          type: string
-          description: Cc recipient email address. For multiple addresses, send as an array of strings.
-        reply_to:
-          type: string
-          description: Reply-to email address. For multiple addresses, send as an array of strings.
-        html:
-          type: string
-          description: The HTML version of the message.
-        text:
-          type: string
-          description: The plain text version of the message.
-        headers:
-          type: object
-          description: Custom headers to add to the email.
-        scheduled_at:
-          type: string
-          description: Schedule email to be sent later. The date should be in ISO 8601 format.
-        attachments:
-          type: array
-          items:
-            $ref: '#/components/schemas/Attachment'
-        tags:
-          type: array
-          items:
-            $ref: '#/components/schemas/Tag'
-    Attachment:
-      type: object
-      properties:
-        content:
-          type: string
-          format: binary
-          description: Content of an attached file.
-        filename:
-          type: string
-          description: Name of attached file.
-        path:
-          type: string
-          description: Path where the attachment file is hosted
-        content_type:
-          type: string
-          description: Optional content type for the attachment, if not set it will be derived from the filename property
-    CreateBatchEmailsResponse:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            type: object
-            properties:
-              id:
-                type: string
-                description: The ID of the sent email.
-    UpdateEmailOptions:
-      type: object
-      properties:
-        scheduled_at:
-          type: string
-          description: Schedule email to be sent later. The date should be in ISO 8601 format.
     Email:
       type: object
       properties:
@@ -261,6 +174,101 @@ components:
           type: string
           description: The status of the email.
           example: delivered
+    SendEmailRequest:
+      type: object
+      required:
+      - from
+      - to
+      - subject
+      properties:
+        from:
+          type: string
+          description: Sender email address. To include a friendly name, use the format "Your Name <sender@domain.com>".
+        to:
+          type: array
+          items:
+            type: string
+            description: Recipient email address. For multiple addresses, send as an array of strings. Max 50.
+        subject:
+          type: string
+          description: Email subject.
+        bcc:
+          type: string
+          description: Bcc recipient email address. For multiple addresses, send as an array of strings.
+        cc:
+          type: string
+          description: Cc recipient email address. For multiple addresses, send as an array of strings.
+        reply_to:
+          type: string
+          description: Reply-to email address. For multiple addresses, send as an array of strings.
+        html:
+          type: string
+          description: The HTML version of the message.
+        text:
+          type: string
+          description: The plain text version of the message.
+        headers:
+          type: object
+          description: Custom headers to add to the email.
+        scheduled_at:
+          type: string
+          description: Schedule email to be sent later. The date should be in ISO 8601 format.
+        attachments:
+          type: array
+          items:
+            $ref: '#/components/schemas/Attachment'
+        tags:
+          type: array
+          items:
+            $ref: '#/components/schemas/Tag'
+    CreateBatchEmailsResponse:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+                description: The ID of the sent email.
+    SendEmailResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          description: The ID of the sent email.
+    Tag:
+      type: object
+      properties:
+        name:
+          type: string
+          description: The name of the email tag. It can only contain ASCII letters (az, AZ), numbers (09), underscores (_), or dashes (-). It can contain no more than 256 characters.
+        value:
+          type: string
+          description: The value of the email tag.It can only contain ASCII letters (az, AZ), numbers (09), underscores (_), or dashes (-). It can contain no more than 256 characters.
+    UpdateEmailOptions:
+      type: object
+      properties:
+        scheduled_at:
+          type: string
+          description: Schedule email to be sent later. The date should be in ISO 8601 format.
+    Attachment:
+      type: object
+      properties:
+        content:
+          type: string
+          format: binary
+          description: Content of an attached file.
+        filename:
+          type: string
+          description: Name of attached file.
+        path:
+          type: string
+          description: Path where the attachment file is hosted
+        content_type:
+          type: string
+          description: Optional content type for the attachment, if not set it will be derived from the filename property
   securitySchemes:
     bearerAuth:
       type: http

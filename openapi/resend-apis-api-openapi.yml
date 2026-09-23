@@ -1,23 +1,21 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Resend Apis API
+  title: Resend APIS API
   version: 1.1.0
-  description: '
+  description: 'Resend is transforming email for developers. Simple interface, easy
 
-    Resend is transforming email for developers. Simple interface, easy
-
-    integrations, handy templates. '
+    integrations, handy templates.'
 servers:
 - url: https://api.resend.com
 security:
 - bearerAuth: []
 tags:
-- name: Apis
+- name: APIs
 paths:
   /api-keys:
     post:
       tags:
-      - Apis
+      - APIs
       summary: Create a new API key
       requestBody:
         content:
@@ -31,9 +29,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/CreateApiKeyResponse'
+      operationId: postApiKeys
+      x-operation-id-source: derived
     get:
       tags:
-      - Apis
+      - APIs
       summary: Retrieve a list of API keys
       responses:
         '200':
@@ -42,10 +42,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ListApiKeysResponse'
+      operationId: getApiKeys
+      x-operation-id-source: derived
   /api-keys/{api_key_id}:
     delete:
       tags:
-      - Apis
+      - APIs
       summary: Remove an existing API key
       parameters:
       - name: api_key_id
@@ -57,15 +59,19 @@ paths:
       responses:
         '200':
           description: OK
+      operationId: deleteApiKeysByApiKeyId
+      x-operation-id-source: derived
 components:
   schemas:
-    ListApiKeysResponse:
+    CreateApiKeyResponse:
       type: object
       properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/ApiKey'
+        id:
+          type: string
+          description: The ID of the API key.
+        token:
+          type: string
+          description: The token of the API key.
     ApiKey:
       type: object
       properties:
@@ -79,15 +85,6 @@ components:
           type: string
           format: date-time
           description: The date and time the API key was created.
-    CreateApiKeyResponse:
-      type: object
-      properties:
-        id:
-          type: string
-          description: The ID of the API key.
-        token:
-          type: string
-          description: The token of the API key.
     CreateApiKeyRequest:
       type: object
       required:
@@ -105,6 +102,13 @@ components:
         domain_id:
           type: string
           description: Restrict an API key to send emails only from a specific domain. Only used when the permission is sending_acces.
+    ListApiKeysResponse:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/ApiKey'
   securitySchemes:
     bearerAuth:
       type: http

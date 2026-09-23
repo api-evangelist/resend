@@ -1,33 +1,28 @@
 {
   "provider": "resend",
   "sources": [
-    "resend-openapi.yml"
+    "_original/resend-openapi.yml"
   ],
   "outputs": [
     "resend-apis-api-openapi.yml",
-    "resend-audience-api-openapi.yml",
     "resend-audiences-api-openapi.yml",
-    "resend-batch-api-openapi.yml",
     "resend-broadcasts-api-openapi.yml",
-    "resend-cancel-api-openapi.yml",
-    "resend-contacts-api-openapi.yml",
     "resend-domains-api-openapi.yml",
-    "resend-email-api-openapi.yml",
     "resend-emails-api-openapi.yml",
-    "resend-keys-api-openapi.yml",
-    "resend-send-api-openapi.yml",
-    "resend-verify-api-openapi.yml"
+    "resend-send-api-openapi.yml"
   ],
   "archived": [
-    "archived openapi/resend-openapi.yml"
+    "deleted 1 superseded output(s) from the previous generation"
   ],
   "errors": [],
   "warnings": [],
   "notes": [
-    "resend-openapi.yml: tagged POST /broadcasts -> Broadcasts",
-    "resend-openapi.yml: tagged GET /broadcasts -> Broadcasts",
-    "resend-openapi.yml: tagged DELETE /broadcasts/{id} -> Broadcasts",
-    "resend-openapi.yml: tagged GET /broadcasts/{id} -> Broadcasts",
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "resend-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "resend-openapi.yml: tagged paths POST /broadcasts -> Broadcasts",
+    "resend-openapi.yml: tagged paths GET /broadcasts -> Broadcasts",
+    "resend-openapi.yml: tagged paths DELETE /broadcasts/{id} -> Broadcasts",
+    "resend-openapi.yml: tagged paths GET /broadcasts/{id} -> Broadcasts",
     "resend-openapi.yml: declared missing tag: Apis",
     "resend-openapi.yml: declared missing tag: Audience",
     "resend-openapi.yml: declared missing tag: Batch",
@@ -36,7 +31,17 @@
     "resend-openapi.yml: declared missing tag: Email",
     "resend-openapi.yml: declared missing tag: Keys",
     "resend-openapi.yml: declared missing tag: Send",
-    "resend-openapi.yml: declared missing tag: Verify"
+    "resend-openapi.yml: declared missing tag: Verify",
+    "resend-openapi.yml: multi-axis tagging (13 tags, 6 first tags, 1.76x duplication over 29 operations) \u2014 split on first tag, 14 operations narrowed",
+    "superseded outputs removed: resend-ap-is-api-openapi.yml",
+    "apis.yml register: written (+1 apis, 6 total)"
   ],
-  "skipped": []
+  "skipped": [
+    "resend-ap-is-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "resend-audiences-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "resend-broadcasts-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "resend-domains-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "resend-emails-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "resend-send-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
