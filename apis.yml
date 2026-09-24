@@ -80,8 +80,6 @@ apis:
   - type: Vocabulary
     url: >-
       https://raw.githubusercontent.com/api-evangelist/resend/refs/heads/main/vocabulary/resend-vocabulary.yml
-  - type: GraphQL
-    url: graphql/resend-graphql.md
 - aid: resend:resend-broadcasts-api
   name: Resend Broadcasts API
   description: The Broadcasts API from Resend — 2 operation(s) for broadcasts.
@@ -122,8 +120,6 @@ apis:
   - type: Vocabulary
     url: >-
       https://raw.githubusercontent.com/api-evangelist/resend/refs/heads/main/vocabulary/resend-vocabulary.yml
-  - type: GraphQL
-    url: graphql/resend-graphql.md
 - aid: resend:resend-domains-api
   name: Resend Domains API
   description: Create and manage domains through the Resend API.
@@ -162,8 +158,6 @@ apis:
   - type: Vocabulary
     url: >-
       https://raw.githubusercontent.com/api-evangelist/resend/refs/heads/main/vocabulary/resend-vocabulary.yml
-  - type: GraphQL
-    url: graphql/resend-graphql.md
 - aid: resend:resend-emails-api
   name: Resend Emails API
   description: Start sending emails through the Resend API.
@@ -204,8 +198,6 @@ apis:
   - type: Vocabulary
     url: >-
       https://raw.githubusercontent.com/api-evangelist/resend/refs/heads/main/vocabulary/resend-vocabulary.yml
-  - type: GraphQL
-    url: graphql/resend-graphql.md
 - aid: resend:resend-send-api
   name: Resend Send API
   description: The Send API from Resend — 1 operation(s) for send.
@@ -244,8 +236,6 @@ apis:
   - type: Vocabulary
     url: >-
       https://raw.githubusercontent.com/api-evangelist/resend/refs/heads/main/vocabulary/resend-vocabulary.yml
-  - type: GraphQL
-    url: graphql/resend-graphql.md
 - aid: resend:resend-apis-api
   name: Resend APIS API
   description: The Apis API from Resend — 2 operation(s) for apis.
@@ -285,8 +275,6 @@ apis:
   - type: Vocabulary
     url: >-
       https://raw.githubusercontent.com/api-evangelist/resend/refs/heads/main/vocabulary/resend-vocabulary.yml
-  - type: GraphQL
-    url: graphql/resend-graphql.md
 common:
 - type: Website
   url: https://www.resend.com/
