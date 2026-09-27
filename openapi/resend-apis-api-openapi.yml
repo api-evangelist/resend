@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: Resend APIS API
+  title: Resend APIs API
   version: 1.1.0
   description: 'Resend is transforming email for developers. Simple interface, easy
 
@@ -85,6 +85,13 @@ components:
           type: string
           format: date-time
           description: The date and time the API key was created.
+    ListApiKeysResponse:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/ApiKey'
     CreateApiKeyRequest:
       type: object
       required:
@@ -102,13 +109,6 @@ components:
         domain_id:
           type: string
           description: Restrict an API key to send emails only from a specific domain. Only used when the permission is sending_acces.
-    ListApiKeysResponse:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/ApiKey'
   securitySchemes:
     bearerAuth:
       type: http

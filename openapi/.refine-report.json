@@ -11,9 +11,7 @@
     "resend-emails-api-openapi.yml",
     "resend-send-api-openapi.yml"
   ],
-  "archived": [
-    "deleted 1 superseded output(s) from the previous generation"
-  ],
+  "archived": [],
   "errors": [],
   "warnings": [],
   "notes": [
@@ -33,11 +31,10 @@
     "resend-openapi.yml: declared missing tag: Send",
     "resend-openapi.yml: declared missing tag: Verify",
     "resend-openapi.yml: multi-axis tagging (13 tags, 6 first tags, 1.76x duplication over 29 operations) \u2014 split on first tag, 14 operations narrowed",
-    "superseded outputs removed: resend-ap-is-api-openapi.yml",
-    "apis.yml register: written (+1 apis, 6 total)"
+    "apis.yml register: already-registered"
   ],
   "skipped": [
-    "resend-ap-is-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "resend-apis-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "resend-audiences-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "resend-broadcasts-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "resend-domains-api-openapi.yml: previously refined output, superseded by openapi/_original/",

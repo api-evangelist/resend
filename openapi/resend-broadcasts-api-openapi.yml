@@ -87,6 +87,66 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    CreateBroadcastResponseSuccess:
+      type: object
+      properties:
+        id:
+          type: string
+          description: The ID of the broadcast.
+          example: 78261eea-8f8b-4381-83c6-79fa7120f1cf
+        object:
+          type: string
+          description: The object type of the response.
+          example: broadcast
+    RemoveBroadcastResponseSuccess:
+      type: object
+      properties:
+        id:
+          type: string
+          description: The ID of the broadcast.
+          example: 78261eea-8f8b-4381-83c6-79fa7120f1cf
+        object:
+          type: string
+          description: Type of the response object.
+          example: broadcast
+        deleted:
+          type: boolean
+          description: The deleted attribute indicates that the corresponding broadcast has been deleted.
+          example: true
+    CreateBroadcastOptions:
+      type: object
+      required:
+      - audience_id
+      - from
+      - subject
+      properties:
+        name:
+          type: string
+          description: Name of the broadcast.
+        audience_id:
+          type: string
+          description: Unique identifier of the audience this broadcast will be sent to.
+        from:
+          type: string
+          description: The email address of the sender.
+        subject:
+          type: string
+          description: The subject line of the email.
+        reply_to:
+          type: array
+          items:
+            type: string
+          description: The email addresses to which replies should be sent.
+        preview_text:
+          type: string
+          description: The preview text of the email.
+          example: Here are our announcements
+        html:
+          type: string
+          description: The HTML version of the message.
+        text:
+          type: string
+          description: The plain text version of the message.
     GetBroadcastResponseSuccess:
       type: object
       properties:
@@ -181,66 +241,6 @@ components:
                 format: date-time
                 description: Timestamp indicating when the broadcast was sent.
                 example: '2023-10-06T22:59:55.977Z'
-    CreateBroadcastOptions:
-      type: object
-      required:
-      - audience_id
-      - from
-      - subject
-      properties:
-        name:
-          type: string
-          description: Name of the broadcast.
-        audience_id:
-          type: string
-          description: Unique identifier of the audience this broadcast will be sent to.
-        from:
-          type: string
-          description: The email address of the sender.
-        subject:
-          type: string
-          description: The subject line of the email.
-        reply_to:
-          type: array
-          items:
-            type: string
-          description: The email addresses to which replies should be sent.
-        preview_text:
-          type: string
-          description: The preview text of the email.
-          example: Here are our announcements
-        html:
-          type: string
-          description: The HTML version of the message.
-        text:
-          type: string
-          description: The plain text version of the message.
-    CreateBroadcastResponseSuccess:
-      type: object
-      properties:
-        id:
-          type: string
-          description: The ID of the broadcast.
-          example: 78261eea-8f8b-4381-83c6-79fa7120f1cf
-        object:
-          type: string
-          description: The object type of the response.
-          example: broadcast
-    RemoveBroadcastResponseSuccess:
-      type: object
-      properties:
-        id:
-          type: string
-          description: The ID of the broadcast.
-          example: 78261eea-8f8b-4381-83c6-79fa7120f1cf
-        object:
-          type: string
-          description: Type of the response object.
-          example: broadcast
-        deleted:
-          type: boolean
-          description: The deleted attribute indicates that the corresponding broadcast has been deleted.
-          example: true
   securitySchemes:
     bearerAuth:
       type: http
