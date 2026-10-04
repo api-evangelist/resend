@@ -134,6 +134,56 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    CreateDomainResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          description: The ID of the domain.
+        name:
+          type: string
+          description: The name of the domain.
+        created_at:
+          type: string
+          format: date-time
+          description: The date and time the domain was created.
+        status:
+          type: string
+          description: The status of the domain.
+        records:
+          type: array
+          items:
+            $ref: '#/components/schemas/DomainRecord'
+        region:
+          type: string
+          description: The region where the domain is hosted.
+    UpdateDomainResponseSuccess:
+      type: object
+      properties:
+        id:
+          type: string
+          description: The ID of the updated domain.
+          example: d91cd9bd-1176-453e-8fc1-35364d380206
+        object:
+          type: string
+          description: The object type representing the updated domain.
+          example: domain
+    CreateDomainRequest:
+      type: object
+      required:
+      - name
+      properties:
+        name:
+          type: string
+          description: The name of the domain you want to create.
+        region:
+          type: string
+          enum:
+          - us-east-1
+          - eu-west-1
+          - sa-east-1
+          default: us-east-1
+          description: The region where emails will be sent from. Possible values are us-east-1' | 'eu-west-1' | 'sa-east-1
     Domain:
       type: object
       properties:
@@ -166,53 +216,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/DomainRecord'
-    UpdateDomainOptions:
-      type: object
-      properties:
-        open_tracking:
-          type: boolean
-          description: Track the open rate of each email.
-        click_tracking:
-          type: boolean
-          description: Track clicks within the body of each HTML email.
-        tls:
-          type: string
-          description: enforced | opportunistic.
-          default: opportunistic
-    CreateDomainResponse:
-      type: object
-      properties:
-        id:
-          type: string
-          description: The ID of the domain.
-        name:
-          type: string
-          description: The name of the domain.
-        created_at:
-          type: string
-          format: date-time
-          description: The date and time the domain was created.
-        status:
-          type: string
-          description: The status of the domain.
-        records:
-          type: array
-          items:
-            $ref: '#/components/schemas/DomainRecord'
-        region:
-          type: string
-          description: The region where the domain is hosted.
-    VerifyDomainResponse:
-      type: object
-      properties:
-        object:
-          type: string
-          description: The type of object.
-          example: domain
-        id:
-          type: string
-          description: The ID of the domain.
-          example: d91cd9bd-1176-453e-8fc1-35364d380206
     DomainRecord:
       type: object
       properties:
@@ -244,32 +247,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ListDomainsItem'
-    UpdateDomainResponseSuccess:
-      type: object
-      properties:
-        id:
-          type: string
-          description: The ID of the updated domain.
-          example: d91cd9bd-1176-453e-8fc1-35364d380206
-        object:
-          type: string
-          description: The object type representing the updated domain.
-          example: domain
-    DeleteDomainResponse:
-      type: object
-      properties:
-        object:
-          type: string
-          description: The type of object.
-          example: domain
-        id:
-          type: string
-          description: The ID of the domain.
-          example: d91cd9bd-1176-453e-8fc1-35364d380206
-        deleted:
-          type: boolean
-          description: Indicates whether the domain was deleted successfully.
-          example: true
     ListDomainsItem:
       type: object
       properties:
@@ -294,22 +271,45 @@ components:
           type: string
           description: The region where the domain is hosted.
           example: us-east-1
-    CreateDomainRequest:
+    UpdateDomainOptions:
       type: object
-      required:
-      - name
       properties:
-        name:
+        open_tracking:
+          type: boolean
+          description: Track the open rate of each email.
+        click_tracking:
+          type: boolean
+          description: Track clicks within the body of each HTML email.
+        tls:
           type: string
-          description: The name of the domain you want to create.
-        region:
+          description: enforced | opportunistic.
+          default: opportunistic
+    VerifyDomainResponse:
+      type: object
+      properties:
+        object:
           type: string
-          enum:
-          - us-east-1
-          - eu-west-1
-          - sa-east-1
-          default: us-east-1
-          description: The region where emails will be sent from. Possible values are us-east-1' | 'eu-west-1' | 'sa-east-1
+          description: The type of object.
+          example: domain
+        id:
+          type: string
+          description: The ID of the domain.
+          example: d91cd9bd-1176-453e-8fc1-35364d380206
+    DeleteDomainResponse:
+      type: object
+      properties:
+        object:
+          type: string
+          description: The type of object.
+          example: domain
+        id:
+          type: string
+          description: The ID of the domain.
+          example: d91cd9bd-1176-453e-8fc1-35364d380206
+        deleted:
+          type: boolean
+          description: Indicates whether the domain was deleted successfully.
+          example: true
   securitySchemes:
     bearerAuth:
       type: http

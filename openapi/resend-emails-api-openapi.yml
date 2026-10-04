@@ -117,39 +117,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    Attachment:
-      type: object
-      properties:
-        content:
-          type: string
-          format: binary
-          description: Content of an attached file.
-        filename:
-          type: string
-          description: Name of attached file.
-        path:
-          type: string
-          description: Path where the attachment file is hosted
-        content_type:
-          type: string
-          description: Optional content type for the attachment, if not set it will be derived from the filename property
-    CreateBatchEmailsResponse:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            type: object
-            properties:
-              id:
-                type: string
-                description: The ID of the sent email.
-    SendEmailResponse:
-      type: object
-      properties:
-        id:
-          type: string
-          description: The ID of the sent email.
     Email:
       type: object
       properties:
@@ -207,6 +174,45 @@ components:
           type: string
           description: The status of the email.
           example: delivered
+    CreateBatchEmailsResponse:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+                description: The ID of the sent email.
+    UpdateEmailOptions:
+      type: object
+      properties:
+        scheduled_at:
+          type: string
+          description: Schedule email to be sent later. The date should be in ISO 8601 format.
+    SendEmailResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          description: The ID of the sent email.
+    Attachment:
+      type: object
+      properties:
+        content:
+          type: string
+          format: binary
+          description: Content of an attached file.
+        filename:
+          type: string
+          description: Name of attached file.
+        path:
+          type: string
+          description: Path where the attachment file is hosted
+        content_type:
+          type: string
+          description: Optional content type for the attachment, if not set it will be derived from the filename property
     Tag:
       type: object
       properties:
@@ -216,12 +222,6 @@ components:
         value:
           type: string
           description: The value of the email tag.It can only contain ASCII letters (az, AZ), numbers (09), underscores (_), or dashes (-). It can contain no more than 256 characters.
-    UpdateEmailOptions:
-      type: object
-      properties:
-        scheduled_at:
-          type: string
-          description: Schedule email to be sent later. The date should be in ISO 8601 format.
     SendEmailRequest:
       type: object
       required:

@@ -63,6 +63,35 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    ListApiKeysResponse:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/ApiKey'
+    CreateApiKeyResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          description: The ID of the API key.
+        token:
+          type: string
+          description: The token of the API key.
+    ApiKey:
+      type: object
+      properties:
+        id:
+          type: string
+          description: The ID of the API key.
+        name:
+          type: string
+          description: The name of the API key.
+        created_at:
+          type: string
+          format: date-time
+          description: The date and time the API key was created.
     CreateApiKeyRequest:
       type: object
       required:
@@ -80,35 +109,6 @@ components:
         domain_id:
           type: string
           description: Restrict an API key to send emails only from a specific domain. Only used when the permission is sending_acces.
-    ListApiKeysResponse:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/ApiKey'
-    ApiKey:
-      type: object
-      properties:
-        id:
-          type: string
-          description: The ID of the API key.
-        name:
-          type: string
-          description: The name of the API key.
-        created_at:
-          type: string
-          format: date-time
-          description: The date and time the API key was created.
-    CreateApiKeyResponse:
-      type: object
-      properties:
-        id:
-          type: string
-          description: The ID of the API key.
-        token:
-          type: string
-          description: The token of the API key.
   securitySchemes:
     bearerAuth:
       type: http

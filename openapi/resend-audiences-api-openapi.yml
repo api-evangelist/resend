@@ -245,69 +245,25 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    UpdateContactResponseSuccess:
+    UpdateContactOptions:
       type: object
       properties:
-        object:
+        email:
           type: string
-          description: Type of the response object.
-          example: contact
-        id:
+          description: Email address of the contact.
+          example: steve.wozniak@gmail.com
+        first_name:
           type: string
-          description: Unique identifier for the updated contact.
-          example: 479e3145-dd38-476b-932c-529ceb705947
-    CreateContactResponseSuccess:
-      type: object
-      properties:
-        object:
+          description: First name of the contact.
+          example: Steve
+        last_name:
           type: string
-          description: Type of the response object.
-          example: contact
-        id:
-          type: string
-          description: Unique identifier for the created contact.
-          example: 479e3145-dd38-476b-932c-529ceb705947
-    ListAudiencesResponseSuccess:
-      type: object
-      properties:
-        object:
-          type: string
-          description: Type of the response object.
-          example: list
-        data:
-          type: array
-          description: Array containing audience information.
-          items:
-            type: object
-            properties:
-              id:
-                type: string
-                description: Unique identifier for the audience.
-                example: 78261eea-8f8b-4381-83c6-79fa7120f1cf
-              name:
-                type: string
-                description: Name of the audience.
-                example: Registered Users
-              created_at:
-                type: string
-                format: date-time
-                description: Timestamp indicating when the audience was created.
-                example: '2023-10-06T22:59:55.977Z'
-    RemoveContactResponseSuccess:
-      type: object
-      properties:
-        object:
-          type: string
-          description: Type of the response object.
-          example: contact
-        id:
-          type: string
-          description: Unique identifier for the removed contact.
-          example: 520784e2-887d-4c25-b53c-4ad46ad38100
-        deleted:
+          description: Last name of the contact.
+          example: Wozniak
+        unsubscribed:
           type: boolean
-          description: Indicates whether the contact was successfully deleted.
-          example: true
+          description: Indicates the subscription status of the contact.
+          example: false
     RemoveAudienceResponseSuccess:
       type: object
       properties:
@@ -355,6 +311,136 @@ components:
           type: boolean
           description: Indicates if the contact is unsubscribed.
           example: false
+    CreateAudienceResponseSuccess:
+      type: object
+      properties:
+        id:
+          type: string
+          description: The ID of the audience.
+          example: 78261eea-8f8b-4381-83c6-79fa7120f1cf
+        object:
+          type: string
+          description: The object of the audience.
+          example: audience
+        name:
+          type: string
+          description: The name of the audience.
+          example: Registered Users
+    GetAudienceResponseSuccess:
+      type: object
+      properties:
+        id:
+          type: string
+          description: The ID of the audience.
+          example: 78261eea-8f8b-4381-83c6-79fa7120f1cf
+        object:
+          type: string
+          description: The object of the audience.
+          example: audience
+        name:
+          type: string
+          description: The name of the audience.
+          example: Registered Users
+        created_at:
+          type: string
+          description: The date that the object was created.
+          example: '2023-10-06T22:59:55.977Z'
+    CreateAudienceOptions:
+      type: object
+      required:
+      - name
+      properties:
+        name:
+          type: string
+          description: The name of the audience you want to create.
+    RemoveContactResponseSuccess:
+      type: object
+      properties:
+        object:
+          type: string
+          description: Type of the response object.
+          example: contact
+        id:
+          type: string
+          description: Unique identifier for the removed contact.
+          example: 520784e2-887d-4c25-b53c-4ad46ad38100
+        deleted:
+          type: boolean
+          description: Indicates whether the contact was successfully deleted.
+          example: true
+    CreateContactOptions:
+      type: object
+      required:
+      - email
+      properties:
+        email:
+          type: string
+          description: Email address of the contact.
+          example: steve.wozniak@gmail.com
+        first_name:
+          type: string
+          description: First name of the contact.
+          example: Steve
+        last_name:
+          type: string
+          description: Last name of the contact.
+          example: Wozniak
+        unsubscribed:
+          type: boolean
+          description: Indicates if the contact is unsubscribed.
+          example: false
+        audience_id:
+          type: string
+          description: Unique identifier of the audience to which the contact belongs.
+          example: 78261eea-8f8b-4381-83c6-79fa7120f1cf
+    ListAudiencesResponseSuccess:
+      type: object
+      properties:
+        object:
+          type: string
+          description: Type of the response object.
+          example: list
+        data:
+          type: array
+          description: Array containing audience information.
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+                description: Unique identifier for the audience.
+                example: 78261eea-8f8b-4381-83c6-79fa7120f1cf
+              name:
+                type: string
+                description: Name of the audience.
+                example: Registered Users
+              created_at:
+                type: string
+                format: date-time
+                description: Timestamp indicating when the audience was created.
+                example: '2023-10-06T22:59:55.977Z'
+    UpdateContactResponseSuccess:
+      type: object
+      properties:
+        object:
+          type: string
+          description: Type of the response object.
+          example: contact
+        id:
+          type: string
+          description: Unique identifier for the updated contact.
+          example: 479e3145-dd38-476b-932c-529ceb705947
+    CreateContactResponseSuccess:
+      type: object
+      properties:
+        object:
+          type: string
+          description: Type of the response object.
+          example: contact
+        id:
+          type: string
+          description: Unique identifier for the created contact.
+          example: 479e3145-dd38-476b-932c-529ceb705947
     ListContactsResponseSuccess:
       type: object
       properties:
@@ -393,92 +479,6 @@ components:
                 type: boolean
                 description: Indicates if the contact is unsubscribed.
                 example: false
-    CreateAudienceOptions:
-      type: object
-      required:
-      - name
-      properties:
-        name:
-          type: string
-          description: The name of the audience you want to create.
-    GetAudienceResponseSuccess:
-      type: object
-      properties:
-        id:
-          type: string
-          description: The ID of the audience.
-          example: 78261eea-8f8b-4381-83c6-79fa7120f1cf
-        object:
-          type: string
-          description: The object of the audience.
-          example: audience
-        name:
-          type: string
-          description: The name of the audience.
-          example: Registered Users
-        created_at:
-          type: string
-          description: The date that the object was created.
-          example: '2023-10-06T22:59:55.977Z'
-    CreateAudienceResponseSuccess:
-      type: object
-      properties:
-        id:
-          type: string
-          description: The ID of the audience.
-          example: 78261eea-8f8b-4381-83c6-79fa7120f1cf
-        object:
-          type: string
-          description: The object of the audience.
-          example: audience
-        name:
-          type: string
-          description: The name of the audience.
-          example: Registered Users
-    CreateContactOptions:
-      type: object
-      required:
-      - email
-      properties:
-        email:
-          type: string
-          description: Email address of the contact.
-          example: steve.wozniak@gmail.com
-        first_name:
-          type: string
-          description: First name of the contact.
-          example: Steve
-        last_name:
-          type: string
-          description: Last name of the contact.
-          example: Wozniak
-        unsubscribed:
-          type: boolean
-          description: Indicates if the contact is unsubscribed.
-          example: false
-        audience_id:
-          type: string
-          description: Unique identifier of the audience to which the contact belongs.
-          example: 78261eea-8f8b-4381-83c6-79fa7120f1cf
-    UpdateContactOptions:
-      type: object
-      properties:
-        email:
-          type: string
-          description: Email address of the contact.
-          example: steve.wozniak@gmail.com
-        first_name:
-          type: string
-          description: First name of the contact.
-          example: Steve
-        last_name:
-          type: string
-          description: Last name of the contact.
-          example: Wozniak
-        unsubscribed:
-          type: boolean
-          description: Indicates the subscription status of the contact.
-          example: false
   securitySchemes:
     bearerAuth:
       type: http

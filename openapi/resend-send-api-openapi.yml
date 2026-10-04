@@ -40,12 +40,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    SendBroadcastOptions:
-      type: object
-      properties:
-        scheduled_at:
-          type: string
-          description: Schedule email to be sent later. The date should be in ISO 8601 format.
     SendBroadcastResponseSuccess:
       type: object
       properties:
@@ -53,6 +47,12 @@ components:
           type: string
           description: The ID of the broadcast.
           example: 78261eea-8f8b-4381-83c6-79fa7120f1cf
+    SendBroadcastOptions:
+      type: object
+      properties:
+        scheduled_at:
+          type: string
+          description: Schedule email to be sent later. The date should be in ISO 8601 format.
   securitySchemes:
     bearerAuth:
       type: http
