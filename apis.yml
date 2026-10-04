@@ -276,6 +276,9 @@ apis:
     url: >-
       https://raw.githubusercontent.com/api-evangelist/resend/refs/heads/main/vocabulary/resend-vocabulary.yml
 common:
+- type: CapabilityMap
+  url: capabilities/resend-capability-edges.yml
+  name: Resend Business Capability Map
 - type: Website
   url: https://www.resend.com/
 - type: PostmanWorkspace
