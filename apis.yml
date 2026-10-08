@@ -276,6 +276,10 @@ apis:
     url: >-
       https://raw.githubusercontent.com/api-evangelist/resend/refs/heads/main/vocabulary/resend-vocabulary.yml
 common:
+- type: Plans
+  url: plans/resend-plans-pricing.yml
+- type: FinOps
+  url: finops/resend-finops.yml
 - type: CapabilityMap
   url: capabilities/resend-capability-edges.yml
   name: Resend Business Capability Map
