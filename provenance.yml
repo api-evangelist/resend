@@ -13,11 +13,11 @@ artifacts:
     method: derived
     evidence: openapi/resend-apis-api
   collections/resend-audience-api.opencollection.json:
-    method: derived
-    evidence: openapi/resend-audience-api
+    method: unknown
+    evidence: no authorship recorded
   collections/resend-audience-api.postman_collection.json:
-    method: derived
-    evidence: openapi/resend-audience-api
+    method: unknown
+    evidence: no authorship recorded
   collections/resend-audiences-api.opencollection.json:
     method: derived
     evidence: openapi/resend-audiences-api
@@ -25,11 +25,11 @@ artifacts:
     method: derived
     evidence: openapi/resend-audiences-api
   collections/resend-batch-api.opencollection.json:
-    method: derived
-    evidence: openapi/resend-batch-api
+    method: unknown
+    evidence: no authorship recorded
   collections/resend-batch-api.postman_collection.json:
-    method: derived
-    evidence: openapi/resend-batch-api
+    method: unknown
+    evidence: no authorship recorded
   collections/resend-broadcasts-api.opencollection.json:
     method: derived
     evidence: openapi/resend-broadcasts-api
@@ -37,17 +37,17 @@ artifacts:
     method: derived
     evidence: openapi/resend-broadcasts-api
   collections/resend-cancel-api.opencollection.json:
-    method: derived
-    evidence: openapi/resend-cancel-api
+    method: unknown
+    evidence: no authorship recorded
   collections/resend-cancel-api.postman_collection.json:
-    method: derived
-    evidence: openapi/resend-cancel-api
+    method: unknown
+    evidence: no authorship recorded
   collections/resend-contacts-api.opencollection.json:
-    method: derived
-    evidence: openapi/resend-contacts-api
+    method: unknown
+    evidence: no authorship recorded
   collections/resend-contacts-api.postman_collection.json:
-    method: derived
-    evidence: openapi/resend-contacts-api
+    method: unknown
+    evidence: no authorship recorded
   collections/resend-domains-api.opencollection.json:
     method: derived
     evidence: openapi/resend-domains-api
@@ -55,11 +55,11 @@ artifacts:
     method: derived
     evidence: openapi/resend-domains-api
   collections/resend-email-api.opencollection.json:
-    method: derived
-    evidence: openapi/resend-email-api
+    method: unknown
+    evidence: no authorship recorded
   collections/resend-email-api.postman_collection.json:
-    method: derived
-    evidence: openapi/resend-email-api
+    method: unknown
+    evidence: no authorship recorded
   collections/resend-emails-api.opencollection.json:
     method: derived
     evidence: openapi/resend-emails-api
@@ -67,11 +67,11 @@ artifacts:
     method: derived
     evidence: openapi/resend-emails-api
   collections/resend-keys-api.opencollection.json:
-    method: derived
-    evidence: openapi/resend-keys-api
+    method: unknown
+    evidence: no authorship recorded
   collections/resend-keys-api.postman_collection.json:
-    method: derived
-    evidence: openapi/resend-keys-api
+    method: unknown
+    evidence: no authorship recorded
   collections/resend-send-api.opencollection.json:
     method: derived
     evidence: openapi/resend-send-api
@@ -79,11 +79,11 @@ artifacts:
     method: derived
     evidence: openapi/resend-send-api
   collections/resend-verify-api.opencollection.json:
-    method: derived
-    evidence: openapi/resend-verify-api
+    method: unknown
+    evidence: no authorship recorded
   collections/resend-verify-api.postman_collection.json:
-    method: derived
-    evidence: openapi/resend-verify-api
+    method: unknown
+    evidence: no authorship recorded
   examples/resend-create-audience-example.json:
     method: unknown
     evidence: no authorship recorded
@@ -93,10 +93,7 @@ artifacts:
   finops/resend-finops.yml:
     method: generated
     evidence: declared in the artifact
-  graphql/resend-graphql.md:
-    method: unknown
-    evidence: no authorship recorded
-  graphql/resend-schema.graphql:
+  front-door-ai/2026-09-17.yml:
     method: unknown
     evidence: no authorship recorded
   json-ld/resend-context.jsonld:
@@ -114,55 +111,7 @@ artifacts:
   json-structure/resend-email-structure.json:
     method: unknown
     evidence: no authorship recorded
-  kin/checks-2026-09-05T072335.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-06T210741.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-07T135032.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-10T093022.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-10T111628.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-11T211707.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-12T193225.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-17T064519.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-19T080027.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-19T082702.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-19T114122.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-20T165047.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-20T191845.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-20T205517.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-21T110057.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-24T064859.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-24T171257.yml:
+  kin/checks-2026-09-24T161608.yml:
     method: generated
     evidence: Kin Score snapshot written by score.rb
   kin/score-2026-08-25T125852.yml:
@@ -249,49 +198,149 @@ artifacts:
   kin/score-2026-09-05T072335.yml:
     method: generated
     evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-05T144739.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-05T195450.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-05T211839.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-06T011047.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-06T211804.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-06T224210.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-07T200636.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-07T213054.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-08T214843.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-08T232836.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-10T204815.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-10T222408.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-12T062655.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-12T080032.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-12T204651.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-12T221936.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-13T214537.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-14T064754.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-14T210656.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-14T225847.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-15T211329.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-15T230249.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-16T210549.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-16T225339.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-17T211151.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-17T233623.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-18T205255.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-18T231945.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-19T165737.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-19T193153.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-20T205903.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-20T232958.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-21T211425.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-21T233935.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-22T213221.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-23T000603.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-24T064009.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-24T090406.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-24T161608.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
   llms/resend-llms.txt:
     method: searched
     evidence: 'derive-llms-provenance.py: harvested'
-  openapi/_original/resend-openapi.yml:
-    method: harvested
-    evidence: fetched from the provider as-is; byte-identical to the source
-  openapi/resend-apis-api-openapi.yml:
+  mcp/resend-mcp.yml:
     method: unknown
     evidence: no authorship recorded
-  openapi/resend-audience-api-openapi.yml:
+  openapi/_original/resend-openapi.yml:
+    method: harvested
+    evidence: found in openapi/_original/; the fetch URL and bytes were not recorded, so byte-identity
+      to the provider's source is unverified
+  openapi/resend-apis-api-openapi.yml:
     method: unknown
     evidence: no authorship recorded
   openapi/resend-audiences-api-openapi.yml:
     method: unknown
     evidence: no authorship recorded
-  openapi/resend-batch-api-openapi.yml:
-    method: unknown
-    evidence: no authorship recorded
   openapi/resend-broadcasts-api-openapi.yml:
-    method: unknown
-    evidence: no authorship recorded
-  openapi/resend-cancel-api-openapi.yml:
-    method: unknown
-    evidence: no authorship recorded
-  openapi/resend-contacts-api-openapi.yml:
     method: unknown
     evidence: no authorship recorded
   openapi/resend-domains-api-openapi.yml:
     method: unknown
     evidence: no authorship recorded
-  openapi/resend-email-api-openapi.yml:
-    method: unknown
-    evidence: no authorship recorded
   openapi/resend-emails-api-openapi.yml:
     method: unknown
     evidence: no authorship recorded
-  openapi/resend-keys-api-openapi.yml:
-    method: unknown
-    evidence: no authorship recorded
   openapi/resend-send-api-openapi.yml:
-    method: unknown
-    evidence: no authorship recorded
-  openapi/resend-verify-api-openapi.yml:
     method: unknown
     evidence: no authorship recorded
   plans/resend-plans-pricing.yml:
@@ -301,41 +350,41 @@ artifacts:
     method: derived
     evidence: openapi/resend-apis-api
   postman/resend-audience-api.postman_collection.json:
-    method: derived
-    evidence: openapi/resend-audience-api
+    method: unknown
+    evidence: no authorship recorded
   postman/resend-audiences-api.postman_collection.json:
     method: derived
     evidence: openapi/resend-audiences-api
   postman/resend-batch-api.postman_collection.json:
-    method: derived
-    evidence: openapi/resend-batch-api
+    method: unknown
+    evidence: no authorship recorded
   postman/resend-broadcasts-api.postman_collection.json:
     method: derived
     evidence: openapi/resend-broadcasts-api
   postman/resend-cancel-api.postman_collection.json:
-    method: derived
-    evidence: openapi/resend-cancel-api
+    method: unknown
+    evidence: no authorship recorded
   postman/resend-contacts-api.postman_collection.json:
-    method: derived
-    evidence: openapi/resend-contacts-api
+    method: unknown
+    evidence: no authorship recorded
   postman/resend-domains-api.postman_collection.json:
     method: derived
     evidence: openapi/resend-domains-api
   postman/resend-email-api.postman_collection.json:
-    method: derived
-    evidence: openapi/resend-email-api
+    method: unknown
+    evidence: no authorship recorded
   postman/resend-emails-api.postman_collection.json:
     method: derived
     evidence: openapi/resend-emails-api
   postman/resend-keys-api.postman_collection.json:
-    method: derived
-    evidence: openapi/resend-keys-api
+    method: unknown
+    evidence: no authorship recorded
   postman/resend-send-api.postman_collection.json:
     method: derived
     evidence: openapi/resend-send-api
   postman/resend-verify-api.postman_collection.json:
-    method: derived
-    evidence: openapi/resend-verify-api
+    method: unknown
+    evidence: no authorship recorded
   rate-limits/resend-rate-limits.yml:
     method: generated
     evidence: declared in the artifact
@@ -358,5 +407,14 @@ artifacts:
     method: searched
     evidence: declared in the artifact
   vocabulary/resend-vocabulary.yml:
+    method: unknown
+    evidence: no authorship recorded
+  well-known/resend-api-oauth-authorization-server.json:
+    method: unknown
+    evidence: no authorship recorded
+  well-known/resend-mcp-oauth-protected-resource.json:
+    method: unknown
+    evidence: no authorship recorded
+  well-known/resend-well-known.yml:
     method: unknown
     evidence: no authorship recorded
