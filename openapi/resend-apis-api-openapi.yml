@@ -70,6 +70,23 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ApiKey'
+    CreateApiKeyRequest:
+      type: object
+      required:
+      - name
+      properties:
+        name:
+          type: string
+          description: The API key name.
+        permission:
+          type: string
+          enum:
+          - full_access
+          - sending_access
+          description: The API key can have full access to Resends API or be only restricted to send emails. * full_access - Can create, delete, get, and update any resource. * sending_access - Can only send emails.
+        domain_id:
+          type: string
+          description: Restrict an API key to send emails only from a specific domain. Only used when the permission is sending_acces.
     CreateApiKeyResponse:
       type: object
       properties:
@@ -92,23 +109,6 @@ components:
           type: string
           format: date-time
           description: The date and time the API key was created.
-    CreateApiKeyRequest:
-      type: object
-      required:
-      - name
-      properties:
-        name:
-          type: string
-          description: The API key name.
-        permission:
-          type: string
-          enum:
-          - full_access
-          - sending_access
-          description: The API key can have full access to Resends API or be only restricted to send emails. * full_access - Can create, delete, get, and update any resource. * sending_access - Can only send emails.
-        domain_id:
-          type: string
-          description: Restrict an API key to send emails only from a specific domain. Only used when the permission is sending_acces.
   securitySchemes:
     bearerAuth:
       type: http
