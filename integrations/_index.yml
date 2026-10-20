@@ -99,3 +99,122 @@
     builder: Pipedream repo (component)
   status: not-a-workflow
   arazzo: null
+- slug: resend-agent-skills-own-github-org
+  label: Agent Skills (own GitHub org)
+  partner_name: Agent Skills (own GitHub org)
+  category: Agent Skills package
+  type: register
+  channel: provider-built
+  evidence: https://github.com/resend/design-skills
+  source: edge
+  relationship: compatible
+  contract_reference:
+    register: 'provider''s own GitHub org (GitHub REST API: repo + git tree holds SKILL.md)'
+    spec_file: null
+    standard: Agent Skills (agentskills.io)
+    role: agent-skills-repo
+    matched_org: resend
+    matched_by: org-profile-domain:resend.com
+    detected_by: sweep-agent-skills.py
+    detected: '2026-10-20'
+  status: not-a-workflow
+  arazzo: null
+- slug: resend-skills-sh
+  label: skills.sh
+  partner_name: skills.sh
+  category: Agent Skills register
+  type: register
+  channel: standard-directory
+  evidence: https://www.skills.sh/resend/design-skills
+  source: edge
+  relationship: compatible
+  contract_reference:
+    register: skills.sh (public sitemap / list)
+    spec_file: null
+    standard: Agent Skills (agentskills.io)
+    role: agent-skills-listing
+    matched_org: resend
+    matched_by: org-profile-domain:resend.com
+    sample_skills:
+    - agent-email-inbox
+    - email-best-practices
+    - react-email
+    - resend
+    - resend-cli
+    detected_by: sweep-agent-skills.py
+    detected: '2026-10-20'
+  status: not-a-workflow
+  arazzo: null
+- slug: resend-skillsmp-skillsmp-com
+  label: SkillsMP (skillsmp.com)
+  partner_name: SkillsMP (skillsmp.com)
+  category: Agent Skills register
+  type: register
+  channel: standard-directory
+  evidence: https://skillsmp.com/creators/resend/resend-skills
+  source: edge
+  relationship: compatible
+  contract_reference:
+    register: SkillsMP (skillsmp.com) (public sitemap / list)
+    spec_file: null
+    standard: Agent Skills (agentskills.io)
+    role: agent-skills-listing
+    matched_org: resend
+    matched_by: org-profile-domain:resend.com
+    sample_skills:
+    - skills-agent-email-inbox
+    - skills-email-best-practices
+    - skills-react-email
+    - skills-resend
+    - skills-resend-cli
+    detected_by: sweep-agent-skills.py
+    detected: '2026-10-20'
+  status: not-a-workflow
+  arazzo: null
+- slug: resend-officialskills-sh
+  label: officialskills.sh
+  partner_name: officialskills.sh
+  category: Agent Skills register
+  type: register
+  channel: standard-directory
+  evidence: https://officialskills.sh/resend/skills
+  source: edge
+  relationship: compatible
+  contract_reference:
+    register: officialskills.sh (public sitemap / list)
+    spec_file: null
+    standard: Agent Skills (agentskills.io)
+    role: agent-skills-listing
+    matched_org: resend
+    matched_by: org-profile-domain:resend.com
+    sample_skills:
+    - agent-email-inbox
+    - email-best-practices
+    - react-email
+    - resend
+    - resend-cli
+    detected_by: sweep-agent-skills.py
+    detected: '2026-10-20'
+  status: not-a-workflow
+  arazzo: null
+- slug: resend-voltagent-awesome-agent-skills-community-list
+  label: VoltAgent awesome-agent-skills (community list)
+  partner_name: VoltAgent awesome-agent-skills (community list)
+  category: Agent Skills register
+  type: register
+  channel: standard-directory
+  evidence: https://github.com/VoltAgent/awesome-agent-skills
+  source: edge
+  relationship: compatible
+  contract_reference:
+    register: VoltAgent awesome-agent-skills (community list) (public sitemap / list)
+    spec_file: null
+    standard: Agent Skills (agentskills.io)
+    role: agent-skills-listing
+    matched_org: resend
+    matched_by: org-profile-domain:resend.com
+    sample_skills: []
+    detected_by: sweep-agent-skills.py
+    detected: '2026-10-20'
+  status: not-a-workflow
+  arazzo: null

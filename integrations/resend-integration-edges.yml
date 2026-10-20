@@ -102,6 +102,194 @@ edges:
     builder: Pipedream repo (component)
   detected_by: sweep-workflow-automation.py
   first_seen: '2026-10-15'
+- partner_name: Agent Skills (own GitHub org)
+  partner: null
+  partner_match: register
+  type: register
+  direction: provider-built
+  category: Agent Skills package
+  evidence: https://github.com/resend/design-skills
+  channel: provider-built
+  relationship: compatible
+  shape: agent-skills
+  evidence_kind: own-repo
+  degree: skill-repo
+  report_only: true
+  agent_skills:
+    org: resend
+    current: true
+    repos:
+    - repo: resend/design-skills
+      archived: false
+      lapsed: false
+      pushed: '2026-07-13'
+    - repo: resend/email-best-practices
+      archived: false
+      lapsed: false
+      pushed: '2026-10-08'
+    - repo: resend/react-email
+      archived: false
+      lapsed: false
+      pushed: '2026-10-16'
+    - repo: resend/resend-cli
+      archived: false
+      lapsed: false
+      pushed: '2026-10-16'
+    - repo: resend/resend-skills
+      archived: false
+      lapsed: false
+      pushed: '2026-10-17'
+  contract_reference:
+    register: 'provider''s own GitHub org (GitHub REST API: repo + git tree holds SKILL.md)'
+    spec_file: null
+    standard: Agent Skills (agentskills.io)
+    role: agent-skills-repo
+    matched_org: resend
+    matched_by: org-profile-domain:resend.com
+    detected_by: sweep-agent-skills.py
+    detected: '2026-10-20'
+  detected_by: sweep-agent-skills.py
+  first_seen: '2026-10-20'
+- partner_name: skills.sh
+  partner: null
+  partner_match: register
+  type: register
+  direction: partner-built
+  category: Agent Skills register
+  evidence: https://www.skills.sh/resend/design-skills
+  channel: standard-directory
+  relationship: compatible
+  shape: agent-skills
+  evidence_kind: register-listing
+  degree: listed
+  report_only: true
+  agent_skills_register:
+    repos:
+    - resend/design-skills
+    - resend/email-best-practices
+    - resend/react-email
+    - resend/resend-cli
+    - resend/resend-skills
+    repo_verified: true
+    signal_note: the provider's own-org repos the register lists; skill / install counts never read
+  contract_reference:
+    register: skills.sh (public sitemap / list)
+    spec_file: null
+    standard: Agent Skills (agentskills.io)
+    role: agent-skills-listing
+    matched_org: resend
+    matched_by: org-profile-domain:resend.com
+    sample_skills:
+    - agent-email-inbox
+    - email-best-practices
+    - react-email
+    - resend
+    - resend-cli
+    detected_by: sweep-agent-skills.py
+    detected: '2026-10-20'
+  detected_by: sweep-agent-skills.py
+  first_seen: '2026-10-20'
+- partner_name: SkillsMP (skillsmp.com)
+  partner: null
+  partner_match: register
+  type: register
+  direction: partner-built
+  category: Agent Skills register
+  evidence: https://skillsmp.com/creators/resend/resend-skills
+  channel: standard-directory
+  relationship: compatible
+  shape: agent-skills
+  evidence_kind: register-listing
+  degree: listed
+  report_only: true
+  agent_skills_register:
+    repos:
+    - resend
+    - resend/resend-skills
+    repo_verified: true
+    signal_note: the provider's own-org repos the register lists; skill / install counts never read
+  contract_reference:
+    register: SkillsMP (skillsmp.com) (public sitemap / list)
+    spec_file: null
+    standard: Agent Skills (agentskills.io)
+    role: agent-skills-listing
+    matched_org: resend
+    matched_by: org-profile-domain:resend.com
+    sample_skills:
+    - skills-agent-email-inbox
+    - skills-email-best-practices
+    - skills-react-email
+    - skills-resend
+    - skills-resend-cli
+    detected_by: sweep-agent-skills.py
+    detected: '2026-10-20'
+  detected_by: sweep-agent-skills.py
+  first_seen: '2026-10-20'
+- partner_name: officialskills.sh
+  partner: null
+  partner_match: register
+  type: register
+  direction: partner-built
+  category: Agent Skills register
+  evidence: https://officialskills.sh/resend/skills
+  channel: standard-directory
+  relationship: compatible
+  shape: agent-skills
+  evidence_kind: register-listing
+  degree: listed
+  report_only: true
+  agent_skills_register:
+    repos:
+    - resend/skills
+    repo_verified: false
+    signal_note: the provider's own-org repos the register lists; skill / install counts never read
+  contract_reference:
+    register: officialskills.sh (public sitemap / list)
+    spec_file: null
+    standard: Agent Skills (agentskills.io)
+    role: agent-skills-listing
+    matched_org: resend
+    matched_by: org-profile-domain:resend.com
+    sample_skills:
+    - agent-email-inbox
+    - email-best-practices
+    - react-email
+    - resend
+    - resend-cli
+    detected_by: sweep-agent-skills.py
+    detected: '2026-10-20'
+  detected_by: sweep-agent-skills.py
+  first_seen: '2026-10-20'
+- partner_name: VoltAgent awesome-agent-skills (community list)
+  partner: null
+  partner_match: register
+  type: register
+  direction: partner-built
+  category: Agent Skills register
+  evidence: https://github.com/VoltAgent/awesome-agent-skills
+  channel: standard-directory
+  relationship: compatible
+  shape: agent-skills
+  evidence_kind: register-listing
+  degree: listed
+  report_only: true
+  agent_skills_register:
+    repos:
+    - resend/resend-skills
+    repo_verified: true
+    signal_note: the provider's own-org repos the register lists; skill / install counts never read
+  contract_reference:
+    register: VoltAgent awesome-agent-skills (community list) (public sitemap / list)
+    spec_file: null
+    standard: Agent Skills (agentskills.io)
+    role: agent-skills-listing
+    matched_org: resend
+    matched_by: org-profile-domain:resend.com
+    sample_skills: []
+    detected_by: sweep-agent-skills.py
+    detected: '2026-10-20'
+  detected_by: sweep-agent-skills.py
+  first_seen: '2026-10-20'
 generated: '2026-10-12'
 method: searched
 checked:
@@ -110,5 +298,11 @@ checked:
 - https://zapier.com/api/v4/apps/
 - stripe/integrations/stripe-integration-edges.yml
 - wordpress/integrations/wordpress-integration-edges.yml
+- https://api.github.com
+- https://claude-plugins.dev/sitemap.xml
+- https://github.com/VoltAgent/awesome-agent-skills
+- https://officialskills.sh/sitemap.xml
+- https://skillsmp.com/sitemap.xml
+- https://www.skills.sh/sitemap.xml
 source:
 - stripe/integrations/stripe-integration-edges.yml
