@@ -1,4 +1,4 @@
-# Resend (resend)
+# Resend
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,86 +66,221 @@
 
 Resend is a developer-first email API platform that simplifies sending and managing transactional and marketing emails. It provides a clean REST API with bearer token authentication, supporting email sending, domain management, API key management, audience and contact management, and broadcast campaigns. Resend offers SDKs for Node.js, Python, Go, Ruby, PHP, Java, .NET, Rust, Elixir, and more, along with a React Email library and official MCP server.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/resend/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/resend/refs/heads/main/apis.yml)
+**Areas:** Email · Developer Tools · Transactional Email · Marketing Email
 
-## Scope
+## Resend on APIs.io
 
-- **Type:** Index
+Everything profiled for Resend is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/resend/](https://apis.io/providers/resend/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (6)
 
-- Email
-- Developer Tools
-- Transactional Email
-- Marketing Email
+- [Resend Audiences API](https://apis.io/apis/resend/resend-audiences-api/) — Create and manage Audiences through the Resend API.
+- [Resend Broadcasts API](https://apis.io/apis/resend/resend-broadcasts-api/) — The Broadcasts API from Resend — 2 operation(s) for broadcasts.
+- [Resend Domains API](https://apis.io/apis/resend/resend-domains-api/) — Create and manage domains through the Resend API.
+- [Resend Emails API](https://apis.io/apis/resend/resend-emails-api/) — Start sending emails through the Resend API.
+- [Resend Send API](https://apis.io/apis/resend/resend-send-api/) — The Send API from Resend — 1 operation(s) for send.
+- [Resend APIS API](https://apis.io/apis/resend/resend-apis-api/) — The Apis API from Resend — 2 operation(s) for apis.
 
-## Timestamps
+### Published properties
 
-- **Created:** 2024-11-07
-- **Modified:** 2026-05-29
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### AsyncAPI (1)
 
-### Resend API
+Event-driven and webhook contracts.
 
-The Resend REST API provides endpoints for sending emails, managing domains, managing API keys, managing audiences and contacts, and sending broadcast campaigns. Authentication uses Bearer tokens. Rate limit is 5 requests per second per team by default. Base URL is https://api.resend.com.
+- [Resend Webhooks](https://apis.io/asyncapis/resend/resend-webhooks-asyncapi/)
 
-- **Human URL:** [https://resend.com/](https://resend.com/)
-- **Base URL:** `https://api.resend.com`
+#### Event channels (1)
 
-#### Tags
+Individual events and webhooks the provider emits.
 
-- Email
-- Domains
-- API Keys
-- Audiences
-- Contacts
-- Broadcasts
-- Transactional Email
+- [/](https://apis.io/channels/resend/untitled/)
 
-#### Properties
+#### GraphQL (1)
 
-- [Documentation](https://resend.com/)
-- [OpenAPI](openapi/resend-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Webhooks](https://resend.com/docs/dashboard/webhooks/introduction)
-- [AsyncAPI](https://raw.githubusercontent.com/api-evangelist/resend/refs/heads/main/asyncapi/resend-webhooks-asyncapi.yml) — [AsyncAPI Specification](https://www.asyncapi.com/docs/reference/specification/latest)
-- [JSON Schema](https://raw.githubusercontent.com/api-evangelist/resend/refs/heads/main/json-schema/resend-email-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](https://raw.githubusercontent.com/api-evangelist/resend/refs/heads/main/json-schema/resend-audience-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](https://raw.githubusercontent.com/api-evangelist/resend/refs/heads/main/json-schema/resend-domain-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Structure](https://raw.githubusercontent.com/api-evangelist/resend/refs/heads/main/json-structure/resend-email-structure.json)
-- [J S O N L D Context](https://raw.githubusercontent.com/api-evangelist/resend/refs/heads/main/json-ld/resend-context.jsonld)
-- [Spectral Rules](https://raw.githubusercontent.com/api-evangelist/resend/refs/heads/main/rules/resend-rules.yml)
-- [Vocabulary](https://raw.githubusercontent.com/api-evangelist/resend/refs/heads/main/vocabulary/resend-vocabulary.yml)
+GraphQL schemas.
 
-## Common Properties
+- [Moved to /providers/resend/](https://apis.io/graphqls/resend/resend-graphql/)
 
-- [LinkedIn](https://www.linkedin.com/company/resend)
-- [GitHub Organization](https://github.com/resend)
+#### MCP servers (2)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [MCP Server](https://apis.io/servers/resend/mcp-server/)
+- [resend](https://apis.io/servers/resend/resend/)
+
+#### Agent skills (5)
+
+Agent skills built on the API.
+
+- [agent-email-inbox](https://apis.io/agent-skills/resend/agent-email-inbox/)
+- [email-best-practices](https://apis.io/agent-skills/resend/email-best-practices/)
+- [react-email](https://apis.io/agent-skills/resend/react-email/)
+- [resend](https://apis.io/agent-skills/resend/resend/)
+- [resend-cli](https://apis.io/agent-skills/resend/resend-cli/)
+
+#### JSON Schema (3)
+
+The data models the API reads and writes.
+
+- [Resend Audience](https://apis.io/schemas/resend/resend-audience/)
+- [Resend Domain](https://apis.io/schemas/resend/resend-domain/)
+- [Resend Email](https://apis.io/schemas/resend/resend-email/)
+
+#### JSON Structure (1)
+
+Data models expressed in JSON Structure.
+
+- [Resend Email Structure](https://apis.io/json-structure/resend/resend-email-structure/)
+
+#### JSON-LD (1)
+
+Linked-data contexts for the provider's vocabulary.
+
+- [Resend Context](https://apis.io/jsonld/resend/resend-context/)
+
+#### Vocabulary (1)
+
+The provider's domain terms, defined.
+
+- [Resend API Vocabulary](https://apis.io/vocabularies/resend/resend-vocabulary/)
+
+#### Examples (2)
+
+Example requests and responses.
+
+- [Resend Create Audience Example](https://apis.io/examples/resend/resend-create-audience-example/)
+- [Resend Send Email Example](https://apis.io/examples/resend/resend-send-email-example/)
+
+#### Collections (26)
+
+Postman and Open Collection request collections.
+
+- [Resend Apis API](https://apis.io/collections/resend/open-resend-apis-api/)
+- [Resend Audience API](https://apis.io/collections/resend/open-resend-audience-api/)
+- [Resend Audiences API](https://apis.io/collections/resend/open-resend-audiences-api/)
+- [Resend Batch API](https://apis.io/collections/resend/open-resend-batch-api/)
+- [Resend Broadcasts API](https://apis.io/collections/resend/open-resend-broadcasts-api/)
+- [Resend Cancel API](https://apis.io/collections/resend/open-resend-cancel-api/)
+- [Resend Contacts API](https://apis.io/collections/resend/open-resend-contacts-api/)
+- [Resend Domains API](https://apis.io/collections/resend/open-resend-domains-api/)
+- [Resend Email API](https://apis.io/collections/resend/open-resend-email-api/)
+- [Resend Emails API](https://apis.io/collections/resend/open-resend-emails-api/)
+- [Resend Keys API](https://apis.io/collections/resend/open-resend-keys-api/)
+- [Resend Send API](https://apis.io/collections/resend/open-resend-send-api/)
+- [Resend Verify API](https://apis.io/collections/resend/open-resend-verify-api/)
+- [Resend Apis API](https://apis.io/collections/resend/postman-resend-apis-api/)
+- [Resend Audience API](https://apis.io/collections/resend/postman-resend-audience-api/)
+- [Resend Audiences API](https://apis.io/collections/resend/postman-resend-audiences-api/)
+- [Resend Batch API](https://apis.io/collections/resend/postman-resend-batch-api/)
+- [Resend Broadcasts API](https://apis.io/collections/resend/postman-resend-broadcasts-api/)
+- [Resend Cancel API](https://apis.io/collections/resend/postman-resend-cancel-api/)
+- [Resend Contacts API](https://apis.io/collections/resend/postman-resend-contacts-api/)
+- [Resend Domains API](https://apis.io/collections/resend/postman-resend-domains-api/)
+- [Resend Email API](https://apis.io/collections/resend/postman-resend-email-api/)
+- [Resend Emails API](https://apis.io/collections/resend/postman-resend-emails-api/)
+- [Resend Keys API](https://apis.io/collections/resend/postman-resend-keys-api/)
+- [Resend Send API](https://apis.io/collections/resend/postman-resend-send-api/)
+- …and 1 more published on APIs.io
+
+#### Governance rules (3)
+
+Spectral rulesets for the provider's contracts.
+
+- [Resend — asyncapi rules](https://apis.io/rules/resend/resend-asyncapi-spectral-rules/)
+- [Resend — jsonschema rules](https://apis.io/rules/resend/resend-jsonschema-spectral-rules/)
+- [Resend API Rules](https://apis.io/rules/resend/resend-rules/)
+
+#### Security (3)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Resend Domain Security](https://apis.io/security/resend/resend-domain-security/)
+- [Resend Trust Center](https://apis.io/security/resend/resend-trust-center/)
+- [Resend Vulnerability Disclosure](https://apis.io/security/resend/resend-vulnerability-disclosure/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Resend Plans Pricing](https://apis.io/plans/resend/resend-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Resend Rate Limits](https://apis.io/rate-limits/resend/resend-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Resend Finops](https://apis.io/finops/resend/resend-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.resend.com/)
+- [Pricing](https://resend.com/pricing)
 - [Changelog](https://resend.com/changelog)
 - [Blog](https://resend.com/blog)
-- [Migrations](https://resend.com/migrate)
-- [Customers](https://resend.com/customers)
-- [About](https://resend.com/about)
 - [Security](https://resend.com/security)
-- [Integrations](https://resend.com/docs/integrations)
-- [Examples](https://resend.com/docs/examples)
-- [S D Ks](https://resend.com/docs/sdks)
-- [Pricing](https://resend.com/pricing)
-- [Login](https://resend.com/login)
-- [Sign Up](https://resend.com/signup)
-- [SDK](https://github.com/resend/resend-node)
-- [SDK](https://github.com/resend/resend-python)
-- [SDK](https://github.com/resend/resend-go)
-- [SDK](https://github.com/resend/resend-dotnet)
-- [C L I](https://github.com/resend/resend-cli)
-- [M C P Server](https://github.com/resend/resend-mcp)
-- [Library](https://github.com/resend/react-email)
-- [Status Page](https://resend-status.com/)
-- [Rate Limits](https://resend.com/docs/api-reference/introduction)
-- [Agent Skill](https://github.com/resend/resend-skills)
-- [L L Ms Txt](https://resend.com/llms.txt)
+- [GitHub](https://github.com/resend)
+- [Status](https://resend-status.com/)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 52.6** — developing · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 66.7 |
+| Contract quality | 66.7 |
+| Contract governance | 27.3 |
+| Operational transparency | 63.2 |
+| Developer ergonomics | 43.3 |
+| Access clarity | 39.5 |
+
+**Agent readiness 49.4** — agent-ready (gated down from agent-native)
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | — |
+| Reversibility Documented | documented (partial credit) |
+| MCP Server | verified |
+| Auth Clarity | served (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | documented (partial credit) |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | derived (partial credit) |
+| Agent Skills | unknown |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | served (partial credit) |
+| Protected Resource Metadata | verified |
+| Dynamic Client Registration | yes |
+| Agentic Commerce | — |
+| Pagination Ratio | — |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 27.5** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/resend/](https://apis.io/providers/resend/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Resend: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/resend/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
